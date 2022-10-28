@@ -66,7 +66,7 @@ const HomePage = () => {
     Userdata = await JSON.parse(localStorage.getItem("Userdata"));
     console.log(Userdata, "sadbhksabdhk");
     await fetch("http://localhost:3033/api/product/all_product")
-    //await fetch("http://144.91.110.221:3033/api/product/all_product")
+      //await fetch("http://144.91.110.221:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -78,7 +78,7 @@ const HomePage = () => {
   };
   const GetManufacturer = async () => {
     await fetch("http://localhost:3033/api/manufacture/all_manufacture")
-    //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
+      //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hello");
@@ -91,7 +91,7 @@ const HomePage = () => {
   };
   const GetCategory = async () => {
     await fetch("http://localhost:3033/api/category/all_category")
-   // await fetch("http://144.91.110.221:3033/api/category/all_category")
+      // await fetch("http://144.91.110.221:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hrre");
@@ -168,7 +168,7 @@ const HomePage = () => {
   };
   const UpdateCart = () => {
     const url = "http://localhost:3033/api/cart/update_cart_by_id";
-   // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
+    // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
     fetch(url, {
       method: "put",
       headers: {
@@ -213,7 +213,7 @@ const HomePage = () => {
   const AddtoCart = async () => {
     if (!Userdata == []) {
       await fetch("http://localhost:3033/api/cart/add_to_cart", {
-         //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
+        //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -249,7 +249,7 @@ const HomePage = () => {
     image
   ) => {
     await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
-     // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+      // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -265,7 +265,7 @@ const HomePage = () => {
           if (!Userdata == []) {
             await fetch(
               "http://localhost:3033/api/wishlist/add_to_wishlist",
-             // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+              // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
               {
                 method: "POST",
                 headers: {
@@ -298,7 +298,7 @@ const HomePage = () => {
             if (!Userdata == []) {
               await fetch(
                 "http://localhost:3033/api/wishlist/add_to_wishlist",
-               // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+                // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
                 {
                   method: "POST",
                   headers: {
@@ -358,24 +358,16 @@ const HomePage = () => {
       <Carouselcomp />
       <div id="body-pd">
         {/* trending section  */}
-        <section className="trending-section  mt-3">
-          <div className="container h-100">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex w-100 ">
-                  <h1 className="trendign-head">Trending</h1>
-                  <h2 className="pl-4 product-head">Products</h2>
-                </div>
+        <section className="trending-section">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                  <h1 className="trendign-head">Trending Products</h1>
               </div>
-              {/* <div className="col-5 pl-0">
-               <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
-                  <hr className="w-100 trending-product-hr"/>
-               </div>
-            </div> */}
             </div>
           </div>
         </section>
-        <section className="pt-4 pb-0 products-area">
+        <section className="products-area">
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
@@ -402,8 +394,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -425,11 +416,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -481,26 +472,6 @@ const HomePage = () => {
                                 )}
                                 <i className="bx bx-cart ml-1"></i>
                               </div>
-                              {/* <div className="price mt-1">
-                              <div>
-                                 <span className="new-price">
-                                 $
-                                 {isNaN(el.inrMrp - (el.inrMrp * el.inrDiscount) / 100)
-                                 ? 0
-                                 : el.inrMrp - (el.inrMrp * el.inrDiscount) / 100}
-                                 </span>
-                              </div>
-                           </div> */}
-                              {/* <div className="mt-2 mb-2">
-                              <button className="add-to-cart-button1 text-nowrap"  onClick={()=>{cartfunction(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image[0].path)}} data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}>Add to Cart</button>
-                           </div> */}
-                              {/* <div className="row">
-                              
-                              <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
-                              </div>
-                           </div> */}
                             </div>
                           </div>
                         </div>
@@ -512,78 +483,77 @@ const HomePage = () => {
               })}
             </div>
             {/* hover Button */}
-            <div class="wrapperbtn pt-0">
-              <Link to="/TrendingProducts" class="btn10">
+            {/* <div className="wrapperbtn pt-0">
+              <Link to="/TrendingProducts" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
-            </div>
+            </div> */}
             {/* Hover Button End */}
           </div>
         </section>
-        <section className="categories-section">
-          <div className="container h-100">
-            <div className="row ">
-              <div className="col-6">
-                <Link to={"/Allcategory/" + "610a8c607c5c2f5f8b1e579b"}>
-                  <div className="category-div">
-                    <img
-                      src={require("../../Images/Rectangle59.png")}
-                      class="back-img"
-                    />
-                    <figure>
-                      <img
-                        src={require("../../Images/Nutraceutical-image 1.png")}
-                        class="front-img"
-                      />
-                    </figure>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-6 alignment-col">
-                <div className="">
-                  <div className="">
-                    <hr className="w-70" />
-                    <h1 className="cat-heading">Cosmetic</h1>
-                    <hr className="w-70" />
-                    <button className="btn btn btn-primary nutracuetical-shop-now">
-                      Shop Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row mt-5">
-              <div className="col-6 alignment-col">
-                <button className="btn btn-primary cosmetic-shop-now">
-                  Shop Now
-                </button>
-                <div className="">
-                  <hr className="w-70" />
-                  <h1 className="cat-heading">Nutracuetical</h1>
-                  <hr className="w-70" />
-                </div>
-              </div>
 
-              <div className="col-6 cat-second-col">
-                <Link to={"/Allcategory/" + "610a8b4e7c5c2f5f8b1e578b"}>
-                  <div className="category-div">
-                    <img
-                      src={require("../../Images/Rectangle59.png")}
-                      class="back-img"
-                    />
-                    <figure className="second-row-fig">
-                      <img
-                        src={require("../../Images/Cosmetics image 1.png")}
-                        class="front-img"
-                      />
-                    </figure>
+        <section className="categories-section">
+          <div className="container">
+            <div className="row ">
+              <div className="col-md-6">
+                <div className="cat-left-side">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <h1 className="cat-heading">Cosmetic</h1>
+                      <p className="cat-para">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores harum corporis, rerum, animi explicabo sed consequatur aut voluptas inventore dolorem perferendis natus, velit eius.
+                      </p>
+                      <button className="btn btn cosmetic-shop-now">
+                        Shop Now
+                      </button>
+                    </div>
+                    <div className="col-md-6">
+                      <Link to={"/Allcategory/" + "610a8c607c5c2f5f8b1e579b"}>
+                        <div className="category-div">
+                          <figure>
+                            <img
+                              src={require("../../Images/Nutraceutical-image 1.png")}
+                              className="front-img img-fluid"
+                            />
+                          </figure>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
-                </Link>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="cat-right-side">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <h1 className="cat-heading">Nutracuetical</h1>
+                      <p className="cat-para">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam earum dicta, laudantium soluta assumenda ad veniam veritatis porro nostrum nesciunt a adipisci eligendi, corrupti dolorum!
+                      </p>
+                      <button className="btn btn nutracuetical-shop-now">
+                        Shop Now
+                      </button>
+                    </div>
+                    <div className="col-md-6">
+                      <Link to={"/Allcategory/" + "610a8b4e7c5c2f5f8b1e578b"}>
+                        <div className="category-div">
+                          <figure>
+                            <img
+                              src={require("../../Images/Cosmetics image 1.png")}
+                              className="front-img img-fluid"
+                            />
+                          </figure>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
         <section className="products-area ">
           <div className="container-fluid section-title pt-4 pb-4">
             <div className="row Products align-items-center">
@@ -618,8 +588,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -641,11 +610,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -713,8 +682,8 @@ const HomePage = () => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>
@@ -729,10 +698,10 @@ const HomePage = () => {
             </div>
             {/* hover Button */}
 
-            <div class="wrapperbtn pt-3 pb-4">
-              <Link to="/AllProducts" class="btn10">
+            <div className="wrapperbtn pt-3 pb-4">
+              <Link to="/AllProducts" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
             </div>
             {/* Hover Button End */}
@@ -780,8 +749,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -803,11 +771,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -875,8 +843,8 @@ const HomePage = () => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>
@@ -890,10 +858,10 @@ const HomePage = () => {
               })}
             </div>
             {/* hover Button */}
-            <div class="wrapperbtn pt-2">
-              <Link to="/Subcategory" class="btn10">
+            <div className="wrapperbtn pt-2">
+              <Link to="/Subcategory" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
             </div>
             {/* Hover Button End */}
@@ -917,23 +885,27 @@ const HomePage = () => {
             <div className="container">
               <div className=" section-title"></div>
               <div className="row align-items-center">
-                {Manufactureres && Manufactureres.length > 0 && Manufactureres.map((el, ind) => (
-                  <div className="col-lg-2 col-sm-4 col-md-2 col-6">
-                    <Link to={"/ProductByManufacturer/" + el.name}>
-                      <div className="single-brands-item">
-                        <a className="d-block" href="#">
-                          {" "}
-                          <img
-                            src={ el.image && el.image.length > 0 ? 
-                              //"http://144.91.110.221:3033/" + el.image[0].path : ""
-                              "http://localhost:3033/" + el.image[0].path : ""
-                            }
-                          />
-                        </a>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
+                {Manufactureres &&
+                  Manufactureres.length > 0 &&
+                  Manufactureres.map((el, ind) => (
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                      <Link to={"/ProductByManufacturer/" + el.name}>
+                        <div className="single-brands-item">
+                          <a className="d-block" href="#">
+                            {" "}
+                            <img
+                              src={
+                                el.image && el.image.length > 0
+                                  ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
+                                    "http://localhost:3033/" + el.image[0].path
+                                  : ""
+                              }
+                            />
+                          </a>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
