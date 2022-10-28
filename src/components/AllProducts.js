@@ -131,7 +131,7 @@ const AllProducts = (props) => {
   const CartById = async () => {
     if (!Userdata == []) {
       //await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
-        await fetch("http://localhost:3033/api/cart/cart_by_id", {
+      await fetch("http://localhost:3033/api/cart/cart_by_id", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -153,7 +153,7 @@ const AllProducts = (props) => {
   const AddtoCart = async () => {
     if (!Userdata == []) {
       //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
-        await fetch("http://localhost:3033/api/cart/add_to_cart", {
+      await fetch("http://localhost:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -195,7 +195,7 @@ const AllProducts = (props) => {
       });
   };
   const categoryDetails = async () => {
-   // await fetch("http://144.91.110.221:3033/api/category/category_by_id", {
+    // await fetch("http://144.91.110.221:3033/api/category/category_by_id", {
     await fetch("http://localhost:3033/api/category/category_by_id", {
       method: "POST",
       headers: {
@@ -229,7 +229,7 @@ const AllProducts = (props) => {
     image
   ) => {
     //await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
-      await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
+    await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",

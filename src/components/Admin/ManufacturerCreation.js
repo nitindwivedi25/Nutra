@@ -22,7 +22,8 @@ const ManufacturerCreation = () => {
     await formData.append("description", data.description);
     await formData.append("name", data.name);
     formData.append("image", data.image);
-    const url = "http://144.91.110.221:3033/api/manufacture/add_manufacture";
+    // const url = "http://144.91.110.221:3033/api/manufacture/add_manufacture";
+    const url = "http://localhost:3033/api/manufacture/add_manufacture";
     await fetch(url, {
       method: "POST",
       // headers: {
@@ -46,7 +47,8 @@ const ManufacturerCreation = () => {
   }, []);
   const DeleteManufacturer = async (_id) => {
     await fetch(
-      "http://144.91.110.221:3033/api/manufacture/delete_manufacturer_by_id",
+      "http://localhost:3033/api/manufacture/delete_manufacturer_by_id",
+      // "http://144.91.110.221:3033/api/manufacture/delete_manufacturer_by_id",
       {
         method: "Delete",
         headers: {
