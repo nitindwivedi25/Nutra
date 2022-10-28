@@ -1,31 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Footer from "./Footer";
-import StarsRating from 'stars-rating'
+import StarsRating from "stars-rating";
 import Header1 from "./Header1";
 import ReadMoreReact from "read-more-react";
-import "../views/landing/homepage.css"
+import "../views/landing/homepage.css";
 var Userdata;
 const Allcategory = (props) => {
   const [AllProduct, setAllProduct] = useState([]);
-  const[Categorydetails,setCategoryDetails]=useState({})
-  const[quantity,setQuantity]=useState(1)
+  const [Categorydetails, setCategoryDetails] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const [userCart, setUserCart] = useState([]);
   const [order, Setorder] = useState([]);
-  
+
   const history = useHistory();
   useEffect(() => {
-    Userdata =  JSON.parse(localStorage.getItem("Userdata"))
-    console.log(Userdata,"sadbhksabdhk")  
+    Userdata = JSON.parse(localStorage.getItem("Userdata"));
+    console.log(Userdata, "sadbhksabdhk");
     ProductByCategory();
     categoryDetails();
     CartById();
-    
-    
   }, []);
-  
+
   const cartfunction = async (
-  
     productid,
     name,
     quantity,
@@ -36,22 +33,21 @@ const Allcategory = (props) => {
     manufacturer,
     image
   ) => {
-    
-     if (quantity !== 0) {
+    if (quantity !== 0) {
       var merged = false;
       var newItemObj = {
         productid: productid,
         name: name,
         image: image,
         quantity: quantity,
-        mrp:parseInt(mrp),
-        singleprice:parseInt(mrp),
+        mrp: parseInt(mrp),
+        singleprice: parseInt(mrp),
         discountprice: discount,
         description: description,
-        category:category,
-        manufacturer:manufacturer
+        category: category,
+        manufacturer: manufacturer,
       };
-      if (userCart.order == null||userCart.order==[]) {
+      if (userCart.order == null || userCart.order == []) {
         for (var i = 0; i < order.length; i++) {
           if (order[i].productid == newItemObj.productid) {
             order[i].quantity += newItemObj.quantity;
@@ -64,14 +60,12 @@ const Allcategory = (props) => {
         if (!merged) {
           order.push(newItemObj);
           setQuantity(1);
-          await AddtoCart()
-          await CartById()
-    
+          await AddtoCart();
+          await CartById();
         }
-      } 
-      else {
+      } else {
         for (var i = 0; i < userCart.order.length; i++) {
-          if(userCart.order[i].productid == newItemObj.productid) {
+          if (userCart.order[i].productid == newItemObj.productid) {
             userCart.order[i].quantity += newItemObj.quantity;
             userCart.order[i].mrp += newItemObj.mrp;
             merged = true;
@@ -82,69 +76,43 @@ const Allcategory = (props) => {
         }
         if (!merged) {
           userCart.order.push(newItemObj);
-          }
-          setQuantity(1);
-          CartById();
-          UpdateCart()
-      
-       //   await AsyncStorage.setItem("order1", JSON.stringify(userCart.order));
-      //   newamount = 0;
-       }
+        }
+        setQuantity(1);
+        CartById();
+        UpdateCart();
+
+        //   await AsyncStorage.setItem("order1", JSON.stringify(userCart.order));
+        //   newamount = 0;
+      }
     }
   };
-  const UpdateCart=()=>{
+  const UpdateCart = () => {
     //const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id"
-    const url = "http://localhost:3033/api/cart/update_cart_by_id"
-    fetch(url,
-        {
-          method: "put",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-           _id: userCart._id,
-            userid: Userdata._id,
-            order:userCart.order
-          }),
-        })
-        .then(res => res.json())
-        .then((res) => {
-           console.log(res,"after update")
-           history.push('/Cart')
-          
-        })
-        .then(err => console.log(err))
-   }
-
-  const CartById = async () => {
-    if(!Userdata==[]){
-  
-    //await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
-      await fetch("http://localhost:3033/api/cart/cart_by_id", {
-      method: "POST",
+    const url = "http://localhost:3033/api/cart/update_cart_by_id";
+    fetch(url, {
+      method: "put",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userid:Userdata._id,
+        _id: userCart._id,
+        userid: Userdata._id,
+        order: userCart.order,
       }),
     })
       .then((res) => res.json())
-      .then(async (data) => {
-         setUserCart(data.data[0]);
+      .then((res) => {
+        console.log(res, "after update");
+        history.push("/Cart");
       })
-      .catch((err) => {
-        console.log(err, "error");
-      });
-    }
-   
+      .then((err) => console.log(err));
   };
- const AddtoCart = async () => {
-    if(!Userdata==[]){
-      //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
-        await fetch("http://localhost:3033/api/cart/add_to_cart", {
+
+  const CartById = async () => {
+    if (!Userdata == []) {
+      //await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
+      await fetch("http://localhost:3033/api/cart/cart_by_id", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -152,14 +120,36 @@ const Allcategory = (props) => {
         },
         body: JSON.stringify({
           userid: Userdata._id,
-          order:order
         }),
       })
         .then((res) => res.json())
         .then(async (data) => {
-        setUserCart(data.data);
-  history.push('/Cart')
-   })
+          setUserCart(data.data[0]);
+        })
+        .catch((err) => {
+          console.log(err, "error");
+        });
+    }
+  };
+  const AddtoCart = async () => {
+    if (!Userdata == []) {
+      //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
+      await fetch("http://localhost:3033/api/cart/add_to_cart", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userid: Userdata._id,
+          order: order,
+        }),
+      })
+        .then((res) => res.json())
+        .then(async (data) => {
+          setUserCart(data.data);
+          history.push("/Cart");
+        })
         .catch((err) => {
           console.log(err, "error");
         });
@@ -167,15 +157,13 @@ const Allcategory = (props) => {
     // else{
     //    history.push('/Register')
     // }
-    
   };
-
 
   const ProductByCategory = async () => {
     //await fetch("http://144.91.110.221:3033/api/product/all_product")
     await fetch("http://localhost:3033/api/product/all_product")
       .then((res) => res.json())
-      .then(async (data) => {        
+      .then(async (data) => {
         setAllProduct(data.data);
       })
       .catch((err) => {
@@ -184,7 +172,7 @@ const Allcategory = (props) => {
   };
   const categoryDetails = async () => {
     //await fetch("http://144.91.110.221:3033/api/category/category_by_id", {
-      await fetch("http://localhost:3033/api/category/category_by_id", {
+    await fetch("http://localhost:3033/api/category/category_by_id", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -196,16 +184,17 @@ const Allcategory = (props) => {
     })
       .then((res) => res.json())
       .then(async (data) => {
-        await  setCategoryDetails(data.data[0]);  
-        
-         console.log(Categorydetails,"rrrr")   
+        await setCategoryDetails(data.data[0]);
+
+        console.log(Categorydetails, "rrrr");
       })
       .catch((err) => {
         console.log(err, "error");
       });
   };
 
-  const AddtoWishlist=async(productid,
+  const AddtoWishlist = async (
+    productid,
     name,
     quantity,
     mrp,
@@ -213,80 +202,65 @@ const Allcategory = (props) => {
     description,
     category,
     manufacturer,
-    image)=>
-  {
- 
+    image
+  ) => {
     //await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
-      await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
-       method: "post",
-       headers: {
-         Accept: "application/json",
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify({
-          
-         userid:Userdata._id,
-       }),
-     })
-     .then((data)=>data.json())
-     .then(async(data)=>{
-        if(!JSON.stringify(data.data).includes(productid)){
-          if(!Userdata==[]){
-             //await fetch("http://144.91.110.221:3033/api/wishlist/add_to_wishlist", {
-              await fetch("http://localhost:3033/api/wishlist/add_to_wishlist", {
-             method: "POST",
-             headers: {
-               Accept: "application/json",
-               "Content-Type": "application/json",
-             },
-             body: JSON.stringify({
-               userid: Userdata._id,
-               image:image,
-               name: name,
-               productId:productid,
-               rating:'5',
-               category:category,
-               manufacturer:manufacturer,
-               description:description
-          
-             }),
-           })
-             .then((res) => res.json())
-             .then(async (data) => {
-               // setWishlist(data.data[0]);
-               //  await console.log(wishlist,"khlklklklk")  
-              
-             })
-             .catch((err) => {
-               console.log(err, "error");
-             });
+    await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userid: Userdata._id,
+      }),
+    })
+      .then((data) => data.json())
+      .then(async (data) => {
+        if (!JSON.stringify(data.data).includes(productid)) {
+          if (!Userdata == []) {
+            //await fetch("http://144.91.110.221:3033/api/wishlist/add_to_wishlist", {
+            await fetch("http://localhost:3033/api/wishlist/add_to_wishlist", {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userid: Userdata._id,
+                image: image,
+                name: name,
+                productId: productid,
+                rating: "5",
+                category: category,
+                manufacturer: manufacturer,
+                description: description,
+              }),
+            })
+              .then((res) => res.json())
+              .then(async (data) => {
+                // setWishlist(data.data[0]);
+                //  await console.log(wishlist,"khlklklklk")
+              })
+              .catch((err) => {
+                console.log(err, "error");
+              });
           }
-        }else{
-           
+        } else {
         }
-     })
-    
- }
- 
+      });
+  };
 
   return (
     <>
-{/* sidebar Modal */}
-{/* <!-- Modal --> */}
-
-
-
-
+      {/* sidebar Modal */}
+      {/* <!-- Modal --> */}
 
       <Header1 />
       {/* <i class="fa fa-filter collapse-btn" data-bs-toggle="modal" data-bs-target="#filterModal"></i> */}
-      
+
       {/* Side nav bar */}
-      
-     
-		
-	
-      
+
       {/* End Side navbar */}
       <div id="__next">
         <div class="search-overlay null">
@@ -320,11 +294,13 @@ const Allcategory = (props) => {
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-5 col-md-12">
-                <div class="main-banner-content">            
-                  <h1>{Categorydetails.name!==undefined?Categorydetails.name:null}</h1>
-                  <p>
-                    {Categorydetails.description}
-                  </p>
+                <div class="main-banner-content">
+                  <h1>
+                    {Categorydetails.name !== undefined
+                      ? Categorydetails.name
+                      : null}
+                  </h1>
+                  <p>{Categorydetails.description}</p>
                   <a class="default-btn" href="#">
                     <i class="flaticon-trolley"></i> Shop Now
                   </a>
@@ -332,47 +308,41 @@ const Allcategory = (props) => {
               </div>
               <div class="col-lg-7 col-md-12">
                 <div class="main-banner-image">
-                 {Categorydetails.image!==undefined?
-                  <img
-                    // src={"http://144.91.110.221:3033/"+Categorydetails.image[0].path}
-                    src={"http://localhost:3033/"+Categorydetails.image[0].path}
-                  />:null}
+                  {Categorydetails.image !== undefined ? (
+                    <img
+                      // src={"http://144.91.110.221:3033/"+Categorydetails.image[0].path}
+                      src={
+                        "http://localhost:3033/" + Categorydetails.image[0].path
+                      }
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-       
-       
-          <div class="container Category-div">
-          <div className="row align-items-center">
+      </div>
+
+      <div class="container Category-div">
+        <div className="row align-items-center">
           <div className="col-6">
             <div class="section-title">
               <h2>{Categorydetails.name}</h2>
             </div>
-            </div>
-            <div className="col-5"><hr/></div>
-            <div className="col-1"></div>
-            </div>
-            </div>
-           
+          </div>
+          <div className="col-5">
+            <hr />
+          </div>
+          <div className="col-1"></div>
+        </div>
+      </div>
 
-
-   
-
-
-
-
-	<div id="container-fluid p-4 products">
-	<div id="columns" class="columns_4 products-row row">
-  
-
-	{AllProduct.map((item, ind1) => {
-                if (item.category._id == props.match.params.name) {
-                  return (
-    
-     <div className="col-lg-3 col-md-12 col-sm-12 ">
+      <div id="container-fluid p-4 products">
+        <div id="columns" class="columns_4 products-row row">
+          {AllProduct.map((item, ind1) => {
+            if (item.category._id == props.match.params.name) {
+              return (
+                <div className="col-lg-3 col-md-12 col-sm-12 ">
                   {/* <Link to={"/SingleProduct/" + el._id}> */}
                   <div className="single-products-box border">
                     <div className="row  align-items-center product-div">
@@ -391,8 +361,7 @@ const Allcategory = (props) => {
                             <img
                               src={
                                 //"http://144.91.110.221:3033/" +
-                                "http://localhost:3033/" +
-                                item.image[0].path
+                                "http://localhost:3033/" + item.image[0].path
                               }
                               alt=""
                             />
@@ -432,9 +401,16 @@ const Allcategory = (props) => {
                             <hr />
                           </div>
                           <div className="price-div justify-content-center align-items-center d-flex">
-                            <span className="new-price ml-3">$ {isNaN(item.inrMrp - (item.inrMrp * item.inrDiscount) / 100)
-                                 ? 0
-                                 : item.inrMrp - (item.inrMrp * item.inrDiscount) / 100}</span>
+                            <span className="new-price ml-3">
+                              ${" "}
+                              {isNaN(
+                                item.inrMrp -
+                                  (item.inrMrp * item.inrDiscount) / 100
+                              )
+                                ? 0
+                                : item.inrMrp -
+                                  (item.inrMrp * item.inrDiscount) / 100}
+                            </span>
                             <del className="new-price ml-1">{item.inrMrp}</del>
                             {Userdata ? (
                               <i
@@ -496,25 +472,13 @@ const Allcategory = (props) => {
                   </div>
                   {/* </Link> */}
                 </div>
-  
-  );
-  }
-  })}
+              );
+            }
+          })}
+        </div>
+      </div>
 
- 
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-        {/* <div class="brands-area bg-f7f8fa pt-70 pb-40">
+      {/* <div class="brands-area bg-f7f8fa pt-70 pb-40">
             <div class="container">
                 <div class="section-title">
                     <h2>Selling Brands</h2>
@@ -548,9 +512,9 @@ const Allcategory = (props) => {
                 </div>
             </div>
         </div> */}
-       
+
       <Footer />
     </>
   );
-}
+};
 export default Allcategory;

@@ -78,8 +78,8 @@ const ProductByManufacturer = (props) => {
       });
   };
   const GetCategory = async () => {
-   // await fetch("http://144.91.110.221:3033/api/category/all_category")
-   await fetch("http://localhost:3033/api/category/all_category")
+    // await fetch("http://144.91.110.221:3033/api/category/all_category")
+    await fetch("http://localhost:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hrre");
@@ -363,9 +363,8 @@ const ProductByManufacturer = (props) => {
                             /> */}
                                 <img
                                   src={
-                                   // "http://144.91.110.221:3033/" +
-                                   "http://localhost:3033/" +
-                                    el.image[0].path
+                                    // "http://144.91.110.221:3033/" +
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   //  style={{position:"absolute"}}
