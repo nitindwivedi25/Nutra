@@ -8,7 +8,10 @@ import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
 import ReadMoreReact from "read-more-react";
+import Mobile from "../../Images/Mobile.png";
+
 import $ from "jquery";
+
 var Userdata = "";
 let tranding = 0;
 let skincare = 0;
@@ -43,22 +46,22 @@ const HomePage = () => {
     GetManufacturer();
     tranding = 0;
     skincare = 0;
-    $(document).ready(function() {
+    $(document).ready(function () {
       //    $('.icon-wishlist').on('click', function(){
       //       $(this).toggleClass('in-wishlist');
 
       // })
 
-      $(".frontimage").mouseover(function() {
+      $(".frontimage").mouseover(function () {
         alert("in");
       });
-      $(".frontimage").mouseleave(function() {
+      $(".frontimage").mouseleave(function () {
         alert("in");
       });
     });
   }, []);
   const WishlistHeart = () => {
-    $(".icon-wishlist").on("click", function() {
+    $(".icon-wishlist").on("click", function () {
       $(this).toggleClass("in-wishlist");
     });
   };
@@ -66,7 +69,7 @@ const HomePage = () => {
     Userdata = await JSON.parse(localStorage.getItem("Userdata"));
     console.log(Userdata, "sadbhksabdhk");
     await fetch("http://localhost:3033/api/product/all_product")
-    //await fetch("http://144.91.110.221:3033/api/product/all_product")
+      //await fetch("http://144.91.110.221:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -78,7 +81,7 @@ const HomePage = () => {
   };
   const GetManufacturer = async () => {
     await fetch("http://localhost:3033/api/manufacture/all_manufacture")
-    //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
+      //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hello");
@@ -91,7 +94,7 @@ const HomePage = () => {
   };
   const GetCategory = async () => {
     await fetch("http://localhost:3033/api/category/all_category")
-   // await fetch("http://144.91.110.221:3033/api/category/all_category")
+      // await fetch("http://144.91.110.221:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hrre");
@@ -168,7 +171,7 @@ const HomePage = () => {
   };
   const UpdateCart = () => {
     const url = "http://localhost:3033/api/cart/update_cart_by_id";
-   // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
+    // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
     fetch(url, {
       method: "put",
       headers: {
@@ -213,7 +216,7 @@ const HomePage = () => {
   const AddtoCart = async () => {
     if (!Userdata == []) {
       await fetch("http://localhost:3033/api/cart/add_to_cart", {
-         //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
+        //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -249,7 +252,7 @@ const HomePage = () => {
     image
   ) => {
     await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
-     // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+      // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -265,7 +268,7 @@ const HomePage = () => {
           if (!Userdata == []) {
             await fetch(
               "http://localhost:3033/api/wishlist/add_to_wishlist",
-             // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+              // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
               {
                 method: "POST",
                 headers: {
@@ -298,7 +301,7 @@ const HomePage = () => {
             if (!Userdata == []) {
               await fetch(
                 "http://localhost:3033/api/wishlist/add_to_wishlist",
-               // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+                // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
                 {
                   method: "POST",
                   headers: {
@@ -924,7 +927,7 @@ const HomePage = () => {
                         <a className="d-block" href="#">
                           {" "}
                           <img
-                            src={ el.image && el.image.length > 0 ? 
+                            src={el.image && el.image.length > 0 ?
                               //"http://144.91.110.221:3033/" + el.image[0].path : ""
                               "http://localhost:3033/" + el.image[0].path : ""
                             }
@@ -938,6 +941,61 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+
+        <section className="client-review">
+        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
+  <div className="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="..." className="d-block w-100" alt="..." />
+    </div>
+    <div className="carousel-item">
+      <img src="..." className="d-block w-100" alt="..." />
+    </div>
+    <div className="carousel-item">
+      <img src="..." className="d-block w-100" alt="..." />
+    </div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+        </section>
+
+        <section className="mobile-app">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="mobile-main">
+                  <div><h3 className="heading">Download the medicine mobile app</h3>
+                    <div><p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p></div></div>
+                  <div className="btn-div">
+                    <button type="button" class="btn btn-primary" id="btn-1">Primary</button>
+                    <button type="button" class="btn btn-primary ms-3" id="btn-2">Primary</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div className="img-div">
+                <div class="contact-image text-center"><img id="img"  src={Mobile} alt="image" /></div>
+                </div>
+            </div>
+            </div>
+
+
+           
+
+          </div>
+        </section>
       </div>
       <Baseline />
       <Footer />
