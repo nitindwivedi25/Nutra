@@ -76,7 +76,8 @@ const SearchResult = (props) => {
   };
 
   const GetData = async () => {
-    await fetch("http://144.91.110.221:3033/api/product/all_product")
+    //await fetch("http://144.91.110.221:3033/api/product/all_product")
+    await fetch("http://localhost:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -640,7 +641,7 @@ const SearchResult = (props) => {
                   (minprice != "" &&
                     maxprice != "" &&
                     parseInt(el.inrMrp) >= minprice &&
-                      parseInt(el.inrMrp) <= maxprice)
+                    parseInt(el.inrMrp) <= maxprice)
                 ) {
                   count = count + 1;
                   return (
@@ -660,9 +661,8 @@ const SearchResult = (props) => {
                                 />
                                 <img
                                   src={
-                                   // "http://144.91.110.221:3033/" +
-                                   "http://localhost:3033/" +
-                                    el.image[0].path
+                                    // "http://144.91.110.221:3033/" +
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
