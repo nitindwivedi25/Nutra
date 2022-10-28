@@ -7,6 +7,7 @@ import Carouselcomp from "../../components/Carouselcomp";
 import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
+import Delivery from "../../Images/delivery.jpg"
 import ReadMoreReact from "read-more-react";
 import $ from "jquery";
 var Userdata = "";
@@ -26,6 +27,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [Manufactureres, setManufactureres] = useState([]);
   const [AllProduct, setAllProduct] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [ProductCategory, setProductCategory] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -43,22 +45,22 @@ const HomePage = () => {
     GetManufacturer();
     tranding = 0;
     skincare = 0;
-    $(document).ready(function() {
+    $(document).ready(function () {
       //    $('.icon-wishlist').on('click', function(){
       //       $(this).toggleClass('in-wishlist');
 
       // })
 
-      $(".frontimage").mouseover(function() {
+      $(".frontimage").mouseover(function () {
         alert("in");
       });
-      $(".frontimage").mouseleave(function() {
+      $(".frontimage").mouseleave(function () {
         alert("in");
       });
     });
   }, []);
   const WishlistHeart = () => {
-    $(".icon-wishlist").on("click", function() {
+    $(".icon-wishlist").on("click", function () {
       $(this).toggleClass("in-wishlist");
     });
   };
@@ -66,7 +68,7 @@ const HomePage = () => {
     Userdata = await JSON.parse(localStorage.getItem("Userdata"));
     console.log(Userdata, "sadbhksabdhk");
     await fetch("http://localhost:3033/api/product/all_product")
-    //await fetch("http://144.91.110.221:3033/api/product/all_product")
+      //await fetch("http://144.91.110.221:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -78,7 +80,7 @@ const HomePage = () => {
   };
   const GetManufacturer = async () => {
     await fetch("http://localhost:3033/api/manufacture/all_manufacture")
-    //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
+      //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hello");
@@ -91,7 +93,7 @@ const HomePage = () => {
   };
   const GetCategory = async () => {
     await fetch("http://localhost:3033/api/category/all_category")
-   // await fetch("http://144.91.110.221:3033/api/category/all_category")
+      // await fetch("http://144.91.110.221:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hrre");
@@ -168,7 +170,7 @@ const HomePage = () => {
   };
   const UpdateCart = () => {
     const url = "http://localhost:3033/api/cart/update_cart_by_id";
-   // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
+    // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
     fetch(url, {
       method: "put",
       headers: {
@@ -213,7 +215,7 @@ const HomePage = () => {
   const AddtoCart = async () => {
     if (!Userdata == []) {
       await fetch("http://localhost:3033/api/cart/add_to_cart", {
-         //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
+        //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -249,7 +251,7 @@ const HomePage = () => {
     image
   ) => {
     await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
-     // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+      // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -265,7 +267,7 @@ const HomePage = () => {
           if (!Userdata == []) {
             await fetch(
               "http://localhost:3033/api/wishlist/add_to_wishlist",
-             // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+              // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
               {
                 method: "POST",
                 headers: {
@@ -298,7 +300,7 @@ const HomePage = () => {
             if (!Userdata == []) {
               await fetch(
                 "http://localhost:3033/api/wishlist/add_to_wishlist",
-               // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+                // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
                 {
                   method: "POST",
                   headers: {
@@ -352,13 +354,67 @@ const HomePage = () => {
       items: 1,
     },
   };
+
+  const searchData = (e) => {
+    // if (props.func) props.func(e);
+   };
+
   return (
     <>
       <Header1 />
-      <Carouselcomp />
+      {/* <Carouselcomp /> */}
       <div id="body-pd">
         {/* trending section  */}
-        <section className="trending-section  mt-3">
+        <section className="home-banner">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="home-banner-left">
+                  <p className="home-banner-heading">
+                    Reliable on time home delivery
+                  </p>
+                  <p className="home-banner-content">
+                    We are excited to be part of the WordPress community and looking to make contribution by releasing
+                    free WordPress themes for everyone to use. Other themes can be found here.
+                  </p>
+
+                  <div className="login-div2 clearfix mb-5">
+                    <input
+                      type="text"
+                      onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                      onKeyPress={(e) => {
+                        if (e.key == "Enter") {
+                          searchData(search);
+                        }
+                      }}
+                    />
+                    <Link to={"/SearchResult/" + search}>
+                      <button
+                        className="search mr-1"
+                        onClick={() => searchData(search)}
+                      >
+                        <i class="bx bx-search-alt"></i>
+                      </button>
+                    </Link>
+                  </div>
+
+                  <div className="home-banner-buttons pt-4">
+                      <button className="btn common-gradient-btn">Read More</button>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="home-banner-right">
+                  <img src={Delivery} className="img-fluid"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="trending-section mt-3">
           <div className="container h-100">
             <div className="row h-100">
               <div className="col-12 p-0">
@@ -375,7 +431,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="pt-4 pb-0 products-area">
+        <section className="pt-4 pb-0 products-area ">
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
@@ -924,7 +980,7 @@ const HomePage = () => {
                         <a className="d-block" href="#">
                           {" "}
                           <img
-                            src={ el.image && el.image.length > 0 ? 
+                            src={el.image && el.image.length > 0 ?
                               //"http://144.91.110.221:3033/" + el.image[0].path : ""
                               "http://localhost:3033/" + el.image[0].path : ""
                             }

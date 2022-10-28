@@ -294,6 +294,8 @@ const Productform = () => {
       });
   };
 
+  console.log("inside ")
+
   return (
     <>
       <div className="container-fluid">

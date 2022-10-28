@@ -9,7 +9,9 @@ const Footer = ()=>{
                <div class="row">
                   <div class="col-lg-3 col-sm-6 col-md-6">
                      <div class="single-footer-widget">
-                        <a class="logo d-inline-block" href="#"><img src={require('../Images/logo1.png')} alt="image" /></a>
+                        <a class="logo d-inline-block" href="#">
+                           <img src={require('../Images/logo1.png')} alt="image" />
+                        </a>
                         <ul class="footer-contact-info">
                            <li><span>Hotline:</span> <a href="tel:16768">16768</a></li>
                            <li><span>Phone:</span> <a href="tel:+91-135-2976990">+91-135-2976990/91</a></li>
