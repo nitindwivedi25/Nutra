@@ -18608,12 +18608,12 @@ background-size: cover;
 	}
 	.trendign-head{
 		font-size: 2.3rem;
-    /* font-weight: 300 !important; */
-    color: white;
+    
+    
     font-weight: bold;
     font-family: Poppins;
-    color: #212121;
-    /* display: block; */
+    color: #1e144f;
+    
     text-align: center;
 	}
 	.product-head{
@@ -19551,10 +19551,21 @@ ul
 
 
 /* End Media Query Responsive for Desktop */
+/* -----------------my common css--------------------- */
+.common-gradient-btn{
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+	
+    border: 0;
+    padding: 4px 20px;
+    color: #fff;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;}
 
-/* deepak css  */
+/*----- deepak css ------ */
 .mobile-app{
-	/* background-color: #dde2e6; */
+	
 	margin-bottom: 10px;
 }
 
@@ -19591,3 +19602,29 @@ margin: 40px 8px 15px 0px;
 	padding: 3px 22px;
 }
 
+/* --------------prashant css for home page additional section---------------- */
+.home-banner{
+	padding: 70px 0;
+}
+.home-banner .home-banner-left{
+	padding-left: 40px;
+}
+.home-banner .home-banner-left .home-banner-heading{
+	font-size: 60px;
+    line-height: 1;
+    color: #1e144f;
+    font-weight: 700;
+	margin-bottom:30px;
+}
+.home-banner .home-banner-content{
+	padding-right: 50px;
+	line-height: 1.5;
+}
+.home-banner  .home-banner-right {
+	text-align: center;
+}
+.home-banner  .home-banner-right img{
+	height: 400px;
+    position: relative;
+    bottom: 20px;
+}
