@@ -18608,12 +18608,12 @@ background-size: cover;
 	}
 	.trendign-head{
 		font-size: 2.3rem;
-    /* font-weight: 300 !important; */
-    color: white;
+    
+    
     font-weight: bold;
     font-family: Poppins;
-    color: #212121;
-    /* display: block; */
+    color: #1e144f;
+    
     text-align: center;
 	}
 	.product-head{

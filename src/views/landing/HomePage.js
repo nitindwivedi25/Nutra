@@ -421,10 +421,9 @@ const HomePage = () => {
           <div className="container h-100">
             <div className="row h-100">
               <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex w-100 ">
-                  <h1 className="trendign-head">Trending</h1>
-                  <h2 className="pl-4 product-head">Products</h2>
-                </div>
+                
+                  <h1 className="trendign-head">Trending Products</h1>
+                
               </div>
             </div>
           </div>
