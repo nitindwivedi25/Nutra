@@ -7,6 +7,7 @@ import Carouselcomp from "../../components/Carouselcomp";
 import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
+import Delivery from "../../Images/delivery.jpg"
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
 
@@ -29,6 +30,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [Manufactureres, setManufactureres] = useState([]);
   const [AllProduct, setAllProduct] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [ProductCategory, setProductCategory] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -355,30 +357,78 @@ const HomePage = () => {
       items: 1,
     },
   };
+
+  const searchData = (e) => {
+    // if (props.func) props.func(e);
+  };
+
   return (
     <>
       <Header1 />
-      <Carouselcomp />
+      {/* <Carouselcomp /> */}
       <div id="body-pd">
         {/* trending section  */}
-        <section className="trending-section  mt-3">
-          <div className="container h-100">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex w-100 ">
-                  <h1 className="trendign-head">Trending</h1>
-                  <h2 className="pl-4 product-head">Products</h2>
+        <section className="home-banner">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="home-banner-left">
+                  <p className="home-banner-heading">
+                    Reliable on time home delivery
+                  </p>
+                  <p className="home-banner-content">
+                    We are excited to be part of the WordPress community and looking to make contribution by releasing
+                    free WordPress themes for everyone to use. Other themes can be found here.
+                  </p>
+
+                  <div className="login-div2 clearfix mb-5">
+                    <input
+                      type="text"
+                      onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                      onKeyPress={(e) => {
+                        if (e.key == "Enter") {
+                          searchData(search);
+                        }
+                      }}
+                    />
+                    <Link to={"/SearchResult/" + search}>
+                      <button
+                        className="search mr-1"
+                        onClick={() => searchData(search)}
+                      >
+                        <i class="bx bx-search-alt"></i>
+                      </button>
+                    </Link>
+                  </div>
+
+                  <div className="home-banner-buttons pt-4">
+                    <button className="btn common-gradient-btn">Read More</button>
+                  </div>
+
+
+
                 </div>
               </div>
-              {/* <div className="col-5 pl-0">
-               <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
-                  <hr className="w-100 trending-product-hr"/>
-               </div>
-            </div> */}
+              <div className="col-md-6">
+                <div className="home-banner-right">
+                  <img src={Delivery} className="img-fluid"></img>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        <section className="pt-4 pb-0 products-area">
+        <section className="trending-section mt-3">
+          <div className="container h-100">
+            <div className="row h-100">
+              <div className="col-12 p-0">
+                
+                  <h1 className="trendign-head">Trending Products</h1>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="products-area">
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
@@ -405,8 +455,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -428,11 +477,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -484,26 +533,6 @@ const HomePage = () => {
                                 )}
                                 <i className="bx bx-cart ml-1"></i>
                               </div>
-                              {/* <div className="price mt-1">
-                              <div>
-                                 <span className="new-price">
-                                 $
-                                 {isNaN(el.inrMrp - (el.inrMrp * el.inrDiscount) / 100)
-                                 ? 0
-                                 : el.inrMrp - (el.inrMrp * el.inrDiscount) / 100}
-                                 </span>
-                              </div>
-                           </div> */}
-                              {/* <div className="mt-2 mb-2">
-                              <button className="add-to-cart-button1 text-nowrap"  onClick={()=>{cartfunction(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image[0].path)}} data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}>Add to Cart</button>
-                           </div> */}
-                              {/* <div className="row">
-                              
-                              <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
-                              </div>
-                           </div> */}
                             </div>
                           </div>
                         </div>
@@ -515,78 +544,77 @@ const HomePage = () => {
               })}
             </div>
             {/* hover Button */}
-            <div class="wrapperbtn pt-0">
-              <Link to="/TrendingProducts" class="btn10">
+            {/* <div className="wrapperbtn pt-0">
+              <Link to="/TrendingProducts" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
-            </div>
+            </div> */}
             {/* Hover Button End */}
           </div>
         </section>
-        <section className="categories-section">
-          <div className="container h-100">
-            <div className="row ">
-              <div className="col-6">
-                <Link to={"/Allcategory/" + "610a8c607c5c2f5f8b1e579b"}>
-                  <div className="category-div">
-                    <img
-                      src={require("../../Images/Rectangle59.png")}
-                      class="back-img"
-                    />
-                    <figure>
-                      <img
-                        src={require("../../Images/Nutraceutical-image 1.png")}
-                        class="front-img"
-                      />
-                    </figure>
-                  </div>
-                </Link>
-              </div>
-              <div className="col-6 alignment-col">
-                <div className="">
-                  <div className="">
-                    <hr className="w-70" />
-                    <h1 className="cat-heading">Cosmetic</h1>
-                    <hr className="w-70" />
-                    <button className="btn btn btn-primary nutracuetical-shop-now">
-                      Shop Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row mt-5">
-              <div className="col-6 alignment-col">
-                <button className="btn btn-primary cosmetic-shop-now">
-                  Shop Now
-                </button>
-                <div className="">
-                  <hr className="w-70" />
-                  <h1 className="cat-heading">Nutracuetical</h1>
-                  <hr className="w-70" />
-                </div>
-              </div>
 
-              <div className="col-6 cat-second-col">
-                <Link to={"/Allcategory/" + "610a8b4e7c5c2f5f8b1e578b"}>
-                  <div className="category-div">
-                    <img
-                      src={require("../../Images/Rectangle59.png")}
-                      class="back-img"
-                    />
-                    <figure className="second-row-fig">
-                      <img
-                        src={require("../../Images/Cosmetics image 1.png")}
-                        class="front-img"
-                      />
-                    </figure>
+        <section className="categories-section">
+          <div className="container">
+            <div className="row ">
+              <div className="col-md-6">
+                <div className="cat-left-side">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <h1 className="cat-heading">Cosmetic</h1>
+                      <p className="cat-para">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores harum corporis, rerum, animi explicabo sed consequatur aut voluptas inventore dolorem perferendis natus, velit eius.
+                      </p>
+                      <button className="btn btn cosmetic-shop-now">
+                        Shop Now
+                      </button>
+                    </div>
+                    <div className="col-md-6">
+                      <Link to={"/Allcategory/" + "610a8c607c5c2f5f8b1e579b"}>
+                        <div className="category-div">
+                          <figure>
+                            <img
+                              src={require("../../Images/Nutraceutical-image 1.png")}
+                              className="front-img img-fluid"
+                            />
+                          </figure>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
-                </Link>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="cat-right-side">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <h1 className="cat-heading">Nutracuetical</h1>
+                      <p className="cat-para">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam earum dicta, laudantium soluta assumenda ad veniam veritatis porro nostrum nesciunt a adipisci eligendi, corrupti dolorum!
+                      </p>
+                      <button className="btn btn nutracuetical-shop-now">
+                        Shop Now
+                      </button>
+                    </div>
+                    <div className="col-md-6">
+                      <Link to={"/Allcategory/" + "610a8b4e7c5c2f5f8b1e578b"}>
+                        <div className="category-div">
+                          <figure>
+                            <img
+                              src={require("../../Images/Cosmetics image 1.png")}
+                              className="front-img img-fluid"
+                            />
+                          </figure>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
         <section className="products-area ">
           <div className="container-fluid section-title pt-4 pb-4">
             <div className="row Products align-items-center">
@@ -621,8 +649,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -644,11 +671,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -716,8 +743,8 @@ const HomePage = () => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>
@@ -732,10 +759,10 @@ const HomePage = () => {
             </div>
             {/* hover Button */}
 
-            <div class="wrapperbtn pt-3 pb-4">
-              <Link to="/AllProducts" class="btn10">
+            <div className="wrapperbtn pt-3 pb-4">
+              <Link to="/AllProducts" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
             </div>
             {/* Hover Button End */}
@@ -783,8 +810,7 @@ const HomePage = () => {
                                 <img
                                   src={
                                     //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" +
-                                    el.image[0].path
+                                    "http://localhost:3033/" + el.image[0].path
                                   }
                                   alt=""
                                   style={{ position: "absolute" }}
@@ -806,11 +832,11 @@ const HomePage = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -878,8 +904,8 @@ const HomePage = () => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>
@@ -893,10 +919,10 @@ const HomePage = () => {
               })}
             </div>
             {/* hover Button */}
-            <div class="wrapperbtn pt-2">
-              <Link to="/Subcategory" class="btn10">
+            <div className="wrapperbtn pt-2">
+              <Link to="/Subcategory" className="btn10">
                 <span>Show More</span>
-                <div class="transition"></div>
+                <div className="transition"></div>
               </Link>
             </div>
             {/* Hover Button End */}
@@ -956,13 +982,13 @@ const HomePage = () => {
               </div>
               <div class="col-6">
                 <div className="img-div">
-                <div class="contact-image text-center"><img id="img"  src={Mobile} alt="image" /></div>
+                  <div class="contact-image text-center"><img id="img" src={Mobile} alt="image" /></div>
                 </div>
-            </div>
+              </div>
             </div>
 
 
-           
+
 
           </div>
         </section>

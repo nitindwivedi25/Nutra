@@ -24,7 +24,8 @@ const Dashboard = () => {
     // Subtotal1 =  localStorage.getItem("Subtotal")
   }, []);
   const GetProducts = async () => {
-    await fetch("http://144.91.110.221:3033/api/product/all_product")
+    //await fetch("http://144.91.110.221:3033/api/product/all_product")
+    await fetch("http://localhost:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -36,7 +37,8 @@ const Dashboard = () => {
   };
 
   const GetCategory = async () => {
-    await fetch("http://144.91.110.221:3033/api/category/all_category")
+    //await fetch("http://144.91.110.221:3033/api/category/all_category")
+    await fetch("http://localhost:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         setCategories(data.data.length);
@@ -48,7 +50,8 @@ const Dashboard = () => {
   };
 
   const GetUser = async () => {
-    await fetch("http://144.91.110.221:3033/api/auth/allusers")
+    //await fetch("http://144.91.110.221:3033/api/auth/allusers")
+    await fetch("http://localhost:3033/api/auth/allusers")
       .then((res) => res.json())
       .then(async (data) => {
         setUsers(data.data.length);
@@ -58,7 +61,8 @@ const Dashboard = () => {
       });
   };
   const GetOrders = async () => {
-    await fetch("http://144.91.110.221:3033/api/order/all_order")
+    //await fetch("http://144.91.110.221:3033/api/order/all_order")
+    await fetch("http://localhost:3033/api/order/all_order")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hello vineet");
@@ -92,7 +96,9 @@ const Dashboard = () => {
     <>
       <div className="container-fluid nav__logo">
         {" "}
-        <a href="#">
+        <a href="/"
+        style={{ cursor: "pointer" }}
+        >
           <img
             src={require("../../Images/logo2.png")}
             className="dashboard-logo"
@@ -115,7 +121,6 @@ const Dashboard = () => {
 
                       <div className="col-8">
                         <h6 className="cardheads">Manufacturer </h6>
-
                         <span className="count">{Manufacturer}</span>
                       </div>
                     </div>
@@ -132,7 +137,6 @@ const Dashboard = () => {
                     <div className="col-8">
                       <Link to="/Manufacturer">
                         <h6 className="cardheads">Users </h6>
-
                         <span className="count">{users}</span>
                       </Link>
                     </div>
@@ -140,6 +144,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="col-3">
+                <Link to="/Orders">
                 <div className="card cardsec">
                   <div className="row">
                     <div className="col-4">
@@ -151,6 +156,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
+                </Link>
               </div>
               <div className="col-3">
                 <Link to="/ProductForm">
@@ -183,6 +189,7 @@ const Dashboard = () => {
                 </Link>
               </div>
               <div className="col-3 pt-5">
+              <Link to="/SubCategoryCreation">
                 <div className="card cardsec">
                   <div className="row">
                     <div className="col-5">
@@ -194,6 +201,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
+                </Link>
               </div>
             </div>
           </div>
