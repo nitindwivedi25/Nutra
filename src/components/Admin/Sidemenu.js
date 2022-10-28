@@ -71,7 +71,7 @@ const Sidemenu = () => {
         className="dasboard-nav"
         style={{ position: "relative" }}
       >
-        <section className="headsec">
+        {/* <section className="headsec">
           <header className="header" id="header">
             <div className="container headertoggle">
               <div className="row">
@@ -83,6 +83,39 @@ const Sidemenu = () => {
                     ></i>
                   </div>
                 </div>
+                <div className="col-4">
+                            <div class="input-group search-in">
+                                <div class="form-outline">
+                                    <input type="search" id="form1" class="form-control Dashborad-search" placeholder="Search" />
+                                </div>
+                                <button type="button" class="btn btn-primary search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                <div className="col-6 avatar-icon">
+                            <div className="d-flex">
+                        <i class='bx bxs-user-circle' style={{fontSize:"18px"}}></i>
+                        <h6 style={{fontSize:"16px"}}>Howdy Admin</h6>
+                        </div>
+                        </div>
+              </div>
+            </div>
+          </header>
+        </section> */}
+        <div className="l-navbar" id="nav-bar">
+        <header className="header" id="header">
+        <div className="header__toggle">
+                    <i
+                      className="bx bx-menu header-toggle-button"
+                      id="header-toggle"
+                    ></i>
+                  </div>
+            <div className="container headertoggle">
+              <div className="row">
+                <div className="col-2">
+                 
+                </div>
                 {/* <div className="col-4">
                             <div class="input-group search-in">
                                 <div class="form-outline">
@@ -92,8 +125,8 @@ const Sidemenu = () => {
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
-                        </div> */}
-                {/* <div className="col-6 avatar-icon">
+                        </div>
+                <div className="col-6 avatar-icon">
                             <div className="d-flex">
                         <i class='bx bxs-user-circle' style={{fontSize:"18px"}}></i>
                         <h6 style={{fontSize:"16px"}}>Howdy Admin</h6>
@@ -102,8 +135,6 @@ const Sidemenu = () => {
               </div>
             </div>
           </header>
-        </section>
-        <div className="l-navbar" id="nav-bar">
           <nav className="nav">
             <div>
               {/* <a href="#" className="nav__logo">

@@ -972,7 +972,7 @@ const HomePage = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="mobile-main">
-                  <div><h3 className="heading">Download the medicine mobile app</h3>
+                  <div><h3 className="trending-head text-start">Download the medicine mobile app</h3>
                     <div><p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p></div></div>
                   <div className="btn-div">
                     <button type="button" class="btn btn-primary" id="btn-1">Primary</button>
