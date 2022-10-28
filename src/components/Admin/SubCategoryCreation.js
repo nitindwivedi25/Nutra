@@ -182,7 +182,6 @@ const SubCategoryCreation = (props) => {
 
   return (
     <>
-    <h1>Hello</h1>
       <div className="container-fluid">
         {" "}
         <a href="#" className="nav__logo">
