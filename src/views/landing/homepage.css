@@ -18607,10 +18607,13 @@ background-size: cover;
 		padding: 2rem 0;		
 	}
 	.trendign-head{
-	font-size: 2.3rem;
+		font-size: 2.3rem;
+    /* font-weight: 300 !important; */
+    color: white;
     font-weight: bold;
     font-family: Poppins;
-    color: #1e144f;
+    color: #212121;
+    /* display: block; */
     text-align: center;
 	}
 	.product-head{
@@ -19549,4 +19552,42 @@ ul
 
 /* End Media Query Responsive for Desktop */
 
+/* deepak css  */
+.mobile-app{
+	/* background-color: #dde2e6; */
+	margin-bottom: 10px;
+}
+
+.heading{
+	font-size: 2.3rem;
+    /* font-weight: 300 !important; */
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    color: #212121;
+    /* display: block; */
+}
+.btn-div{
+margin: 40px 8px 15px 0px;
+}
+.img-div{
+	width: 80%;
+    margin-left: auto;
+	background: #FFFFFF;
+    box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+.img-div #img {
+    height: 300px;
+    width: 328px;
+    margin-top: 28px;
+}
+#para{
+	line-height: 22px;
+	margin-top:20px
+}
+
+.btn-div .btn{
+	border-radius: 20px;
+	padding: 3px 22px;
+}
 
