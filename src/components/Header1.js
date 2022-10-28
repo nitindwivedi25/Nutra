@@ -596,14 +596,11 @@ const Header1 = (props) => {
         </div>
         {/* End login register Modal  */}
         {/* Logo div */}
-        <div
-          className="row top-header-padding"
-          style={{ padding: "0px 140px" }}
-        >
+        <div className="row top-header-padding px-4" >
           <div className="col-sm-3">
             <Link class="navbar-brand" to="/">
               <img
-                src={require("../Images/logo2.png")}
+                src={require("../Images/new-logo.png")}
                 alt="logo"
                 className="logo2"
               />

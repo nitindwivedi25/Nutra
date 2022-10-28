@@ -7,6 +7,7 @@ import Carouselcomp from "../../components/Carouselcomp";
 import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
+import Delivery from "../../Images/delivery.jpg"
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
 
@@ -29,6 +30,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [Manufactureres, setManufactureres] = useState([]);
   const [AllProduct, setAllProduct] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [ProductCategory, setProductCategory] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -355,17 +357,74 @@ const HomePage = () => {
       items: 1,
     },
   };
+
+  const searchData = (e) => {
+    // if (props.func) props.func(e);
+  };
+
   return (
     <>
       <Header1 />
-      <Carouselcomp />
+      {/* <Carouselcomp /> */}
       <div id="body-pd">
         {/* trending section  */}
-        <section className="trending-section">
+        <section className="home-banner">
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
-                  <h1 className="trendign-head">Trending Products</h1>
+              <div className="col-md-6">
+                <div className="home-banner-left">
+                  <p className="home-banner-heading">
+                    Reliable on time home delivery
+                  </p>
+                  <p className="home-banner-content">
+                    We are excited to be part of the WordPress community and looking to make contribution by releasing
+                    free WordPress themes for everyone to use. Other themes can be found here.
+                  </p>
+
+                  <div className="login-div2 clearfix mb-5">
+                    <input
+                      type="text"
+                      onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                      onKeyPress={(e) => {
+                        if (e.key == "Enter") {
+                          searchData(search);
+                        }
+                      }}
+                    />
+                    <Link to={"/SearchResult/" + search}>
+                      <button
+                        className="search mr-1"
+                        onClick={() => searchData(search)}
+                      >
+                        <i class="bx bx-search-alt"></i>
+                      </button>
+                    </Link>
+                  </div>
+
+                  <div className="home-banner-buttons pt-4">
+                    <button className="btn common-gradient-btn">Read More</button>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="home-banner-right">
+                  <img src={Delivery} className="img-fluid"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="trending-section mt-3">
+          <div className="container h-100">
+            <div className="row h-100">
+              <div className="col-12 p-0">
+                <div className="align-items-center position-relative h-100 d-flex w-100 ">
+                  <h1 className="trendign-head">Trending</h1>
+                  <h2 className="pl-4 product-head">Products</h2>
+                </div>
               </div>
             </div>
           </div>
@@ -924,13 +983,13 @@ const HomePage = () => {
               </div>
               <div class="col-6">
                 <div className="img-div">
-                <div class="contact-image text-center"><img id="img"  src={Mobile} alt="image" /></div>
+                  <div class="contact-image text-center"><img id="img" src={Mobile} alt="image" /></div>
                 </div>
-            </div>
+              </div>
             </div>
 
 
-           
+
 
           </div>
         </section>
