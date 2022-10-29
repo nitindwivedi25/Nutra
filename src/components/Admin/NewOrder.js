@@ -172,11 +172,11 @@ const NewOrder=(props)=>{
         <div className="container">
         
         {/* login Products Details Modal  */}
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog justify-content-center d-grid">
-         <div class="modal-content order-details-div">
-            <div class="modal-body ">
-               <div class="row pt-4 ">
+   <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog justify-content-center d-grid">
+         <div className="modal-content order-details-div">
+            <div className="modal-body ">
+               <div className="row pt-4 ">
                   
                 {/* tabs */}
                 
@@ -186,7 +186,7 @@ const NewOrder=(props)=>{
                   {/* end tabs */}
 
 
-                  <div class="col-lg-12 logiRegisterContentDiv ">
+                  <div className="col-lg-12 logiRegisterContentDiv ">
                    <div className="text-center heading"> <h1>User Order's</h1> </div>
                    
                     <div>

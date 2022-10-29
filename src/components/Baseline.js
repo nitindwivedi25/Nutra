@@ -8,8 +8,8 @@ import {TbTruckReturn} from 'react-icons/tb';
 const Baseline=()=>{
     return(
         <>
-            <div class="facility-area bg-f7f8fa pt-70 pb-40">
-          <div class="container mt-5">
+            <div class="facility-area">
+          <div class="container m-auto">
             <div class="row">
               <div class="col-lg-3 col-sm-6 col-md-3 col-6 box ">
                 <div class="single-facility-box">

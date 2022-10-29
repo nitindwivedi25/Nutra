@@ -28,7 +28,7 @@ const AddressPage = (props)=>{
     }
     return(<>
     <Header1 />
-          <div class="first-nav container-fluid"><span><Link to="/">Home</Link>/My Account</span></div>
+          <div className="first-nav container-fluid"><span><Link to="/">Home</Link>/My Account</span></div>
     <div className="container-fluid Addresses-main">
         <div className="row address-row mt-4">
             <div className="col-sm-3 address-col">
@@ -52,38 +52,38 @@ const AddressPage = (props)=>{
                 
                 
                 
-                <div class="form-row">
-                            <div class="form-group col-lg-12">
+                <div className="form-row">
+                            <div className="form-group col-lg-12">
                               <label>Country<span>*</span></label>
-                              <select class="form-control options">
+                              <select className="form-control options">
                                 <option>India</option>
                                 <option>America</option>
                                 <option>South Africa</option>
                                 </select>                              
                             </div>
-                            <div class="form-group col-lg-12">
+                            <div className="form-group col-lg-12">
                               <label>Street address<span>*</span></label>
-                              <input class="form-control " placeholder="House number and street name" />
-                              <input class="form-control mt-2 " placeholder="Landmark" />
+                              <input className="form-control " placeholder="House number and street name" />
+                              <input className="form-control mt-2 " placeholder="Landmark" />
                             </div>
-                            <div class="form-group col-lg-12">
+                            <div className="form-group col-lg-12">
                               <label>Town/City<span>*</span></label>
-                              <input class="form-control " />
+                              <input className="form-control " />
                             </div>
-                            <div class="form-group col-lg-12">
+                            <div className="form-group col-lg-12">
                               <label>Postcode / Zip <span>*</span></label>
-                              <input class="form-control " />
+                              <input className="form-control " />
                             </div>
-                            <div class="form-group col-lg-12">
+                            <div className="form-group col-lg-12">
                               <label>Phone<span>*</span></label>
-                              <input class="form-control " />
+                              <input className="form-control " />
                             </div>
-                            <div class="form-group col-lg-12">
+                            <div className="form-group col-lg-12">
                               <label>Email address<span>*</span></label>
-                              <input class="form-control " />
+                              <input className="form-control " />
                             </div>
-                            <div class="form-group col-lg-12">
-                              <button class="btn btn-success btn-lg">Save Changes</button>
+                            <div className="form-group col-lg-12">
+                              <button className="btn btn-success btn-lg">Save Changes</button>
                             </div>
                         </div>
                     }

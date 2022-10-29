@@ -101,7 +101,7 @@ const Ordered=()=>{
 
 
 
-    <div class="first-nav container-fluid"><span><Link to="/">Home</Link>/Orders</span></div>
+    <div className="first-nav container-fluid"><span><Link to="/">Home</Link>/Orders</span></div>
 
 
 
@@ -111,12 +111,12 @@ const Ordered=()=>{
    
    
    <br/>
-            <div class="container">
+            <div className="container">
             
             {orderes.length > 0 ? 
-                  <div class="cart-table table-responsive nav1">
+                  <div className="cart-table table-responsive nav1">
                   <br/>
-                     <table class="table">
+                     <table className="table">
                         <thead>
                            <tr>
                               <th scope="col">Product</th>
@@ -140,19 +140,19 @@ const Ordered=()=>{
                                  console.log(item.name)
                                  return(
                                  <tr>
-                              <td class="product-thumbnail"><a href="#"><img src={"http://144.91.110.221:3033/"+item.image} alt="item" /></a></td>
-                              <td class="product-name"><span class="subtotal-amount">{item.name}</span></td>
-                              <td class="product-price"><span class="unit-amount">$
+                              <td className="product-thumbnail"><a href="#"><img src={"http://144.91.110.221:3033/"+item.image} alt="item" /></a></td>
+                              <td className="product-name"><span className="subtotal-amount">{item.name}</span></td>
+                              <td className="product-price"><span className="unit-amount">$
                       {isNaN(item.mrp - (item.mrp * item.discountprice) / 100)
                         ? 0
                         : item.mrp - (item.mrp * item.discountprice) / 100}</span></td>
-                              <td class="product-quantity">
+                              <td className="product-quantity">
                                 <span>{item.quantity}</span>
                               </td>
-                              <td class="product-subtotal"><span class="subtotal-amount">{(item.mrp - item.mrp * item.discountprice / 100) * item.quantity}</span></td>
-                              <td class="product-subtotal"><span class="subtotal-amount">22/08/2021</span></td>
-                              <td class="product-subtotal"><span class="subtotal-amount">{el.status}</span></td>
-                              <td class="product-subtotal" onClick={()=>UpdateOrderStatus(el._id,"Cancel")}>Cancel order</td>
+                              <td className="product-subtotal"><span className="subtotal-amount">{(item.mrp - item.mrp * item.discountprice / 100) * item.quantity}</span></td>
+                              <td className="product-subtotal"><span className="subtotal-amount">22/08/2021</span></td>
+                              <td className="product-subtotal"><span className="subtotal-amount">{el.status}</span></td>
+                              <td className="product-subtotal" onClick={()=>UpdateOrderStatus(el._id,"Cancel")}>Cancel order</td>
 
                                </tr>
                            )})

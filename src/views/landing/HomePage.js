@@ -369,7 +369,7 @@ const HomePage = () => {
       <div id="body-pd">
         {/* trending section  */}
         <section className="home-banner">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row">
               <div className="col-md-6">
                 <div className="home-banner-left">
@@ -397,7 +397,7 @@ const HomePage = () => {
                         className="search mr-1"
                         onClick={() => searchData(search)}
                       >
-                        <i class="bx bx-search-alt"></i>
+                        <i className="bx bx-search-alt"></i>
                       </button>
                     </Link>
                   </div>
@@ -417,19 +417,13 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="trending-section mt-3">
-          <div className="container h-100">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <h1 className="trendign-head">Trending Products</h1>
-              </div>
-            </div>
-          </div>
-        </section>
+
         <section className="products-area">
-          <div className="container">
+          <h1 className="trendign-head">Trending Products</h1>
+          <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
+                console.log("tranding products", el);
                 if (
                   (tranding < 8 && el.type == "Tranding Product") ||
                   el.type == "Trending Product"
@@ -495,14 +489,14 @@ const HomePage = () => {
                                       ) : (
                                         <>
                                           <i
-                                      className="bx bxs-heart ml-3 pc-heart"
-                                      data-bs-toggle="modal"
-                                      data-bs-target={
-                                        Userdata == null
-                                          ? "#exampleModal"
-                                          : null
-                                      }
-                                    ></i>
+                                            className="bx bxs-heart ml-3 pc-heart"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={
+                                              Userdata == null
+                                                ? "#exampleModal"
+                                                : null
+                                            }
+                                          ></i>
                                           <Link to="/Register">
                                             <i className="bx bxs-heart ml-3 mobile-heart"></i>
                                           </Link>
@@ -535,7 +529,7 @@ const HomePage = () => {
         </section>
 
         <section className="categories-section">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row ">
               <div className="col-md-6">
                 <div className="cat-left-side">
@@ -557,7 +551,8 @@ const HomePage = () => {
                         <div className="category-div">
                           <figure>
                             <img
-                              src={require("../../Images/Nutraceutical-image 1.png")}
+                              // src={require("../../Images/Nutraceutical-image 1.png")} cosmatic-healthcare.jpeg
+                              src={require("../../Images/cosmatic-healthcare.jpeg")}
                               className="front-img img-fluid"
                             />
                           </figure>
@@ -587,7 +582,8 @@ const HomePage = () => {
                         <div className="category-div">
                           <figure>
                             <img
-                              src={require("../../Images/Cosmetics image 1.png")}
+                              // src={require("../../Images/Cosmetics image 1.png")}
+                              src={require("../../Images/nutrat.jpeg")}
                               className="front-img img-fluid"
                             />
                           </figure>
@@ -602,21 +598,12 @@ const HomePage = () => {
         </section>
 
         <section className="products-area ">
-          <div className="container-fluid section-title pt-4 pb-4">
-            <div className="row Products align-items-center">
-              {/* <div className="col-1 pr-0"></div> */}
+          <h1 className="trendign-head">Products</h1>
 
-              <div className="col-12 pr-0 pl-0 ">
-                <h1 className="trendign-head ml-5">Products</h1>
-              </div>
-
-              <div className="col-1 pr-0"></div>
-            </div>
-          </div>
-          <div className="container-fluid">
+          <div className="container m-auto">
             <div className="row ">
               {data.map((el, ind) => {
-                if (ind > 8 && ind < 16) {
+                if (ind > 0) {
                   return (
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
@@ -754,13 +741,13 @@ const HomePage = () => {
             {/* Hover Button End */}
           </div>
         </section>
-        <section className="trending-section mb-4 ">
-          <div className="container h-100 ">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100 ">
-                  <h1 className="trendign-head">Skin</h1>
-                  <h2 className="pl-4 product-head mb-0">Care</h2>
+        <section className="trending-section">
+          <div className="container m-auto">
+            <div className="row">
+              <div className="col-12">
+                <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
+                  <h1 className="trendign-head">Skin Care</h1>
+                  {/* <h2 className="pl-4 product-head mb-0">Care</h2> */}
                 </div>
               </div>
 
@@ -768,15 +755,18 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="products-area pb-40">
-          <div className="container-fluid">
+        <section className="products-area">
+          <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
-                if (
-                  (skincare < 8 && el.name == "Obloss") ||
-                  el.name == "UDC II" ||
-                  el.subcategory == "6133469ff51d5a1242de049a"
-                ) {
+                console.log("skin careee outside", data);
+                // if (
+                //   (ind > 0  && el.name == "Obloss") ||
+                //   el.name == "UDC II" ||
+                //   el.subcategory == "6133469ff51d5a1242de049a"
+                // ) {
+                if (ind > 0 && el.category.name == "Skin Care") {
+                  console.log("skin careee inside", el);
                   skincare = skincare + 1;
                   return (
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
@@ -914,56 +904,42 @@ const HomePage = () => {
             {/* Hover Button End */}
           </div>
         </section>
-        <div className="container-fluid mb-5 trending-section align-items-center justify-content-center">
-          <div className="row h-100 ">
-            <div className="container p-0">
-              <div className=" p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100">
-                  <h1 className="trendign-head">Selling</h1>
-                  <h2 className="pl-4 product-head mb-0">Brands</h2>
-                </div>
-              </div>
-            </div>
-            <div className="col-2 pl-0"></div>
-          </div>
-        </div>
-        <div className="">
-          <div className="brands-area">
-            <div className="container">
-              <div className=" section-title"></div>
-              <div className="row align-items-center">
-                {Manufactureres &&
-                  Manufactureres.length > 0 &&
-                  Manufactureres.map((el, ind) => (
-                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
-                      <Link to={"/ProductByManufacturer/" + el.name}>
-                        <div className="single-brands-item">
-                          <a className="d-block" href="#">
-                            {" "}
-                            <img
-                              src={
-                                el.image && el.image.length > 0
-                                  ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
-                                    "http://localhost:3033/" + el.image[0].path
-                                  : ""
-                              }
-                            />
-                          </a>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-              </div>
+
+        <div className="brands-area">
+          <div className="container m-auto">
+            <div className="trendign-head">Selling Brands</div>
+            <div className="row align-items-center">
+              {Manufactureres &&
+                Manufactureres.length > 0 &&
+                Manufactureres.map((el, ind) => (
+                  <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <Link to={"/ProductByManufacturer/" + el.name}>
+                      <div className="single-brands-item">
+                        <a className="d-block" href="#">
+                          {" "}
+                          <img
+                            src={
+                              el.image && el.image.length > 0
+                                ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
+                                  "http://localhost:3033/" + el.image[0].path
+                                : ""
+                            }
+                          />
+                        </a>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
         <section className="mobile-app">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row">
               <div className="col-lg-6">
                 <div className="mobile-main">
                   <div>
-                    <h3 className="heading">
+                    <h3 className="trending-head text-start">
                       Download the medicine mobile app
                     </h3>
                     <div>
@@ -978,12 +954,16 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div className="btn-div">
-                    <button type="button" class="btn btn-primary" id="btn-1">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      id="btn-1"
+                    >
                       Primary
                     </button>
                     <button
                       type="button"
-                      class="btn btn-primary ms-3"
+                      className="btn btn-primary ms-3"
                       id="btn-2"
                     >
                       Primary

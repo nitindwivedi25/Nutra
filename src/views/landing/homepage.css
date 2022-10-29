@@ -9998,6 +9998,12 @@ p:last-child {
 	/* margin-top: 5rem; */
 	font-family: Poppins;
 }
+.section-title .Products
+{
+	background-color: #f6f7fb;
+	color:white;
+	/* height: 6rem; */
+}
 .section-title .Products .text-center .h2
 {
 	color:white;
@@ -11963,7 +11969,7 @@ textarea.form-control {
 
 .products-area
 {
-	background-color: #f2f2f2;
+	background-color: #f6f7fb;
 }
 .single-products-box .product-div .product-image-div
 {
@@ -15058,7 +15064,15 @@ letter-spacing: 0.50px;
 .single-brands-item {
 	margin-bottom: 30px;
 	text-align: center;
-	border-right: 1px solid #eee
+}
+.single-brands-item img
+{
+	height: 150px;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #DCEFFF;
 }
 
 .col-lg-2:nth-child(6) .single-brands-item,
@@ -15285,13 +15299,6 @@ letter-spacing: 0.50px;
 
 .blog-details-desc .article-content .features-list li:last-child {
 	margin-bottom: 0
-}
-footer{
-	background: url(../../Images/Footer-image.png),  linear-gradient(to right, #6DB3F2, #6DB3F2);
-	background-repeat: no-repeat;
-	width: 100%;
-background-size: cover;
-	background-position: bottom;
 }
 
 .blog-details-desc .article-footer {
@@ -17569,7 +17576,8 @@ background-size: cover;
 } */
 
 .footer-area {
-	padding-top: 70px
+	background-color: #f6f7fb;
+	padding-top: 60px;
 }
 
 .single-footer-widget {
@@ -17640,17 +17648,6 @@ background-size: cover;
 	position: relative;
 	padding-bottom: 5px;
 	
-	
-}
-
-.single-footer-widget h3:before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 80px;
-	height: 1px;
-	background-color: var(--mainColor);
 	
 }
 
@@ -17772,20 +17769,18 @@ background-size: cover;
 	margin-top: 12px;
 	padding-left: 25px;
 	padding-right: 25px;
-	background-color:#00D872;
+	background-color:#1b97ff;
 	border-radius:0;
 	font-family:Poppins;
 	font-weight:500;
 	font-size: 17px;
 }
 
-.footer-bottom-area {
-	background-color: #f7f8fa;
-	margin-top: 40px;
-	padding-top: 25px;
-	padding-bottom: 25px
+.footer-bottom-area
+{
+	border-top: 1px solid #f2f2f2;
+	padding: 10px 0;
 }
-
 .footer-bottom-area p {
 	line-height: normal
 }
@@ -17818,6 +17813,17 @@ background-size: cover;
 
 .footer-bottom-area .payment-types ul li:last-child {
 	margin-right: 0
+}
+.footer-bottom-area .payment-types ul li img
+{
+	height: 20px;
+	object-fit: cover;
+	width: 100%;
+}
+
+.brands-area
+{
+	background-color: #f6f7fb;
 }
 
 .go-top {
@@ -18583,17 +18589,15 @@ background-size: cover;
 }
 /* new home page css */
 	.trending-section{
-		background-color: #f2f2f2 !important;
-		padding: 2rem 0;		
+		background-color: #f6f7fb !important;
+		/* padding: 1rem 0;		 */
 	}
 	.trendign-head{
-		font-size: 2.3rem;
-    
-    
+	font-size: 2.3rem;
+	padding: 40px 0;
     font-weight: bold;
     font-family: Poppins;
     color: #1e144f;
-    
     text-align: center;
 	}
 	.product-head{
@@ -18663,7 +18667,7 @@ background-size: cover;
 
 	.categories-section
 	{
-		background-color: #f2f2f2;
+		background-color: #f6f7fb;
 		padding: 3rem 0;
 	}
 	.categories-section .front-img{
@@ -19544,18 +19548,10 @@ ul
 /*----- deepak css ------ */
 .mobile-app{
 	padding: 60px 0;
-	background-color: #f2f2f2;
+	background-color: #f6f7fb;
 }
 
-.heading{
-	font-size: 2.3rem;
-    /* font-weight: 300 !important; */
-    color: white;
-    font-weight: bold;
-    font-family: Poppins;
-    color: #212121;
-    /* display: block; */
-}
+
 .btn-div{
 margin: 40px 8px 15px 0px;
 }
@@ -19574,12 +19570,14 @@ margin: 40px 8px 15px 0px;
 }
 
 /* --------------prashant css for home page additional section---------------- */
-.home-banner{
+.home-banner
+{
 	padding: 70px 0;
+	background-color: #f6f7fb;
 }
-.home-banner .home-banner-left{
+/* .home-banner .home-banner-left{
 	padding-left: 40px;
-}
+} */
 .home-banner .home-banner-left .home-banner-heading{
 	font-size: 60px;
     line-height: 1;

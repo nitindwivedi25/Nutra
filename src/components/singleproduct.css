@@ -545,15 +545,11 @@ color: #2F2F2F;
 }
 .facility-area
 {
-	background-color: #f2f2f2;
-	color: white;
-	padding:1px;
+	background-color: #f6f7fb;
 }
 .facility-area .container .row .box 
 {
 	text-align: center;
-	
-	margin-bottom: 20px;
 }
 .facility-area .container .row .box h3
 {

@@ -71,7 +71,7 @@ const Sidemenu = () => {
         className="dasboard-nav"
         style={{ position: "relative" }}
       >
-        <section className="headsec">
+        {/* <section className="headsec">
           <header className="header" id="header">
             <div className="container headertoggle">
               <div className="row">
@@ -83,27 +83,58 @@ const Sidemenu = () => {
                     ></i>
                   </div>
                 </div>
-                {/* <div className="col-4">
-                            <div class="input-group search-in">
-                                <div class="form-outline">
-                                    <input type="search" id="form1" class="form-control Dashborad-search" placeholder="Search" />
+                <div className="col-4">
+                            <div className="input-group search-in">
+                                <div className="form-outline">
+                                    <input type="search" id="form1" className="form-control Dashborad-search" placeholder="Search" />
                                 </div>
-                                <button type="button" class="btn btn-primary search-button">
-                                    <i class="fas fa-search"></i>
+                                <button type="button" className="btn btn-primary search-button">
+                                    <i className="fas fa-search"></i>
                                 </button>
                             </div>
-                        </div> */}
-                {/* <div className="col-6 avatar-icon">
+                        </div>
+                <div className="col-6 avatar-icon">
                             <div className="d-flex">
-                        <i class='bx bxs-user-circle' style={{fontSize:"18px"}}></i>
+                        <i className='bx bxs-user-circle' style={{fontSize:"18px"}}></i>
+                        <h6 style={{fontSize:"16px"}}>Howdy Admin</h6>
+                        </div>
+                        </div>
+              </div>
+            </div>
+          </header>
+        </section> */}
+        <div className="l-navbar" id="nav-bar">
+        <header className="header" id="header">
+        <div className="header__toggle">
+                    <i
+                      className="bx bx-menu header-toggle-button"
+                      id="header-toggle"
+                    ></i>
+                  </div>
+            <div className="container headertoggle">
+              <div className="row">
+                <div className="col-2">
+                 
+                </div>
+                {/* <div className="col-4">
+                            <div className="input-group search-in">
+                                <div className="form-outline">
+                                    <input type="search" id="form1" className="form-control Dashborad-search" placeholder="Search" />
+                                </div>
+                                <button type="button" className="btn btn-primary search-button">
+                                    <i className="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                <div className="col-6 avatar-icon">
+                            <div className="d-flex">
+                        <i className='bx bxs-user-circle' style={{fontSize:"18px"}}></i>
                         <h6 style={{fontSize:"16px"}}>Howdy Admin</h6>
                         </div>
                         </div> */}
               </div>
             </div>
           </header>
-        </section>
-        <div className="l-navbar" id="nav-bar">
           <nav className="nav">
             <div>
               {/* <a href="#" className="nav__logo">
@@ -116,12 +147,12 @@ const Sidemenu = () => {
                   <span className="nav__name">Dashboard</span>
                 </Link>
                 <Link to="#" className="nav__link active">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingThree">
                       <div className="d-flex align-items-center justify-content-center div1">
                         <i className="bx bx-dish nav__icon"></i>
                         <button
-                          class="accordion-button collapsed"
+                          className="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#collapseTwo"
@@ -134,11 +165,11 @@ const Sidemenu = () => {
                     </h2>
                     <div
                       id="collapseTwo"
-                      class="accordion-collapse collapse"
+                      className="accordion-collapse collapse"
                       aria-labelledby="headingThree"
                       data-bs-parent="#accordionExample"
                     >
-                      <div class="accordion-body">
+                      <div className="accordion-body">
                         <ul className="Configration-List">
                           <Link to={"/NewOrder/" + "Pending"}>
                             <li>New Orders</li>
@@ -170,14 +201,14 @@ const Sidemenu = () => {
                   Userdata.role == "Manager" ? (
                     <Link to="#" className="nav__link">
                       <span className="nav__name">
-                        <div class="accordion" id="accordionExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
+                        <div className="accordion" id="accordionExample">
+                          <div className="accordion-item">
+                            <h2 className="accordion-header" id="headingThree">
                               <div className="d-flex align-items-center justify-content-center div1">
                                 <i className="bx bx-message-alt-check nav__icon"></i>
 
                                 <button
-                                  class="accordion-button collapsed"
+                                  className="accordion-button collapsed"
                                   type="button"
                                   data-bs-toggle="collapse"
                                   data-bs-target="#collapseThree"
@@ -193,11 +224,11 @@ const Sidemenu = () => {
                             </h2>
                             <div
                               id="collapseThree"
-                              class="accordion-collapse collapse"
+                              className="accordion-collapse collapse"
                               aria-labelledby="headingThree"
                               data-bs-parent="#accordionExample"
                             >
-                              <div class="accordion-body">
+                              <div className="accordion-body">
                                 {Userdata != undefined ? (
                                   Userdata.role == "superAdmin" ? (
                                     <ul className="Configration-List">

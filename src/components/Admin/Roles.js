@@ -183,7 +183,7 @@ const Roles = (props) => {
         <Sidemenu />
         {/* login Register Modal  */}
 
-        <div class="form-row de-flex items-align-center justify-content-center mt-5">
+        <div className="form-row de-flex items-align-center justify-content-center mt-5">
           <div className="container justify-content-center align-items-center d-flex">
             <div className="col-1"></div>
             <div
@@ -194,16 +194,16 @@ const Roles = (props) => {
                 borderRadius: "5px",
               }}
             >
-              <div class="form-group col-lg-6">
+              <div className="form-group col-lg-6">
                 {/* <h1>Sale</h1> */}
                 <img src={require("../../Images/woman-laptop.jpg")} />
               </div>
-              <div class="form-group col-6">
-                <div class="form-group col-lg-12 pt-3">
+              <div className="form-group col-6">
+                <div className="form-group col-lg-12 pt-3">
                   {/* <label>Username<span>*</span></label> */}
                   <input
                     type="text"
-                    class="form-control input-text "
+                    className="form-control input-text "
                     placeholder="Username*"
                     required
                     onChange={(e) => {
@@ -211,11 +211,11 @@ const Roles = (props) => {
                     }}
                   />
                 </div>
-                <div class="form-group col-lg-12">
+                <div className="form-group col-lg-12">
                   {/* <label>Email<span>*</span></label> */}
                   <input
                     type="email"
-                    class="form-control input-text"
+                    className="form-control input-text"
                     placeholder="Email*"
                     required
                     onChange={(e) => {
@@ -223,10 +223,10 @@ const Roles = (props) => {
                     }}
                   />
                 </div>
-                <div class="form-group col-lg-12">
+                <div className="form-group col-lg-12">
                   {/* <label>Password<span>*</span></label> */}
                   <input
-                    class="form-control input-text"
+                    className="form-control input-text"
                     placeholder="Password*"
                     required
                     onChange={(e) => {
@@ -234,16 +234,16 @@ const Roles = (props) => {
                     }}
                   />
                 </div>
-                <div class="form-group col-lg-12">
+                <div className="form-group col-lg-12">
                   {/* <label>Confirm Password<span>*</span></label> */}
                   <input
-                    class="form-control input-text"
+                    className="form-control input-text"
                     placeholder="Confirm Password*"
                     required
                   />
                 </div>
                 {Userdata != undefined && Userdata.role == "superAdmin" ? (
-                  <div class="form-group col-lg-12">
+                  <div className="form-group col-lg-12">
                     {/* <label>User Roles<span>*</span></label> */}
                     <select
                       className="form-control"
@@ -258,7 +258,7 @@ const Roles = (props) => {
                     </select>
                   </div>
                 ) : Userdata.role == "Manager" ? (
-                  <div class="form-group col-lg-12">
+                  <div className="form-group col-lg-12">
                     {/* <label>User Roles<span>*</span></label> */}
 
                     <select
@@ -273,7 +273,7 @@ const Roles = (props) => {
                     </select>
                   </div>
                 ) : null}
-                <div class="form-group col-lg-12">
+                <div className="form-group col-lg-12">
                   {/* <label>Vendor Organization<span>*</span></label> */}
                   <select
                     className="form-control"
@@ -287,9 +287,9 @@ const Roles = (props) => {
                     ))}
                   </select>
                 </div>
-                <div class="form-group col-lg-12">
+                <div className="form-group col-lg-12">
                   <button
-                    class="btn btn-registration btn-lg"
+                    className="btn btn-registration btn-lg"
                     onClick={(e) => {
                       RegisterUser(e);
                     }}

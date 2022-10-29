@@ -367,25 +367,25 @@ const SearchResult = (props) => {
       <Header1 func={Docsearch} />
 
       {/* <!-- Right side Modal --> */}
-      <div id="mySidenav" class="sidenav">
+      <div id="mySidenav" className="sidenav">
         <Link
           href="javascript:void(0)"
-          class="closebtn"
+          className="closebtn"
           onClick={() => closeNav()}
         >
           &times;
         </Link>
 
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
+        <div className="accordion accordion-flush" id="accordionFlushExample">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingTwo">
               <div className="d-flex align-items-center">
                 <img
-                  class="icons1"
+                  className="icons1"
                   src={require("../Images/Icons/categories-1.png")}
                 />
                 <button
-                  class="accordion-button collapsed button"
+                  className="accordion-button collapsed button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseTwo"
@@ -398,11 +398,11 @@ const SearchResult = (props) => {
             </h2>
             <div
               id="flush-collapseTwo"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
                 <ul>
                   {categories.map((el, ind) => (
                     <li className="mt-2">
@@ -420,15 +420,15 @@ const SearchResult = (props) => {
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingThree">
               <div className="d-flex align-items-center">
                 <img
-                  class="icons1"
+                  className="icons1"
                   src={require("../Images/Icons/category.ico")}
                 />
                 <button
-                  class="accordion-button collapsed button"
+                  className="accordion-button collapsed button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseThree"
@@ -441,11 +441,11 @@ const SearchResult = (props) => {
             </h2>
             <div
               id="flush-collapseThree"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
               aria-labelledby="flush-headingThree"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body list">
+              <div className="accordion-body list">
                 <ul>
                   {heading.map((el, ind) => (
                     <li className="mt-2">
@@ -462,15 +462,15 @@ const SearchResult = (props) => {
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingFour">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingFour">
               <div className="d-flex align-items-center">
                 <img
-                  class="icons1"
+                  className="icons1"
                   src={require("../Images/Icons/manufacturer.ico")}
                 />
                 <button
-                  class="accordion-button collapsed button"
+                  className="accordion-button collapsed button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseFour"
@@ -483,11 +483,11 @@ const SearchResult = (props) => {
             </h2>
             <div
               id="flush-collapseFour"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
                 <ul>
                   {Manufactureres.map((el, ind) => (
                     <li className="mt-2">
@@ -505,15 +505,15 @@ const SearchResult = (props) => {
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingFive">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="flush-headingFive">
               <div className="d-flex align-items-center">
                 <img
-                  class="icons1"
+                  className="icons1"
                   src={require("../Images/Icons/price.ico")}
                 />
                 <button
-                  class="accordion-button collapsed button"
+                  className="accordion-button collapsed button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseFive"
@@ -526,11 +526,11 @@ const SearchResult = (props) => {
             </h2>
             <div
               id="flush-collapseFive"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body price">
+              <div className="accordion-body price">
                 <div className="price-div row">
                   <div className="col-2"></div>
                   <div className="col-4">
@@ -684,11 +684,11 @@ const SearchResult = (props) => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -754,8 +754,8 @@ const SearchResult = (props) => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>

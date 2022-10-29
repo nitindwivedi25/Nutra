@@ -19,7 +19,10 @@
   --z-fixed: 100;
 }
 
-
+.container{
+  margin: 80px;
+  width:1180px;
+}
 /*===== BASE =====*/
 *,::before,::after{
   box-sizing: border-box;
@@ -78,8 +81,8 @@ a{
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
-    top: 65px;
-    left: 57px;
+    top: 10px;
+    left:20px;
 }
 .Dashborad-search{
   height: auto !important;
@@ -462,6 +465,11 @@ font-family: Foco;
 {
   color:#006837;
 }
+.header-toggle-button.bx-x{
+  
+    position: absolute;
+    right: 24px;
+}
 .nav div .nav__list .nav__link .nav__name
 {
   font-family: Poppins;
@@ -534,6 +542,7 @@ font-family: Foco;
 .nav__logo 
 {
   position: fixed;
+  top: 0px;
   z-index: 20;
 }
 

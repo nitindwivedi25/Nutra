@@ -105,18 +105,18 @@ const Cart = () => {
   return (
     <>
       <Header1 />
-      <div class="first-nav container-fluid">
+      <div className="first-nav container-fluid">
         <span>
           <Link to="/">Home</Link>/ Cart
         </span>
       </div>
-      <section class="cart-area ptb-70 pc-cart">
-        <div class="container">
+      <section className="cart-area ptb-70 pc-cart">
+        <div className="container">
           <form>
-            <div class="cart-buttons">
-              <div class="row align-items-center">
-                {/* <div class="col-lg-7 col-sm-7 col-md-7">
-                           <div class="shopping-coupon-code"><input type="text" class="form-control" placeholder="Coupon code" name="coupon-code" id="coupon-code" /><button type="submit">Apply Coupon</button></div>
+            <div className="cart-buttons">
+              <div className="row align-items-center">
+                {/* <div className="col-lg-7 col-sm-7 col-md-7">
+                           <div className="shopping-coupon-code"><input type="text" className="form-control" placeholder="Coupon code" name="coupon-code" id="coupon-code" /><button type="submit">Apply Coupon</button></div>
                         </div> */}
               </div>
             </div>
@@ -124,9 +124,9 @@ const Cart = () => {
               <div className="row">
                 <div className="col-sm-8">
                   {cart.length > 0 ? (
-                    <div class="cart-table ">
-                      <table class="table" cellsacing="10px" cellPadding="10px">
-                        <thead class="text-center">
+                    <div className="cart-table ">
+                      <table className="table" cellsacing="10px" cellPadding="10px">
+                        <thead className="text-center">
                           <tr>
                             <th scope="col"></th>
                             <th scope="col"></th>
@@ -149,7 +149,7 @@ const Cart = () => {
                             return (
                               //  <Link to={"/SingleProduct/" + el.productid} >
                               <tr key={ind1} className="cart-data">
-                                <td class="product-thumbnail">
+                                <td className="product-thumbnail">
                                   <Link to={"/SingleProduct/" + el.productid}>
                                     <img
                                       src={
@@ -160,9 +160,9 @@ const Cart = () => {
                                     />
                                   </Link>
                                 </td>
-                                <td class="product-name text-left">
+                                <td className="product-name text-left">
                                   <Link to={"/SingleProduct/" + el.productid}>
-                                    <div class="text-left">
+                                    <div className="text-left">
                                       <StarsRating
                                         count={5}
                                         // onChange={ratingChanged}
@@ -174,9 +174,9 @@ const Cart = () => {
                                     </div>
                                   </Link>
                                 </td>
-                                <td class="product-price">
-                                  <div class="amount">
-                                    <span class="unit-amount">
+                                <td className="product-price">
+                                  <div className="amount">
+                                    <span className="unit-amount">
                                       {
                                         el.mrp
                                         //   isNaN(
@@ -190,12 +190,12 @@ const Cart = () => {
                                     </span>
                                   </div>
                                 </td>
-                                <td class="product-quantity">
-                                  <div class="amount">
+                                <td className="product-quantity">
+                                  <div className="amount">
                                     {" "}
-                                    <div class="input-counter">
+                                    <div className="input-counter">
                                       <span
-                                        class="minus-btn"
+                                        className="minus-btn"
                                         onClick={() => {
                                           Minusquantity(
                                             el.quantity,
@@ -204,7 +204,7 @@ const Cart = () => {
                                           );
                                         }}
                                       >
-                                        <i class="bx bx-minus minus"></i>
+                                        <i className="bx bx-minus minus"></i>
                                       </span>
                                       <input
                                         type="text"
@@ -212,7 +212,7 @@ const Cart = () => {
                                         value={el.quantity}
                                       />
                                       <span
-                                        class="plus-btn"
+                                        className="plus-btn"
                                         onClick={() => {
                                           Plusquantity(
                                             el.quantity,
@@ -221,14 +221,14 @@ const Cart = () => {
                                           );
                                         }}
                                       >
-                                        <i class="bx bx-plus  minus"></i>
+                                        <i className="bx bx-plus  minus"></i>
                                       </span>
                                     </div>
                                   </div>
                                 </td>
-                                <td class="product-subtotal">
-                                  <div class="amount">
-                                    <span class="subtotal-amount mt-4">
+                                <td className="product-subtotal">
+                                  <div className="amount">
+                                    <span className="subtotal-amount mt-4">
                                       {(el.mrp - el.discountprice) *
                                         el.quantity}
                                     </span>
@@ -242,7 +242,7 @@ const Cart = () => {
                                       Sliceorder(ind1, e);
                                     }}
                                   >
-                                    <i class="bx bx-trash"></i>
+                                    <i className="bx bx-trash"></i>
                                   </button>
                                 </td>
                               </tr>
@@ -269,7 +269,7 @@ const Cart = () => {
                 </div>
 
                 <div className="col-sm-4  mb-5">
-                  <div class="cart-totals">
+                  <div className="cart-totals">
                     <h3>Cart Totals</h3>
                     <ul>
                       <li>
@@ -282,10 +282,10 @@ const Cart = () => {
                       </li>
                     </ul>
                     <Link
-                      class="default-btn1"
+                      className="default-btn1"
                       to={Userdata ? "/CheckOut" : "/register"}
                     >
-                      <i class="flaticon-trolley"></i> Proceed to Checkout
+                      <i className="flaticon-trolley"></i> Proceed to Checkout
                     </Link>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ const Cart = () => {
 
       {/* mobile responsive cart */}
 
-      <div class="small-container cart-page cart-table mt-3">
+      <div className="small-container cart-page cart-table mt-3">
         <table>
           <thead>
             <tr>
@@ -310,7 +310,7 @@ const Cart = () => {
             return (
               <tr className="pt-2">
                 <td>
-                  <div class="cart-info">
+                  <div className="cart-info">
                     <Link to={"/SingleProduct/" + el.productid}>
                       <img
                         //src={"http://144.91.110.221:3033/" + el.image}
@@ -347,16 +347,16 @@ const Cart = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <div class="amount">
+                  <div className="amount">
                     {" "}
-                    <div class="input-counter">
+                    <div className="input-counter">
                       <span
-                        class="minus-btn"
+                        className="minus-btn"
                         onClick={() => {
                           Minusquantity(el.quantity, el.mrp, ind1);
                         }}
                       >
-                        <i class="bx bx-minus minus mr-2"></i>
+                        <i className="bx bx-minus minus mr-2"></i>
                       </span>
                       <input
                         className="text-center"
@@ -365,12 +365,12 @@ const Cart = () => {
                         value={el.quantity}
                       />
                       <span
-                        class="plus-btn"
+                        className="plus-btn"
                         onClick={() => {
                           Plusquantity(el.quantity, el.mrp, ind1);
                         }}
                       >
-                        <i class="bx bx-plus  minus ml-2"></i>
+                        <i className="bx bx-plus  minus ml-2"></i>
                       </span>
                     </div>
                   </div>
@@ -381,7 +381,7 @@ const Cart = () => {
           })}
         </table>
 
-        <div class="total-price mt-5">
+        <div className="total-price mt-5">
           <table>
             <tr>
               <td className="footheading">Subtotal</td>
@@ -395,7 +395,7 @@ const Cart = () => {
             <tr className="text-center">
               <td colSpan="2">
                 <Link
-                  class="default-btn1"
+                  className="default-btn1"
                   to={Userdata ? "/CheckOut" : "/register"}
                 >
                   <button>Proccess to CheckOut</button>
