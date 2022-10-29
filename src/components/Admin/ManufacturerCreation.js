@@ -17,7 +17,6 @@ const ManufacturerCreation = () => {
   });
 
   const submitData = async (e) => {
-    e.preventDefault();
     const formData = new FormData();
     await formData.append("description", data.description);
     await formData.append("name", data.name);
@@ -36,9 +35,13 @@ const ManufacturerCreation = () => {
       .then((res) => {
         GetManufacturer();
         this.getAddOn();
+        
       })
+      
       .catch((err) => console.log(err));
     //console.log(formData)
+    e.preventDefault();
+    
   };
 
   useEffect(() => {
@@ -183,7 +186,7 @@ const ManufacturerCreation = () => {
         {Userdata != undefined ? (
           Userdata.role == "superAdmin" ? (
             <form>
-              <div className="container mb-5 mt-5">
+              <div className="container">
                 <div className="row">
                   <div className="col-1"></div>
                   <div className="col-10">
@@ -191,7 +194,7 @@ const ManufacturerCreation = () => {
                       <h5>Manufacturer Creation</h5>
 
                       <div className="row">
-                        <div className="col-6 p-1">
+                        <div className="col-6">
                           <input
                             type="file"
                             multiple
@@ -201,7 +204,7 @@ const ManufacturerCreation = () => {
                             }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6">
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -212,7 +215,7 @@ const ManufacturerCreation = () => {
                             }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 pt-2">
                           <textarea
                             className="form-control"
                             placeholder="Manufacturer Description"
@@ -226,7 +229,7 @@ const ManufacturerCreation = () => {
                           ></textarea>
                         </div>
                         {update == false ? (
-                          <div className="col-12 p-1">
+                          <div className="col-12 pt-4">
                             <button
                               className="btn btn-primary"
                               onClick={(e) => submitData(e)}

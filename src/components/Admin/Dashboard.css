@@ -442,15 +442,16 @@ font-family: Foco;
 }
 .product-form .row div button
 {
-  border-radius:0;
-  background-color: rgb(145, 7, 7);
-  border:0;
-  font-family:Poppins;
+  width:100px;
+  color: #fff;
+  background-color: #1b97ff;
+  border-color: #1b97ff;
+  border:0px;
 }
 .product-form .row div button:hover
 {
-  background-color:brown;
-  font-size:20px;
+  color: #000;
+  border: none;
 }
 /* .update-btn
 {

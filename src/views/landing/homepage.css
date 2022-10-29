@@ -533,6 +533,7 @@ kbd kbd {
 }
 
 .row {
+	margin-top: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	margin-right: -15px;

@@ -430,7 +430,7 @@ const HomePage = () => {
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
-                console.log("tranding products", el)
+                console.log("tranding productssssssssssss in pahgeeeeeeeeeeeeeeeeee", el)
                 if (
                   (tranding < 8 && el.type == "Tranding Product") ||
                   el.type == "Trending Product"
