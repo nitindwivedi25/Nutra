@@ -14,7 +14,7 @@ let changeNavValue = 0;
 var header;
 var sticky;
 var Userdata = "";
-// var userCart=[] 
+// var userCart=[]
 const Header1 = (props) => {
   // let history=useHistory();
   const history = useHistory();
@@ -26,8 +26,8 @@ const Header1 = (props) => {
   const [repassword, setRePassword] = useState("");
   let [userCart, setUserCart] = useState([]);
   const [order, Setorder] = useState([]);
-  const [msg,setMsg]=useState('')
-  const[regmsg,setRegMsg]=useState('')
+  const [msg, setMsg] = useState("");
+  const [regmsg, setRegMsg] = useState("");
   const [categories, setCategories] = useState([]);
   const [registerModal, setRegisterModal] = useState(false);
   useEffect(() => {
@@ -71,7 +71,7 @@ const Header1 = (props) => {
       password == repassword
     ) {
       //fetch("http://144.91.110.221:3033/api/auth/register", {
-        fetch("http://localhost:3033/api/auth/register", {
+      fetch("http://localhost:3033/api/auth/register", {
         method: "POST",
         headers: {
           accept: "application/json",
@@ -89,14 +89,14 @@ const Header1 = (props) => {
           window.location.reload();
         });
     } else {
-      setRegMsg("Please Enter Right Data")
+      setRegMsg("Please Enter Right Data");
     }
   };
   const LoginUser = (e) => {
     e.preventDefault();
     if (username != "" && password != "") {
       //fetch("http://144.91.110.221:3033/api/auth/login", {
-        fetch("http://localhost:3033/api/auth/login", {
+      fetch("http://localhost:3033/api/auth/login", {
         method: "POST",
         headers: {
           accept: "application/json",
@@ -108,14 +108,14 @@ const Header1 = (props) => {
         }),
       })
         .then((res) => res.json())
-        .then(async (res) => {         
+        .then(async (res) => {
           if (res.role === "user") {
-            Userdata = res;                     
+            Userdata = res;
             await localStorage.setItem("Userdata", JSON.stringify(res));
-            await CartById(); 
-                  
-             history.push("/");
-             window.location.reload();   
+            await CartById();
+
+            history.push("/");
+            window.location.reload();
           } else if (
             res.role == "superAdmin" ||
             res.role == "Vendor" ||
@@ -125,25 +125,19 @@ const Header1 = (props) => {
             await localStorage.setItem("Userdata1", JSON.stringify(res.role));
             history.push("/Dashboard");
             window.location.reload();
-           
+          } else if (Userdata == undefined) {
+            setMsg("User Name Or PassWord is not Valid");
           }
-          else if(Userdata==undefined)
-          {
-             setMsg("User Name Or PassWord is not Valid")
-          }
-           
         })
-        .then(async()=>{
-         if (JSON.parse(localStorage.getItem("CartDataWoLogin"))) {
+        .then(async () => {
+          if (JSON.parse(localStorage.getItem("CartDataWoLogin"))) {
             await JSON.parse(localStorage.getItem("CartDataWoLogin")).map(
-              async (item, index) => {                
+              async (item, index) => {
                 await cartfunction(item);
               }
             );
           }
-        })
-        ;
-        
+        });
     } else {
       console.log("not getting role");
       // setMsg('Please Enter a Valid Data');
@@ -179,9 +173,9 @@ const Header1 = (props) => {
       });
   };
   const searchData = (e) => {
-   if (props.func) props.func(e);
+    if (props.func) props.func(e);
   };
-  const cartfunction = async (newItemObj) => {   
+  const cartfunction = async (newItemObj) => {
     var merged = false;
     if (userCart) {
       if (userCart.order == null || userCart.order == []) {
@@ -194,27 +188,24 @@ const Header1 = (props) => {
           }
         }
         if (!merged) {
-          order.push(newItemObj);   
+          order.push(newItemObj);
           await AddtoCart();
-        await CartById();      
+          await CartById();
         }
-        
-      
-         
-      } else {       
+      } else {
         for (var i = 0; i < userCart.order.length; i++) {
           if (userCart.order[i].productid == newItemObj.productid) {
             userCart.order[i].quantity += newItemObj.quantity;
             userCart.order[i].mrp += newItemObj.mrp;
             merged = true;
-            console.log("true")
-            }             
-          if(!merged){
-            userCart.order.push(newItemObj);         
+            console.log("true");
           }
-        }             
-         //  await CartById();
-          await UpdateCart();
+          if (!merged) {
+            userCart.order.push(newItemObj);
+          }
+        }
+        //  await CartById();
+        await UpdateCart();
         //   await AsyncStorage.setItem("order1", JSON.stringify(userCart.order));
         //   newamount = 0;
       }
@@ -222,9 +213,9 @@ const Header1 = (props) => {
   };
 
   const CartById = async () => {
-   if (!Userdata == []) {
-     // await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
-        await fetch("http://localhost:3033/api/cart/cart_by_id", {
+    if (!Userdata == []) {
+      // await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
+      await fetch("http://localhost:3033/api/cart/cart_by_id", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -236,9 +227,9 @@ const Header1 = (props) => {
       })
         .then((res) => res.json())
         .then(async (data) => {
-         setUserCart(data.data[0]);          
+          setUserCart(data.data[0]);
         })
-        
+
         .catch((err) => {
           console.log(err, "error");
         });
@@ -248,7 +239,7 @@ const Header1 = (props) => {
     //  debugger
     if (!Userdata == []) {
       //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
-        await fetch("http://localhost:3033/api/cart/add_to_cart", {
+      await fetch("http://localhost:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -261,7 +252,7 @@ const Header1 = (props) => {
       })
         .then((res) => res.json())
         .then(async (data) => {
-         setUserCart(data.data)
+          setUserCart(data.data);
           history.push("/Cart");
         })
         .catch((err) => {
@@ -321,36 +312,38 @@ const Header1 = (props) => {
             </div>
             <div class="modal-body">
               <div class="accordion accordion-flush" id="accordionFlushExample">
-                {subcategories && subcategories.length > 0 && subcategories.map((el, ind) => (
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                      <Link to={"/Subcategories/" + el._id}>
-                        <div
-                          className="d-flex align-items-center"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <img
-                            class="icons1"
-                            src={
-                              //"http://144.91.110.221:3033/" + el.image[0].path
-                              "http://localhost:3033/" + el.image[0].path
-                            }
-                          />
-                          <button
-                            class="accordion-button collapsed button"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseOne"
+                {subcategories &&
+                  subcategories.length > 0 &&
+                  subcategories.map((el, ind) => (
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <Link to={"/Subcategories/" + el._id}>
+                          <div
+                            className="d-flex align-items-center"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
                           >
-                            {el.name}
-                          </button>
-                        </div>
-                      </Link>
-                    </h2>
-                    {/* <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <img
+                              class="icons1"
+                              src={
+                                //"http://144.91.110.221:3033/" + el.image[0].path
+                                "http://localhost:3033/" + el.image[0].path
+                              }
+                            />
+                            <button
+                              class="accordion-button collapsed button"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapseOne"
+                              aria-expanded="false"
+                              aria-controls="flush-collapseOne"
+                            >
+                              {el.name}
+                            </button>
+                          </div>
+                        </Link>
+                      </h2>
+                      {/* <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                      <div class="accordion-body">
                         <ul>
                            <li>1</li>
@@ -360,8 +353,8 @@ const Header1 = (props) => {
                         </ul>
                      </div>
                   </div> */}
-                  </div>
-                ))}
+                    </div>
+                  ))}
                 {/* <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingTwo">
                      <div className="d-flex align-items-center">
@@ -529,7 +522,7 @@ const Header1 = (props) => {
                           <input
                             type="password"
                             className="form-control "
-                            required                            
+                            required
                             onChange={(e) => {
                               setRePassword(e.target.value);
                             }}
@@ -603,11 +596,11 @@ const Header1 = (props) => {
         </div>
         {/* End login register Modal  */}
         {/* Logo div */}
-        <div className="row top-header-padding" style={{ padding: "0px 140px" }}>
+        <div className="row top-header-padding px-4" >
           <div className="col-sm-3">
             <Link class="navbar-brand" to="/">
               <img
-                src={require("../Images/logo2.png")}
+                src={require("../Images/new-logo.png")}
                 alt="logo"
                 className="logo2"
               />
@@ -675,11 +668,10 @@ const Header1 = (props) => {
                               class="dropdown-item Logout-li"
                               style={{ cursor: "pointer" }}
                             >
-                            <Link to="/Ordered" >
-                              <span className="pr-4">Orders</span>
-                            </Link>
+                              <Link to="/Ordered">
+                                <span className="pr-4">Orders</span>
+                              </Link>
                             </li>
-
                           </div>
                         </Link>
                         <Link to="/Cart">
@@ -1001,14 +993,11 @@ const Header1 = (props) => {
         </div>
       </div>
 
-
-
-
       {/* phone resposive header */}
       {/* phone top-navbar */}
       <div className=" mobile-top-navbar">
-      <div>
-      <div className="col-sm-4  " style={{ paddingLeft: "10px" }}>
+        <div>
+          <div className="col-sm-4  " style={{ paddingLeft: "10px" }}>
             <div className="login-div2">
               <input
                 type="text"
@@ -1029,138 +1018,179 @@ const Header1 = (props) => {
               </Link>
             </div>
           </div>
-      </div>
-      <div className="mobile-icon-div ml-4">
-      <Link to="/Cart">
-        <i className="bx bx-cart"></i>
-      </Link>
-      </div>
-       <div className="mobile-icon-div ml-2">
-      
-        <i className="bx bx-heart"></i>
-      </div>
-      <div className="mobile-icon-div ml-2">
-      {Userdata == undefined?
-      <Link to="/Register">
-        <i className="bx bx-log-in"></i>
-      </Link>:
-      <div class="dropdown">
-                      <button
-                        class="btn btn-white btn-sm dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        {Userdata && Userdata.username}
-                      </button>
+        </div>
+        <div className="mobile-icon-div ml-4">
+          <Link to="/Cart">
+            <i className="bx bx-cart"></i>
+          </Link>
+        </div>
+        <div className="mobile-icon-div ml-2">
+          <i className="bx bx-heart"></i>
+        </div>
+        <div className="mobile-icon-div ml-2">
+          {Userdata == undefined ? (
+            <Link to="/Register">
+              <i className="bx bx-log-in"></i>
+            </Link>
+          ) : (
+            <div class="dropdown">
+              <button
+                class="btn btn-white btn-sm dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {Userdata && Userdata.username}
+              </button>
 
-                      <ul
-                        class="dropdown-menu Logout-ul"
-                        aria-labelledby="dropdownMenuButton1"
-                      >
-                        <Link to="/Ordered">
-                          <div className="Logout-div d-flex align-items-center">
-                            <i className="bx bx-file pl-2"></i>{" "}
-                            <li
-                              class="dropdown-item Logout-li"
-                              style={{ cursor: "pointer" }}
-                            >
-                              <span className="pr-4">Orders</span>
-                            </li>
-                          </div>
-                        </Link>
-                        <Link to="/Cart">
-                          <div className="Logout-div d-flex align-items-center">
-                            <i className="bx bx-cart pl-2"></i>{" "}
-                            <li
-                              class="dropdown-item Logout-li"
-                              style={{ cursor: "pointer" }}
-                            >
-                              <span className="pr-4">Cart</span>
-                            </li>
-                          </div>
-                        </Link>
-                        <Link to="/Wishlist">
-                          <div className="Logout-div d-flex align-items-center">
-                            <i className="bx bx-heart pl-2"></i>{" "}
-                            <li
-                              class="dropdown-item Logout-li"
-                              style={{ cursor: "pointer" }}
-                            >
-                              <span className="pr-4">Wishlist</span>
-                            </li>
-                          </div>
-                        </Link>
-                        <div className="Logout-div d-flex align-items-center">
-                          <i className="bx bx-log-out pl-2"></i>{" "}
-                          <li
-                            class="dropdown-item Logout-li"
-                            style={{ cursor: "pointer" }}
-                            onClick={() => {
-                              logout();
-                            }}
-                          >
-                            <span className="pr-4">Logout</span>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-      }
+              <ul
+                class="dropdown-menu Logout-ul"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <Link to="/Ordered">
+                  <div className="Logout-div d-flex align-items-center">
+                    <i className="bx bx-file pl-2"></i>{" "}
+                    <li
+                      class="dropdown-item Logout-li"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span className="pr-4">Orders</span>
+                    </li>
+                  </div>
+                </Link>
+                <Link to="/Cart">
+                  <div className="Logout-div d-flex align-items-center">
+                    <i className="bx bx-cart pl-2"></i>{" "}
+                    <li
+                      class="dropdown-item Logout-li"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span className="pr-4">Cart</span>
+                    </li>
+                  </div>
+                </Link>
+                <Link to="/Wishlist">
+                  <div className="Logout-div d-flex align-items-center">
+                    <i className="bx bx-heart pl-2"></i>{" "}
+                    <li
+                      class="dropdown-item Logout-li"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span className="pr-4">Wishlist</span>
+                    </li>
+                  </div>
+                </Link>
+                <div className="Logout-div d-flex align-items-center">
+                  <i className="bx bx-log-out pl-2"></i>{" "}
+                  <li
+                    class="dropdown-item Logout-li"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      logout();
+                    }}
+                  >
+                    <span className="pr-4">Logout</span>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
-      </div>  
 
       {/* end phone top-navbar */}
 
       {/* phone main-navbar */}
       <nav class="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar">
-  <div class="container-fluid">
-    <Link to="/" class="navbar-brand" href="#"><img className="pl-2" src={require('../Images/logo1.png')} /></Link>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 ml-3 mb-lg-0 mobile-nav-list">
-        <li class="nav-item">
-          <Link class="nav-link" aria-current="page" to="/">Home</Link>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link" to="/ContactUs">Contact Us</Link>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
-          </a>
-          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-          {categories.map((el, ind) => (
-            <li><Link class="dropdown-item" to={"/AllCategory/" + el._id}>{el.name}</Link></li>
-            ))}
-          </ul>
-        </li>
+        <div class="container-fluid">
+          <Link to="/" class="navbar-brand" href="#">
+            <img className="pl-2" src={require("../Images/logo1.png")} />
+          </Link>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 ml-3 mb-lg-0 mobile-nav-list">
+              <li class="nav-item">
+                <Link class="nav-link" aria-current="page" to="/">
+                  Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Shop
+                </a>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" to="/ContactUs">
+                  Contact Us
+                </Link>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Blog
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Category
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                  {categories.map((el, ind) => (
+                    <li>
+                      <Link class="dropdown-item" to={"/AllCategory/" + el._id}>
+                        {el.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sub Category
-          </a>
-          <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-          {subcategories.map((el, ind) => (
-            <li> <Link to={"/Subcategories/" + el._id} class="dropdown-item">{el.name}</Link></li>
-          ))}
-           
-          </ul>
-        </li>
-       
-      </ul>
-    
-    </div>
-  </div>
-</nav>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sub Category
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                  {subcategories.map((el, ind) => (
+                    <li>
+                      {" "}
+                      <Link
+                        to={"/Subcategories/" + el._id}
+                        class="dropdown-item"
+                      >
+                        {el.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       {/* end phone responsive header */}
     </>
   );

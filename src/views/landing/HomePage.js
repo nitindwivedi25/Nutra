@@ -7,6 +7,7 @@ import Carouselcomp from "../../components/Carouselcomp";
 import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
+import Delivery from "../../Images/delivery.jpg";
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
 
@@ -29,6 +30,7 @@ const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [Manufactureres, setManufactureres] = useState([]);
   const [AllProduct, setAllProduct] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [ProductCategory, setProductCategory] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -46,22 +48,22 @@ const HomePage = () => {
     GetManufacturer();
     tranding = 0;
     skincare = 0;
-    $(document).ready(function () {
+    $(document).ready(function() {
       //    $('.icon-wishlist').on('click', function(){
       //       $(this).toggleClass('in-wishlist');
 
       // })
 
-      $(".frontimage").mouseover(function () {
+      $(".frontimage").mouseover(function() {
         alert("in");
       });
-      $(".frontimage").mouseleave(function () {
+      $(".frontimage").mouseleave(function() {
         alert("in");
       });
     });
   }, []);
   const WishlistHeart = () => {
-    $(".icon-wishlist").on("click", function () {
+    $(".icon-wishlist").on("click", function() {
       $(this).toggleClass("in-wishlist");
     });
   };
@@ -69,7 +71,7 @@ const HomePage = () => {
     Userdata = await JSON.parse(localStorage.getItem("Userdata"));
     console.log(Userdata, "sadbhksabdhk");
     await fetch("http://localhost:3033/api/product/all_product")
-        //await fetch("http://144.91.110.221:3033/api/product/all_product")
+      //await fetch("http://144.91.110.221:3033/api/product/all_product")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "product");
@@ -81,7 +83,7 @@ const HomePage = () => {
   };
   const GetManufacturer = async () => {
     await fetch("http://localhost:3033/api/manufacture/all_manufacture")
-        //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
+      //await fetch("http://144.91.110.221:3033/api/manufacture/all_manufacture")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hello");
@@ -94,7 +96,7 @@ const HomePage = () => {
   };
   const GetCategory = async () => {
     await fetch("http://localhost:3033/api/category/all_category")
-         // await fetch("http://144.91.110.221:3033/api/category/all_category")
+      // await fetch("http://144.91.110.221:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         console.log(data, "hrre");
@@ -171,7 +173,7 @@ const HomePage = () => {
   };
   const UpdateCart = () => {
     const url = "http://localhost:3033/api/cart/update_cart_by_id";
-     // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
+    // const url = "http://144.91.110.221:3033/api/cart/update_cart_by_id";
     fetch(url, {
       method: "put",
       headers: {
@@ -216,7 +218,7 @@ const HomePage = () => {
   const AddtoCart = async () => {
     if (!Userdata == []) {
       await fetch("http://localhost:3033/api/cart/add_to_cart", {
-         //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
+        //await fetch("http://144.91.110.221:3033/api/cart/add_to_cart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -252,7 +254,7 @@ const HomePage = () => {
     image
   ) => {
     await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
-     // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+      // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -268,7 +270,7 @@ const HomePage = () => {
           if (!Userdata == []) {
             await fetch(
               "http://localhost:3033/api/wishlist/add_to_wishlist",
-               // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+              // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
               {
                 method: "POST",
                 headers: {
@@ -301,7 +303,7 @@ const HomePage = () => {
             if (!Userdata == []) {
               await fetch(
                 "http://localhost:3033/api/wishlist/add_to_wishlist",
-                 // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
+                // "http://144.91.110.221:3033/api/wishlist/add_to_wishlist",
                 {
                   method: "POST",
                   headers: {
@@ -355,23 +357,77 @@ const HomePage = () => {
       items: 1,
     },
   };
+
+  const searchData = (e) => {
+    // if (props.func) props.func(e);
+  };
+
   return (
     <>
       <Header1 />
-      <Carouselcomp />
+      {/* <Carouselcomp /> */}
       <div id="body-pd">
         {/* trending section  */}
-        <section className="trending-section">
+        <section className="home-banner">
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
-                  <h1 className="trendign-head">Trending Products</h1>
+              <div className="col-md-6">
+                <div className="home-banner-left">
+                  <p className="home-banner-heading">
+                    Reliable on time home delivery
+                  </p>
+                  <p className="home-banner-content">
+                    We are excited to be part of the WordPress community and
+                    looking to make contribution by releasing free WordPress
+                    themes for everyone to use. Other themes can be found here.
+                  </p>
+
+                  <div className="login-div2 clearfix mb-5">
+                    <input
+                      type="text"
+                      onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                      onKeyPress={(e) => {
+                        if (e.key == "Enter") {
+                          searchData(search);
+                        }
+                      }}
+                    />
+                    <Link to={"/SearchResult/" + search}>
+                      <button
+                        className="search mr-1"
+                        onClick={() => searchData(search)}
+                      >
+                        <i class="bx bx-search-alt"></i>
+                      </button>
+                    </Link>
+                  </div>
+
+                  <div className="home-banner-buttons pt-4">
+                    <button className="btn common-gradient-btn">
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="home-banner-right">
+                  <img src={Delivery} className="img-fluid"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="trending-section mt-3">
+          <div className="container h-100">
+            <div className="row h-100">
+              <div className="col-12 p-0">
+                <h1 className="trendign-head">Trending Products</h1>
               </div>
             </div>
           </div>
         </section>
         <section className="products-area">
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
               {data.map((el, ind) => {
                 if (
@@ -380,86 +436,65 @@ const HomePage = () => {
                 ) {
                   tranding = tranding + 1;
                   return (
-                    <div className="col-lg-3 col-md-12 col-sm-12 ">
-                      {/* <Link to={"/SingleProduct/" + el._id}> */}
-                      <div className="single-products-box border">
-                        <div className="row  align-items-center product-div">
-                          <div className="col-6 product-image-div">
-                            <Link
-                              to={"/SingleProduct/" + el._id}
-                              className="product-image-link"
-                            >
-                              <div className="image hover-switch">
-                                <img
-                                  src={require("../../Images/products/Hintosulin (1).png")}
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" + el.image[0].path
-                                  }
-                                  alt=""
-                                  style={{ position: "absolute" }}
-                                />
-                              </div>
-                            </Link>
-                          </div>
-                          <div className="col-6 pd-0 tranding product-image-content">
-                            <div className="content product-content">
-                              <Link to={"/SingleProduct/" + el._id}>
-                                <h3 className="pb-1 pl-4 pt-5">
-                                  <ReadMoreReact
-                                    text={el.name}
-                                    min={10}
-                                    ideal={10}
-                                    max={10}
-                                    readMoreText={"..."}
-                                  />
-                                </h3>
-                              </Link>
-                              <div className="d-flex pb-2 pl-4">
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                              </div>
-                              <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
-                                <div className="discount-price-div">
-                                  <span>10%</span>
+                    <>
+                      <div className="col-lg-2 col-md-12 col-sm-12 ">
+                        {/* <Link to={"/SingleProduct/" + el._id}> */}
+                        <div className="single-products-box border">
+                          <div className="row">
+                            <div className="col-md-12">
+                              <div className="product-div">
+                                <div className="product-image-div">
+                                  <Link
+                                    to={"/SingleProduct/" + el._id}
+                                    className="product-image-link"
+                                  >
+                                    <div className="image hover-switch">
+                                      <img
+                                        src={require("../../Images/products/Hintosulin (1).png")}
+                                        alt=""
+                                      />
+                                      <img
+                                        src={
+                                          //"http://144.91.110.221:3033/" +
+                                          "http://localhost:3033/" +
+                                          el.image[0].path
+                                        }
+                                        alt=""
+                                        style={{ position: "absolute" }}
+                                      />
+                                    </div>
+                                  </Link>
                                 </div>
-                                <div className="discount-price-div2">
-                                  <span>off</span>
-                                </div>
-                              </div>
-
-                              <div className="hr-div">
-                                <hr />
-                              </div>
-                              <div className="price-div justify-content-center align-items-center d-flex">
-                                <span className="new-price ml-3">$899</span>
-                                <del className="new-price ml-1">1000</del>
-                                {Userdata ? (
-                                  <i
-                                    className="bx bxs-heart ml-3"
-                                    onClick={() => {
-                                      AddtoWishlist(
-                                        el._id,
-                                        el.name,
-                                        quantity,
-                                        el.inrMrp,
-                                        el.inrDiscount,
-                                        el.description,
-                                        el.category,
-                                        el.manufacturer.name,
-                                        el.image
-                                      );
-                                    }}
-                                  ></i>
-                                ) : (
-                                  <>
-                                    <i
+                                <div className="tranding product-image-content">
+                                  <div className="content product-content">
+                                    <Link to={"/SingleProduct/" + el._id}>
+                                      <ReadMoreReact text={el.name} />
+                                    </Link>
+                                    <div className="price-div d-flex align-items-center">
+                                      <span className="new-price">$899</span>
+                                      <del className="new-price ml-1">
+                                        $1000
+                                      </del>
+                                      {Userdata ? (
+                                        <i
+                                          className="bx bxs-heart ml-3"
+                                          onClick={() => {
+                                            AddtoWishlist(
+                                              el._id,
+                                              el.name,
+                                              quantity,
+                                              el.inrMrp,
+                                              el.inrDiscount,
+                                              el.description,
+                                              el.category,
+                                              el.manufacturer.name,
+                                              el.image
+                                            );
+                                          }}
+                                        ></i>
+                                      ) : (
+                                        <>
+                                          <i
                                       className="bx bxs-heart ml-3 pc-heart"
                                       data-bs-toggle="modal"
                                       data-bs-target={
@@ -468,19 +503,22 @@ const HomePage = () => {
                                           : null
                                       }
                                     ></i>
-                                    <Link to="/Register">
-                                      <i className="bx bxs-heart ml-3 mobile-heart"></i>
-                                    </Link>
-                                  </>
-                                )}
-                                <i className="bx bx-cart ml-1"></i>
+                                          <Link to="/Register">
+                                            <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                          </Link>
+                                        </>
+                                      )}
+                                      <i className="bx bx-cart ml-2"></i>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        {/* </Link> */}
                       </div>
-                      {/* </Link> */}
-                    </div>
+                    </>
                   );
                 }
               })}
@@ -505,7 +543,10 @@ const HomePage = () => {
                     <div className="col-md-6">
                       <h1 className="cat-heading">Cosmetic</h1>
                       <p className="cat-para">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores harum corporis, rerum, animi explicabo sed consequatur aut voluptas inventore dolorem perferendis natus, velit eius.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore dolores harum corporis, rerum, animi explicabo
+                        sed consequatur aut voluptas inventore dolorem
+                        perferendis natus, velit eius.
                       </p>
                       <button className="btn btn cosmetic-shop-now">
                         Shop Now
@@ -532,7 +573,10 @@ const HomePage = () => {
                     <div className="col-md-6">
                       <h1 className="cat-heading">Nutracuetical</h1>
                       <p className="cat-para">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam earum dicta, laudantium soluta assumenda ad veniam veritatis porro nostrum nesciunt a adipisci eligendi, corrupti dolorum!
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Quibusdam earum dicta, laudantium soluta assumenda
+                        ad veniam veritatis porro nostrum nesciunt a adipisci
+                        eligendi, corrupti dolorum!
                       </p>
                       <button className="btn btn nutracuetical-shop-now">
                         Shop Now
@@ -888,23 +932,27 @@ const HomePage = () => {
             <div className="container">
               <div className=" section-title"></div>
               <div className="row align-items-center">
-                {Manufactureres && Manufactureres.length > 0 && Manufactureres.map((el, ind) => (
-                  <div className="col-lg-2 col-sm-4 col-md-2 col-6">
-                    <Link to={"/ProductByManufacturer/" + el.name}>
-                      <div className="single-brands-item">
-                        <a className="d-block" href="#">
-                          {" "}
-                          <img
-                            src={ el.image && el.image.length > 0 ? 
-                              //"http://144.91.110.221:3033/" + el.image[0].path : ""
-                              "http://localhost:3033/" + el.image[0].path : ""
-                            }
-                          />
-                        </a>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
+                {Manufactureres &&
+                  Manufactureres.length > 0 &&
+                  Manufactureres.map((el, ind) => (
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                      <Link to={"/ProductByManufacturer/" + el.name}>
+                        <div className="single-brands-item">
+                          <a className="d-block" href="#">
+                            {" "}
+                            <img
+                              src={
+                                el.image && el.image.length > 0
+                                  ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
+                                    "http://localhost:3033/" + el.image[0].path
+                                  : ""
+                              }
+                            />
+                          </a>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -914,24 +962,41 @@ const HomePage = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="mobile-main">
-                  <div><h3 className="heading">Download the medicine mobile app</h3>
-                    <div><p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p></div></div>
+                  <div>
+                    <h3 className="heading">
+                      Download the medicine mobile app
+                    </h3>
+                    <div>
+                      <p id="para">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                      </p>
+                    </div>
+                  </div>
                   <div className="btn-div">
-                    <button type="button" class="btn btn-primary" id="btn-1">Primary</button>
-                    <button type="button" class="btn btn-primary ms-3" id="btn-2">Primary</button>
+                    <button type="button" class="btn btn-primary" id="btn-1">
+                      Primary
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary ms-3"
+                      id="btn-2"
+                    >
+                      Primary
+                    </button>
                   </div>
                 </div>
               </div>
               <div class="col-6">
-                <div className="img-div">
-                <div class="contact-image text-center"><img id="img"  src={Mobile} alt="image" /></div>
+                <div className="img-div d-flex justify-content-center">
+                  <img id="img" src={Mobile} alt="image" />
                 </div>
+              </div>
             </div>
-            </div>
-
-
-           
-
           </div>
         </section>
       </div>

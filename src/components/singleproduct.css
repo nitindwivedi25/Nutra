@@ -545,7 +545,7 @@ color: #2F2F2F;
 }
 .facility-area
 {
-	background-color: #00D872;
+	background-color: #f2f2f2;
 	color: white;
 	padding:1px;
 }
@@ -555,17 +555,17 @@ color: #2F2F2F;
 	
 	margin-bottom: 20px;
 }
-.facility-area .container .row .box  h3
+.facility-area .container .row .box h3
 {
 	font-size:19px;
 	font-family: Poppins;
-	color:white;
+	color:#212121;
 }
-.facility-area .container .row .box  p
+.facility-area .container .row .box p
 {
-	font-size:10px;
+	font-size:12px;
 	font-family: Poppins;
-    color: white;
+    color: #212121;
 }
 .Addresses-main .address-row
 {

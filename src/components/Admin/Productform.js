@@ -46,7 +46,6 @@ const Productform = () => {
     const url = "http://localhost:3033/api/product/add_product";
     await fetch(url, {
       method: "POST",
-
       body: formData,
     })
       .then((res) => res.json())
@@ -293,6 +292,8 @@ const Productform = () => {
         console.log(err, "error");
       });
   };
+
+  console.log("inside ")
 
   return (
     <>
