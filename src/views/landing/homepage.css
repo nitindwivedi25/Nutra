@@ -10000,17 +10000,13 @@ p:last-child {
 }
 .section-title .Products
 {
-	background-color: #f2f2f2;
+	background-color: #f6f7fb;
 	color:white;
 	/* height: 6rem; */
 }
 .section-title .Products .text-center .h2
 {
 	color:white;
-}
-.section-title .Products hr
-{
-	height: 2px;
 }
 .section-title .row .col-5 .hr-div .hr1
 {
@@ -11948,7 +11944,13 @@ textarea.form-control {
 
 
 
-
+.product-content .display-text-group
+{
+	padding: 8px 0 2px 0;
+	color: #7c7b7b;
+    font-size: 14px;
+	font-weight: 300;
+}
 
 .single-categories-box:hover img {
 	transform: scale(1.05)
@@ -11961,35 +11963,30 @@ textarea.form-control {
 	border-radius: 7px;
 	border:0 !important;
 }
-.single-products-box .product-div {
-	height:235px;
-	/*  */
-	margin-left: 0;
-	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
-	border-radius: 7px;
-}
 .single-products-box .product-div .product-image-link {
  /* filter: drop-shadow(2px 4px 6px black); */
 }
 
+.products-area
+{
+	background-color: #f6f7fb;
+}
 .single-products-box .product-div .product-image-div
 {
 	height: 100%;
-	justify-content: center;
     align-items: center;
     display: flex;
-	background-color: #DEFFEF !important;
+	justify-content: center;
 	border-top-left-radius: 7px;
 	border-bottom-left-radius: 7px;
 	border:0 !important;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
 }
 .single-products-box .product-div .product-image-content
 {
 	height: 100%;
-	/* justify-content: center; */
-    align-items: center;
-    display: flex;
-	background-color: #FAFAFA !important;
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
 	border:0 !important;
@@ -12162,13 +12159,6 @@ textarea.form-control {
 	transition-delay: .3s;
 	
 }
-
-.single-products-box .content {
-	position: relative;
-	bottom:35px;
-	margin: 0px;
-	width:100%;
-}
 .single-products-box .content .discount-price-div
 {
 	background-color: #3DBACB;
@@ -12205,19 +12195,18 @@ font-size: 17px;
 }
 .single-products-box .content .price-div span
 {
-	font-size: 17px;
-	color:#3DBACB;
+	font-size: 16px;
+	color:#212121;
 	font-family: Poppins;
-font-style: normal;
-font-weight: bold;
+font-weight: 600;
+letter-spacing: 0.50px;
 }
 .single-products-box .content .price-div del
 {
-	font-size: 15px;
-	color:#3DBACB;
+	font-size: 13px;
+	color: #7c7b7b;
 	font-family: Poppins;
-font-style: normal;
-
+	font-style: normal;
 }
 .single-products-box .content .price-div  i
 {
@@ -12268,10 +12257,7 @@ font-style: normal;
 .bxs-star{
 	color: gold;
 }
-.product-content{
-	top: -10px;
-	position: relative;
-}
+
 .single-products-box .content .price span.old-price {
 	color:  #006837;
 	text-decoration: line-through;
@@ -15078,7 +15064,15 @@ font-style: normal;
 .single-brands-item {
 	margin-bottom: 30px;
 	text-align: center;
-	border-right: 1px solid #eee
+}
+.single-brands-item img
+{
+	height: 150px;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #DCEFFF;
 }
 
 .col-lg-2:nth-child(6) .single-brands-item,
@@ -15305,13 +15299,6 @@ font-style: normal;
 
 .blog-details-desc .article-content .features-list li:last-child {
 	margin-bottom: 0
-}
-footer{
-	background: url(../../Images/Footer-image.png),  linear-gradient(to right, #6DB3F2, #6DB3F2);
-	background-repeat: no-repeat;
-	width: 100%;
-background-size: cover;
-	background-position: bottom;
 }
 
 .blog-details-desc .article-footer {
@@ -16054,7 +16041,7 @@ background-size: cover;
 .single-facility-box {
 	margin-bottom: 30px;
 	position: relative;
-	border-right: 1px solid white;
+	border-right: 1px solid #212121;
 	padding-left: 62px
 }
 
@@ -16063,7 +16050,7 @@ background-size: cover;
 	left: 0;
 	top: 0;
 	line-height: 1;
-	color: var(--mainColor);
+	color: #212121;
 	font-size: 45px
 }
 
@@ -17589,7 +17576,8 @@ background-size: cover;
 } */
 
 .footer-area {
-	padding-top: 70px
+	background-color: #f6f7fb;
+	padding-top: 60px;
 }
 
 .single-footer-widget {
@@ -17660,17 +17648,6 @@ background-size: cover;
 	position: relative;
 	padding-bottom: 5px;
 	
-	
-}
-
-.single-footer-widget h3:before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 80px;
-	height: 1px;
-	background-color: var(--mainColor);
 	
 }
 
@@ -17792,20 +17769,18 @@ background-size: cover;
 	margin-top: 12px;
 	padding-left: 25px;
 	padding-right: 25px;
-	background-color:#00D872;
+	background-color:#1b97ff;
 	border-radius:0;
 	font-family:Poppins;
 	font-weight:500;
 	font-size: 17px;
 }
 
-.footer-bottom-area {
-	background-color: #f7f8fa;
-	margin-top: 40px;
-	padding-top: 25px;
-	padding-bottom: 25px
+.footer-bottom-area
+{
+	border-top: 1px solid #f2f2f2;
+	padding: 10px 0;
 }
-
 .footer-bottom-area p {
 	line-height: normal
 }
@@ -17838,6 +17813,17 @@ background-size: cover;
 
 .footer-bottom-area .payment-types ul li:last-child {
 	margin-right: 0
+}
+.footer-bottom-area .payment-types ul li img
+{
+	height: 20px;
+	object-fit: cover;
+	width: 100%;
+}
+
+.brands-area
+{
+	background-color: #f6f7fb;
 }
 
 .go-top {
@@ -18603,17 +18589,15 @@ background-size: cover;
 }
 /* new home page css */
 	.trending-section{
-		background-color: #f2f2f2 !important;
+		background-color: #f6f7fb !important;
 		/* padding: 1rem 0;		 */
 	}
 	.trendign-head{
-		font-size: 2.3rem;
-    
-    
+	font-size: 2.3rem;
+	padding: 40px 0;
     font-weight: bold;
     font-family: Poppins;
     color: #1e144f;
-    
     text-align: center;
 	}
 	.product-head{
@@ -18683,7 +18667,7 @@ background-size: cover;
 
 	.categories-section
 	{
-		background-color: #f2f2f2;
+		background-color: #f6f7fb;
 		padding: 3rem 0;
 	}
 	.categories-section .front-img{
@@ -18693,24 +18677,26 @@ background-size: cover;
 	border-radius: 10px;
 	}
 	.nutracuetical-shop-now{
-    border-radius: 10px;
-	background-color: #1b97ff;
-	color: #fff;
-	border: none;
-	font-weight: 800;
-	padding: 6px 30px;
-	font-size: 16px;
+		background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+		border: 0;
+		padding: 4px 20px;
+		color: #fff;
+		letter-spacing: .5px;
+		text-transform: capitalize;
+		font-size: 14px;
+		font-weight: 400;
 	}
 
 	.cosmetic-shop-now{
-	font-weight: 800;
-    border-radius: 10px;
-	background-color: #1b97ff;
-	color: #fff;
-	border: none;
-	padding: 6px 30px;
-	font-size: 16px;
-	}
+		background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+		border: 0;
+		padding: 4px 20px;
+		color: #fff;
+		letter-spacing: .5px;
+		text-transform: capitalize;
+		font-size: 14px;
+		font-weight: 400;
+		}
 	.nutracuetical-shop-now:hover, .cosmetic-shop-now:hover{
 		/* background-color: #fff; */
 		color: #000;
@@ -19356,10 +19342,6 @@ ul
 		font-size: 1.5rem;
 		padding-left: 6px !important;
 	}
-	.section-title .Products
-	{
-		height:2rem;
-	}
 	.facility-area
 	{
 		display: none;
@@ -19498,7 +19480,7 @@ ul
 @media only screen and (min-width: 815px) and (max-width: 1024px){
 	.single-products-box .content .price-div span
 	{
-		font-size: 15px;
+		font-size: 14px;
 		margin-left: 0.5rem !important;
 	}
 	.single-products-box .content .price-div del
@@ -19565,24 +19547,17 @@ ul
 
 /*----- deepak css ------ */
 .mobile-app{
-	
-	margin-bottom: 10px;
+	padding: 60px 0;
+	background-color: #f6f7fb;
 }
 
 
 .btn-div{
 margin: 40px 8px 15px 0px;
 }
-.img-div{
-	width: 80%;
-    margin-left: auto;
-	background: #FFFFFF;
-    box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
-}
 .img-div #img {
     height: 300px;
-    width: 328px;
-    margin-top: 28px;
+	border-radius: 10px;
 }
 #para{
 	line-height: 22px;
@@ -19595,12 +19570,14 @@ margin: 40px 8px 15px 0px;
 }
 
 /* --------------prashant css for home page additional section---------------- */
-.home-banner{
-	/* padding: 70px 0; */
+.home-banner
+{
+	padding: 70px 0;
+	background-color: #f6f7fb;
 }
-.home-banner .home-banner-left{
+/* .home-banner .home-banner-left{
 	padding-left: 40px;
-}
+} */
 .home-banner .home-banner-left .home-banner-heading{
 	font-size: 60px;
     line-height: 1;
