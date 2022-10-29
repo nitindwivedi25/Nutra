@@ -20,8 +20,9 @@ const CategoryCreation = (props) => {
     formData.append("image", data.image);
     // const url="http://144.91.110.221:3033/api/category/add_category"
     const url = "http://localhost:3033/api/category/add_category";
-    await fetch(url, {
-      method: "POST",
+    console.log("payload before submit", formData)
+     await fetch(url, {
+    method: "POST",
       // headers: {
       // 'Accept': 'application/json',
       // 'Content-Type': 'multipart/form-data'
@@ -187,7 +188,10 @@ const CategoryCreation = (props) => {
                             className="form-control Dashborad-search"
                             placeholder="Category Name "
                             multiple
-                            onChange={SelectImage}
+                            // onChange={SelectImage}
+                            onChange={(e) => {
+                              Setdata({ ...data, image: e.target.files[0] });
+                            }}
                           />
                         </div>
                         <div className="col-6 p-1">
