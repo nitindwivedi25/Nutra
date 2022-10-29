@@ -10000,9 +10000,9 @@ p:last-child {
 }
 .section-title .Products
 {
-	background-color: #00D872;
+	background-color: #f2f2f2;
 	color:white;
-	height: 6rem;
+	/* height: 6rem; */
 }
 .section-title .Products .text-center .h2
 {
@@ -18604,16 +18604,16 @@ background-size: cover;
 /* new home page css */
 	.trending-section{
 		background-color: #f2f2f2 !important;
-		padding: 2rem 0;		
+		/* padding: 1rem 0;		 */
 	}
 	.trendign-head{
 		font-size: 2.3rem;
-    /* font-weight: 300 !important; */
-    color: white;
+    
+    
     font-weight: bold;
     font-family: Poppins;
-    color: #212121;
-    /* display: block; */
+    color: #1e144f;
+    
     text-align: center;
 	}
 	.product-head{
@@ -19569,15 +19569,7 @@ ul
 	margin-bottom: 10px;
 }
 
-.heading{
-	font-size: 2.3rem;
-    /* font-weight: 300 !important; */
-    color: white;
-    font-weight: bold;
-    font-family: Poppins;
-    color: #212121;
-    /* display: block; */
-}
+
 .btn-div{
 margin: 40px 8px 15px 0px;
 }
@@ -19604,7 +19596,7 @@ margin: 40px 8px 15px 0px;
 
 /* --------------prashant css for home page additional section---------------- */
 .home-banner{
-	padding: 70px 0;
+	/* padding: 70px 0; */
 }
 .home-banner .home-banner-left{
 	padding-left: 40px;

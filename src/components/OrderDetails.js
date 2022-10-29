@@ -42,9 +42,9 @@ const OrderDetails = (props) => {
        return (
     <>
       <Header1 />
-      <div class="page-title-area">
-        <div class="container">
-          <div class="page-title-content p-2">
+      <div className="page-title-area">
+        <div className="container">
+          <div className="page-title-content p-2">
             {/* <h1>Hearing Aid Device</h1> */}
             <ul>
               <li>
@@ -55,11 +55,11 @@ const OrderDetails = (props) => {
           </div>
         </div>
       </div>
-      <section class="product-details-area pt-70 pb-40">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-              <div class="products-details-image">
+      <section className="product-details-area pt-70 pb-40">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 col-md-12">
+              <div className="products-details-image">
                 <img
                   src={require("../Images/products/products-img1.jpg")}
                   className="Single-product-Img"
@@ -89,18 +89,18 @@ const OrderDetails = (props) => {
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="products-details-desc">
+            <div className="col-lg-6 col-md-12">
+              <div className="products-details-desc">
                 <h3>Iphone</h3>
-                <div class="price">
+                <div className="price">
                   <div>
-                    <span class="old-price">50000</span>
-                    <span class="new-price">
+                    <span className="old-price">50000</span>
+                    <span className="new-price">
                       45000                   </span>
                   </div>
                 </div>
                 
-                <ul class="products-info">
+                <ul className="products-info">
                   <li>
                     <span>Vendor:</span> <a href="#">Lereve</a>
                   </li>
@@ -114,37 +114,37 @@ const OrderDetails = (props) => {
                     <a>2</a>
                   </li>
                 </ul>
-                <div class="products-color-switch">
+                <div className="products-color-switch">
                   <span>Color:</span>
                   <ul>
                     <li>
-                      <a title="Black" class="color-black" href="#"></a>
+                      <a title="Black" className="color-black" href="#"></a>
                     </li>
                     <li>
-                      <a title="White" class="color-white" href="#"></a>
+                      <a title="White" className="color-white" href="#"></a>
                     </li>
-                    <li class="active">
-                      <a title="Green" class="color-green" href="#"></a>
+                    <li className="active">
+                      <a title="Green" className="color-green" href="#"></a>
                     </li>
                     <li>
                       <a
                         title="Yellow Green"
-                        class="color-yellowgreen"
+                        className="color-yellowgreen"
                         href="#"
                       ></a>
                     </li>
                     <li>
-                      <a title="Teal" class="color-teal" href="#"></a>
+                      <a title="Teal" className="color-teal" href="#"></a>
                     </li>
                   </ul>
                 </div>
-                <div class="products-size-wrapper">
+                <div className="products-size-wrapper">
                   <span>Size:</span>
                   <ul>
                     <li>
                       <a href="#">XS</a>
                     </li>
-                    <li class="active">
+                    <li className="active">
                       <a href="#">S</a>
                     </li>
                     <li>
@@ -161,7 +161,7 @@ const OrderDetails = (props) => {
                 
                 
                
-                <div class="products-size-wrapper">
+                <div className="products-size-wrapper">
                   <span>Description:</span>
                   <div className="description">
                   <p>A degenerative joint disease, osteoarthritis is a condition in which low-grade inflammation results in joint pain, caused by the wearing of cartilage that covers and acts as a cushion inside joints. Degradation of cartilage causes the bone surfaces to become less protected by cartilage and rub against each other, causing stiffness and pain. As the mobility and flexibility of joints decrease, an acceleration of inflammation and a chronic condition occurs leading to more pain, inflexibility & discomfort in the joints.</p>
@@ -171,21 +171,21 @@ const OrderDetails = (props) => {
                 
               </div>
             </div>
-            <div class="col-lg-12 col-md-12">
-              <div class="products-details-tabs">
-                <ul class="nav nav-tabs">
+            <div className="col-lg-12 col-md-12">
+              <div className="products-details-tabs">
+                <ul className="nav nav-tabs">
                   
                   <li>Shipping</li>
                   <li>Reviews (2)</li>
                 </ul>
-                <div class="tab-content">
-                  <div id="tab1" class="tab-pane">
+                <div className="tab-content">
+                  <div id="tab1" className="tab-pane">
                     
                   </div>
 
-                  <div id="tab2" class="tab-pane">
-                    <div class="table-responsive">
-                      <table class="table table-bordered">
+                  <div id="tab2" className="tab-pane">
+                    <div className="table-responsive">
+                      <table className="table table-bordered">
                         <tbody>
                           <tr>
                             <td>Shipping</td>
@@ -203,163 +203,163 @@ const OrderDetails = (props) => {
                       </table>
                     </div>
                   </div>
-                  <div id="tab3" class="tab-pane">
-                    <div class="products-reviews">
+                  <div id="tab3" className="tab-pane">
+                    <div className="products-reviews">
                       <h3>Products Rating</h3>
-                      <div class="rating">
-                        <span class="bx bxs-star checked"></span>
-                        <span class="bx bxs-star checked"></span>
-                        <span class="bx bxs-star checked"></span>
-                        <span class="bx bxs-star checked"></span>
-                        <span class="bx bxs-star"></span>
+                      <div className="rating">
+                        <span className="bx bxs-star checked"></span>
+                        <span className="bx bxs-star checked"></span>
+                        <span className="bx bxs-star checked"></span>
+                        <span className="bx bxs-star checked"></span>
+                        <span className="bx bxs-star"></span>
                       </div>
-                      <div class="rating-count">
+                      <div className="rating-count">
                         <span>4.1 average based on 4 reviews.</span>
                       </div>
-                      <div class="row">
-                        <div class="side">
+                      <div className="row">
+                        <div className="side">
                           <div>5 star</div>
                         </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-5"></div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-5"></div>
                           </div>
                         </div>
-                        <div class="side right">
+                        <div className="side right">
                           <div>02</div>
                         </div>
-                        <div class="side">
+                        <div className="side">
                           <div>4 star</div>
                         </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-4"></div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-4"></div>
                           </div>
                         </div>
-                        <div class="side right">
+                        <div className="side right">
                           <div>03</div>
                         </div>
-                        <div class="side">
+                        <div className="side">
                           <div>3 star</div>
                         </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-3"></div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-3"></div>
                           </div>
                         </div>
-                        <div class="side right">
+                        <div className="side right">
                           <div>04</div>
                         </div>
-                        <div class="side">
+                        <div className="side">
                           <div>2 star</div>
                         </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-2"></div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-2"></div>
                           </div>
                         </div>
-                        <div class="side right">
+                        <div className="side right">
                           <div>05</div>
                         </div>
-                        <div class="side">
+                        <div className="side">
                           <div>1 star</div>
                         </div>
-                        <div class="middle">
-                          <div class="bar-container">
-                            <div class="bar-1"></div>
+                        <div className="middle">
+                          <div className="bar-container">
+                            <div className="bar-1"></div>
                           </div>
                         </div>
-                        <div class="side right">
+                        <div className="side right">
                           <div>00</div>
                         </div>
                       </div>
                     </div>
-                    <div class="products-review-comments">
+                    <div className="products-review-comments">
                       <h3>3 Reviews</h3>
-                      <div class="user-review">
+                      <div className="user-review">
                         <img src="../img/user1.jpg" alt="image" />
-                        <div class="review-rating">
-                          <div class="review-stars">
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
+                        <div className="review-rating">
+                          <div className="review-stars">
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
                           </div>
-                          <span class="d-inline-block">James Anderson</span>
+                          <span className="d-inline-block">James Anderson</span>
                         </div>
-                        <span class="d-block sub-comment">Excellent</span>
+                        <span className="d-block sub-comment">Excellent</span>
                         <p>
                           Very well built theme, couldn&#x27;t be happier with
                           it. Can&#x27;t wait for future updates to see what
                           else they add in.
                         </p>
                       </div>
-                      <div class="user-review">
+                      <div className="user-review">
                         <img src="../img/user2.jpg" alt="image" />
-                        <div class="review-rating">
-                          <div class="review-stars">
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
+                        <div className="review-rating">
+                          <div className="review-stars">
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
                           </div>
-                          <span class="d-inline-block">Sarah Taylor</span>
+                          <span className="d-inline-block">Sarah Taylor</span>
                         </div>
-                        <span class="d-block sub-comment">Video Quality!</span>
+                        <span className="d-block sub-comment">Video Quality!</span>
                         <p>
                           Was really easy to implement and they quickly answer
                           my additional questions!
                         </p>
                       </div>
-                      <div class="user-review">
+                      <div className="user-review">
                         <img src="../img/user3.jpg" alt="image" />
-                        <div class="review-rating">
-                          <div class="review-stars">
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
+                        <div className="review-rating">
+                          <div className="review-stars">
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
                           </div>
-                          <span class="d-inline-block">David Warner</span>
+                          <span className="d-inline-block">David Warner</span>
                         </div>
-                        <span class="d-block sub-comment">Perfect Coding!</span>
+                        <span className="d-block sub-comment">Perfect Coding!</span>
                         <p>
                           Stunning design, very dedicated crew who welcome new
                           ideas suggested by customers, nice support.
                         </p>
                       </div>
-                      <div class="user-review">
+                      <div className="user-review">
                         <img src="../img/user4.jpg" alt="image" />
-                        <div class="review-rating">
-                          <div class="review-stars">
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star checked"></i>
-                            <i class="bx bxs-star"></i>
+                        <div className="review-rating">
+                          <div className="review-stars">
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star checked"></i>
+                            <i className="bx bxs-star"></i>
                           </div>
-                          <span class="d-inline-block">King Kong</span>
+                          <span className="d-inline-block">King Kong</span>
                         </div>
-                        <span class="d-block sub-comment">Perfect Video!</span>
+                        <span className="d-block sub-comment">Perfect Video!</span>
                         <p>
                           Stunning design, very dedicated crew who welcome new
                           ideas suggested by customers, nice support.
                         </p>
                       </div>
                     </div>
-                    <div class="review-form-wrapper">
+                    <div className="review-form-wrapper">
                       <h3>Add a review</h3>
-                      <p class="comment-notes">
+                      <p className="comment-notes">
                         Your email address will not be published. Required
                         fields are marked <span>*</span>
                       </p>
                       <form>
-                        <div class="row">
-                          <div class="col-lg-12 col-md-12">
-                            <div class="rating">
+                        <div className="row">
+                          <div className="col-lg-12 col-md-12">
+                            <div className="rating">
                               <input
                                 type="radio"
                                 id="star5"
@@ -397,36 +397,36 @@ const OrderDetails = (props) => {
                               <label for="star1"></label>
                             </div>
                           </div>
-                          <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
+                          <div className="col-lg-6 col-md-6">
+                            <div className="form-group">
                               <input
                                 type="text"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Name *"
                               />
                             </div>
                           </div>
-                          <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
+                          <div className="col-lg-6 col-md-6">
+                            <div className="form-group">
                               <input
                                 type="email"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Email *"
                               />
                             </div>
                           </div>
-                          <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
+                          <div className="col-lg-12 col-md-12">
+                            <div className="form-group">
                               <textarea
                                 placeholder="Your review"
-                                class="form-control"
+                                className="form-control"
                                 cols="30"
                                 rows="6"
                               ></textarea>
                             </div>
                           </div>
-                          <div class="col-lg-12 col-md-12">
-                            <p class="comment-form-cookies-consent">
+                          <div className="col-lg-12 col-md-12">
+                            <p className="comment-form-cookies-consent">
                               <input type="checkbox" id="test1" />
                               <label for="test1">
                                 Save my name, email, and website in this browser
@@ -434,8 +434,8 @@ const OrderDetails = (props) => {
                               </label>
                             </p>
                           </div>
-                          <div class="col-lg-12 col-md-12">
-                            <button type="submit" class="default-btn">
+                          <div className="col-lg-12 col-md-12">
+                            <button type="submit" className="default-btn">
                               Submit
                             </button>
                           </div>
@@ -448,10 +448,10 @@ const OrderDetails = (props) => {
             </div>
           </div>
         </div>
-        <div class="pt-70">
-          <div class="products-area">
-            <div class="container">
-              <div class="section-title">
+        <div className="pt-70">
+          <div className="products-area">
+            <div className="container">
+              <div className="section-title">
                 <h2>Related Products</h2>
               </div>
             </div>

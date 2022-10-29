@@ -119,14 +119,14 @@ const InProgressOrder=()=>{
         <>
         <div className="container">
         {/* login Register Modal  */}
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-body">
-               <div class="row pt-4 ">
+   <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog">
+         <div className="modal-content">
+            <div className="modal-body">
+               <div className="row pt-4 ">
                   
                   
-                  <div class="col-lg-12 logiRegisterContentDiv ">
+                  <div className="col-lg-12 logiRegisterContentDiv ">
                    <div className="text-center"> <h1>User Order's</h1> </div>
                    
                     <div>

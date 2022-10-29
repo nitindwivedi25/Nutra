@@ -318,7 +318,7 @@ const ProductByManufacturer = (props) => {
   return (
     <>
       <Header1 />
-      <div class="first-nav container-fluid">
+      <div className="first-nav container-fluid">
         <span>
           <Link to="/">Home</Link>/{props.match.params._id}
         </span>
@@ -386,11 +386,11 @@ const ProductByManufacturer = (props) => {
                                 </h3>
                               </Link>
                               <div className="d-flex pb-2 pl-4">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                                 <div className="discount-price-div">
@@ -469,8 +469,8 @@ const ProductByManufacturer = (props) => {
                               {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                             </div>
