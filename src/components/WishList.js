@@ -72,7 +72,7 @@ const WishList = ()=>{
 
     return(<>
     <Header1 />
-    <div class="first-nav container-fluid"><span><Link to="/">Home</Link>/ Wishlist</span></div>
+    <div className="first-nav container-fluid"><span><Link to="/">Home</Link>/ Wishlist</span></div>
 
       <div className="wishlist-container">
          <div className="row">

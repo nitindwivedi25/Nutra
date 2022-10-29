@@ -36,11 +36,11 @@ const Carouselcomp = () => {
         keyBoardControl={true}
         customTransition="all 1"
         transitionDuration={1000}
-        containerClass="carousel-container"
+        containerclassName="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
         // deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        dotListclassName="custom-dot-list-style"
+        itemclassName="carousel-item-padding-40-px"
       >
         {/* <div className="container-fluid"> */}
         <div className="container-fluid container-carousel  ">
@@ -63,31 +63,31 @@ const Carouselcomp = () => {
 
             <div className="col-4 caresouel-4-p-main-div">
               <div className="caresouel-4-p-div">
-                <div class="row mt-3">
-                  <div class="col-6 justify-content-center carousel-images1 ">
-                    <div class="container image-button">
+                <div className="row mt-3">
+                  <div className="col-6 justify-content-center carousel-images1 ">
+                    <div className="container image-button">
                       <img
                         src={require("../Images/products/L1Sachet_400x 1.png")}
                         alt="image"
                         className=".img-button"
                       ></img>
-                      {/* <div class="overlay"></div> */}
-                      {/* <div class="button-hover"><button> ShopNow </button></div> */}
+                      {/* <div className="overlay"></div> */}
+                      {/* <div className="button-hover"><button> ShopNow </button></div> */}
                     </div>
 
                     <div className="justify-content-center align-items-center d-flex caresouel-shop-div">
                       <button> Shop now</button>
                     </div>
                   </div>
-                  <div class="col-6 justify-content-center carousel-images1 ">
-                    <div class="container image-button">
+                  <div className="col-6 justify-content-center carousel-images1 ">
+                    <div className="container image-button">
                       <img
                         src={require("../Images/products/walk-easy-capsules-250x250.png")}
                         alt="image"
                         className=".img-button"
                       ></img>
-                      {/* <div class="overlay"></div> */}
-                      {/* <div class="button-hover"><button> ShopNow </button></div> */}
+                      {/* <div className="overlay"></div> */}
+                      {/* <div className="button-hover"><button> ShopNow </button></div> */}
                     </div>
 
                     <div className="justify-content-center align-items-center d-flex caresouel-shop-div">
@@ -97,30 +97,30 @@ const Carouselcomp = () => {
                 </div>
 
                 <div className="row mt-0">
-                  <div class="col-6 justify-content-center carousel-images1 ">
-                    <div class="container image-button">
+                  <div className="col-6 justify-content-center carousel-images1 ">
+                    <div className="container image-button">
                       <img
                         src={require("../Images/products/TenchalotionListingcopy_400x-removebg-preview.png")}
                         alt="image"
                         className=".img-button"
                       ></img>
-                      {/* <div class="overlay"></div> */}
-                      {/* <div class="button-hover"><button> ShopNow </button></div> */}
+                      {/* <div className="overlay"></div> */}
+                      {/* <div className="button-hover"><button> ShopNow </button></div> */}
                     </div>
 
                     <div className="justify-content-center align-items-center d-flex caresouel-shop-div">
                       <button> Shop now</button>
                     </div>
                   </div>
-                  <div class="col-6 justify-content-center carousel-images1 ">
-                    <div class="container image-button">
+                  <div className="col-6 justify-content-center carousel-images1 ">
+                    <div className="container image-button">
                       <img
                         src={require("../Images/products/Hepamax 1.png")}
                         alt="image"
                         className=".img-button"
                       ></img>
-                      {/* <div class="overlay"></div> */}
-                      {/* <div class="button-hover"><button> ShopNow </button></div> */}
+                      {/* <div className="overlay"></div> */}
+                      {/* <div className="button-hover"><button> ShopNow </button></div> */}
                     </div>
 
                     <div className="justify-content-center align-items-center d-flex caresouel-shop-div">
@@ -128,14 +128,14 @@ const Carouselcomp = () => {
                     </div>
                   </div>
 
-                  {/* <div class="row mt-4 shop-button ">
-      <div class="col-sm-12 justify-content-center d-flex">
+                  {/* <div className="row mt-4 shop-button ">
+      <div className="col-sm-12 justify-content-center d-flex">
         <button>Shop Now</button>
         </div>
       </div> */}
                 </div>
               </div>
-              {/* <div className="col-2"><i class='bx bx-chevron-left carousel-LR'></i> <i class='bx bx-chevron-right carousel-LR ml-2'></i></div> */}
+              {/* <div className="col-2"><i className='bx bx-chevron-left carousel-LR'></i> <i className='bx bx-chevron-right carousel-LR ml-2'></i></div> */}
             </div>
             {/* <div className="col-1"></div> */}
           </div>
@@ -151,7 +151,7 @@ const Carouselcomp = () => {
                 various germs. Everyone should use this 5 layers surgical mask
               </p>
               <button className="btn btn-primary carousel-button">
-                <i class="bx bx-cart"></i> Buy now
+                <i className="bx bx-cart"></i> Buy now
               </button>
             </div>
             <div className="col-1"></div>
@@ -163,8 +163,8 @@ const Carouselcomp = () => {
               />
             </div>
             <div className="col-2">
-              <i class="bx bx-chevron-left carousel-LR"></i>{" "}
-              <i class="bx bx-chevron-right carousel-LR ml-2"></i>
+              <i className="bx bx-chevron-left carousel-LR"></i>{" "}
+              <i className="bx bx-chevron-right carousel-LR ml-2"></i>
             </div>
           </div>
         </div>
@@ -179,7 +179,7 @@ const Carouselcomp = () => {
                 various germs. Everyone should use this 5 layers surgical mask
               </p>
               <button className="btn btn-primary carousel-button">
-                <i class="bx bx-cart"></i> Buy now
+                <i className="bx bx-cart"></i> Buy now
               </button>
             </div>
             <div className="col-1"></div>
@@ -191,8 +191,8 @@ const Carouselcomp = () => {
               />
             </div>
             <div className="col-2">
-              <i class="bx bx-chevron-left carousel-LR"></i>{" "}
-              <i class="bx bx-chevron-right carousel-LR ml-2"></i>
+              <i className="bx bx-chevron-left carousel-LR"></i>{" "}
+              <i className="bx bx-chevron-right carousel-LR ml-2"></i>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ const Carouselcomp = () => {
                 various germs. Everyone should use this 5 layers surgical mask
               </p>
               <button className="btn btn-primary carousel-button">
-                <i class="bx bx-cart"></i> Buy now
+                <i className="bx bx-cart"></i> Buy now
               </button>
             </div>
             <div className="col-1"></div>
@@ -219,8 +219,8 @@ const Carouselcomp = () => {
               />
             </div>
             <div className="col-2">
-              <i class="bx bx-chevron-left carousel-LR"></i>{" "}
-              <i class="bx bx-chevron-right carousel-LR ml-2"></i>
+              <i className="bx bx-chevron-left carousel-LR"></i>{" "}
+              <i className="bx bx-chevron-right carousel-LR ml-2"></i>
             </div>
           </div>
         </div>
@@ -230,42 +230,42 @@ const Carouselcomp = () => {
       {/* phone single page caresouel */}
       <div
         id="carouselExampleIndicators"
-        class="carousel slide single-page-caresouel"
+        className="carousel slide single-page-caresouel"
         data-bs-ride="carousel"
       >
-        {/* <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        {/* <div className="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div> */}
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <img src={require("../Images/header-image.png")} />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img src={require("../Images/header-image.png")} />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img src={require("../Images/header-image.png")} />
           </div>
         </div>
         <button
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
         </button>
         <button
-          class="carousel-control-next"
+          className="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
         </button>
       </div>
 

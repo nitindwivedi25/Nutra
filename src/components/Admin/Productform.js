@@ -345,7 +345,7 @@ const Productform = () => {
 
                         <div className="col-6 p-1">
                           <select
-                            class="form-control Dashborad-search"
+                            className="form-control Dashborad-search"
                             defaultValue={update == true ? data.category : ""}
                             onChange={(e) => {
                               Setdata({ ...data, category: e.target.value });
@@ -359,7 +359,7 @@ const Productform = () => {
                         </div>
                         <div className="col-6 p-1">
                           <select
-                            class="form-control Dashborad-search"
+                            className="form-control Dashborad-search"
                             defaultValue={
                               update == true ? data.subcategory : ""
                             }
@@ -376,7 +376,7 @@ const Productform = () => {
 
                         <div className="col-6 p-1">
                           <select
-                            class="form-control Dashborad-search"
+                            className="form-control Dashborad-search"
                             defaultValue={
                               update == true ? data.manufacturer : ""
                             }
@@ -478,7 +478,7 @@ const Productform = () => {
                         </div>
                         <div className="col-6 p-1">
                           <select
-                            class="form-control Dashborad-search"
+                            className="form-control Dashborad-search"
                             defaultValue={update == true ? data.type : ""}
                             onChange={(e) => {
                               Setdata({ ...data, type: e.target.value });

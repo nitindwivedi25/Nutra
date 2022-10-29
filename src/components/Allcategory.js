@@ -257,57 +257,57 @@ const Allcategory = (props) => {
       {/* <!-- Modal --> */}
 
       <Header1 />
-      {/* <i class="fa fa-filter collapse-btn" data-bs-toggle="modal" data-bs-target="#filterModal"></i> */}
+      {/* <i className="fa fa-filter collapse-btn" data-bs-toggle="modal" data-bs-target="#filterModal"></i> */}
 
       {/* Side nav bar */}
 
       {/* End Side navbar */}
       <div id="__next">
-        <div class="search-overlay null">
-          <div class="d-table">
-            <div class="d-table-cell">
-              <div class="search-overlay-layer"></div>
-              <div class="search-overlay-layer"></div>
-              <div class="search-overlay-layer"></div>
-              <div class="search-overlay-close">
-                <span class="search-overlay-close-line"></span>
-                <span class="search-overlay-close-line"></span>
+        <div className="search-overlay null">
+          <div className="d-table">
+            <div className="d-table-cell">
+              <div className="search-overlay-layer"></div>
+              <div className="search-overlay-layer"></div>
+              <div className="search-overlay-layer"></div>
+              <div className="search-overlay-close">
+                <span className="search-overlay-close-line"></span>
+                <span className="search-overlay-close-line"></span>
               </div>
-              <div class="search-overlay-form">
+              <div className="search-overlay-form">
                 <form>
                   <input
                     type="text"
-                    class="input-search"
+                    className="input-search"
                     placeholder="Search here..."
                     name="search"
                     value=""
                   />
                   <button type="submit">
-                    <i class="bx bx-search-alt"></i>
+                    <i className="bx bx-search-alt"></i>
                   </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div class="main-banner">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-5 col-md-12">
-                <div class="main-banner-content">
+        <div className="main-banner">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-5 col-md-12">
+                <div className="main-banner-content">
                   <h1>
                     {Categorydetails.name !== undefined
                       ? Categorydetails.name
                       : null}
                   </h1>
                   <p>{Categorydetails.description}</p>
-                  <a class="default-btn" href="#">
-                    <i class="flaticon-trolley"></i> Shop Now
+                  <a className="default-btn" href="#">
+                    <i className="flaticon-trolley"></i> Shop Now
                   </a>
                 </div>
               </div>
-              <div class="col-lg-7 col-md-12">
-                <div class="main-banner-image">
+              <div className="col-lg-7 col-md-12">
+                <div className="main-banner-image">
                   {Categorydetails.image !== undefined ? (
                     <img
                       // src={"http://144.91.110.221:3033/"+Categorydetails.image[0].path}
@@ -323,10 +323,10 @@ const Allcategory = (props) => {
         </div>
       </div>
 
-      <div class="container Category-div">
+      <div className="container Category-div">
         <div className="row align-items-center">
           <div className="col-6">
-            <div class="section-title">
+            <div className="section-title">
               <h2>{Categorydetails.name}</h2>
             </div>
           </div>
@@ -338,7 +338,7 @@ const Allcategory = (props) => {
       </div>
 
       <div id="container-fluid p-4 products">
-        <div id="columns" class="columns_4 products-row row">
+        <div id="columns" className="columns_4 products-row row">
           {AllProduct.map((item, ind1) => {
             if (item.category._id == props.match.params.name) {
               return (
@@ -382,11 +382,11 @@ const Allcategory = (props) => {
                             </h3>
                           </Link>
                           <div className="d-flex pb-2 pl-4">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
                           </div>
                           <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                             <div className="discount-price-div">
@@ -462,8 +462,8 @@ const Allcategory = (props) => {
                           {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                         </div>
@@ -478,35 +478,35 @@ const Allcategory = (props) => {
         </div>
       </div>
 
-      {/* <div class="brands-area bg-f7f8fa pt-70 pb-40">
-            <div class="container">
-                <div class="section-title">
+      {/* <div className="brands-area bg-f7f8fa pt-70 pb-40">
+            <div className="container">
+                <div className="section-title">
                     <h2>Selling Brands</h2>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                <div className="row align-items-center">
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img1.png" alt="image" /></a></div>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img2.png" alt="image" /></a></div>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img3.png" alt="image" /></a></div>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img4.png" alt="image" /></a></div>
                     </div>
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img5.png" alt="image" /></a></div>
                     </div>
         
-                    <div class="col-lg-2 col-sm-4 col-md-2 col-6">
-                        <div class="single-brands-item"><a class="d-block" href="#"><img
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                        <div className="single-brands-item"><a className="d-block" href="#"><img
                                     src="img/brands/brands-img6.png" alt="image" /></a></div>
                     </div>
                 </div>

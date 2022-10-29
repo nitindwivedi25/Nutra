@@ -351,10 +351,10 @@ const Subcategory = () => {
                                 </h3>
                               </Link>
                               <div className="d-flex">
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
-                                <i class="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
+                                <i className="bx bxs-star"></i>
                               </div>
                               <div className="price mt-1">
                                 <div>
@@ -420,9 +420,9 @@ const Subcategory = () => {
                                       Userdata == null ? "#exampleModal" : null
                                     }
                                   >
-                                    <i class="bx bx-heart"></i>Wishlist
+                                    <i className="bx bx-heart"></i>Wishlist
                                   </p>
-                                  {/* <div class="icon-wishlist"></div> */}
+                                  {/* <div className="icon-wishlist"></div> */}
                                 </div>
                               </div>
                             </div>

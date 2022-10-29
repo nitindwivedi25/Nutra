@@ -217,7 +217,7 @@ const SubCategoryCreation = (props) => {
                         </div>
                         <div className="col-6 p-1">
                           <select
-                            class="form-control Dashborad-search"
+                            className="form-control Dashborad-search"
                             defaultValue={update == true ? data.category : ""}
                             onChange={(e) => {
                               Setdata({ ...data, category: e.target.value });
@@ -295,7 +295,7 @@ const SubCategoryCreation = (props) => {
         </div>
       ) : null}
       {/*     
-    <table class="table table-hover table-striped text-center">
+    <table className="table table-hover table-striped text-center">
   <thead>
     <tr>
     <th scope="col">Sr.No</th>

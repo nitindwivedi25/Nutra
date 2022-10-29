@@ -7,7 +7,7 @@ import Carouselcomp from "../../components/Carouselcomp";
 import Baseline from "../../components/Baseline";
 import Header1 from "../../components/Header1";
 import { useHistory } from "react-router-dom";
-import Delivery from "../../Images/delivery.jpg"
+import Delivery from "../../Images/delivery.jpg";
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
 
@@ -48,22 +48,22 @@ const HomePage = () => {
     GetManufacturer();
     tranding = 0;
     skincare = 0;
-    $(document).ready(function () {
+    $(document).ready(function() {
       //    $('.icon-wishlist').on('click', function(){
       //       $(this).toggleClass('in-wishlist');
 
       // })
 
-      $(".frontimage").mouseover(function () {
+      $(".frontimage").mouseover(function() {
         alert("in");
       });
-      $(".frontimage").mouseleave(function () {
+      $(".frontimage").mouseleave(function() {
         alert("in");
       });
     });
   }, []);
   const WishlistHeart = () => {
-    $(".icon-wishlist").on("click", function () {
+    $(".icon-wishlist").on("click", function() {
       $(this).toggleClass("in-wishlist");
     });
   };
@@ -377,8 +377,9 @@ const HomePage = () => {
                     Reliable on time home delivery
                   </p>
                   <p className="home-banner-content">
-                    We are excited to be part of the WordPress community and looking to make contribution by releasing
-                    free WordPress themes for everyone to use. Other themes can be found here.
+                    We are excited to be part of the WordPress community and
+                    looking to make contribution by releasing free WordPress
+                    themes for everyone to use. Other themes can be found here.
                   </p>
 
                   <div className="login-div2 clearfix mb-5">
@@ -396,17 +397,16 @@ const HomePage = () => {
                         className="search mr-1"
                         onClick={() => searchData(search)}
                       >
-                        <i class="bx bx-search-alt"></i>
+                        <i className="bx bx-search-alt"></i>
                       </button>
                     </Link>
                   </div>
 
                   <div className="home-banner-buttons pt-4">
-                    <button className="btn common-gradient-btn">Read More</button>
+                    <button className="btn common-gradient-btn">
+                      Read More
+                    </button>
                   </div>
-
-
-
                 </div>
               </div>
               <div className="col-md-6">
@@ -421,9 +421,7 @@ const HomePage = () => {
           <div className="container h-100">
             <div className="row h-100">
               <div className="col-12 p-0">
-                
-                  <h1 className="trendign-head">Trending Products</h1>
-                
+                <h1 className="trendign-head">Trending Products</h1>
               </div>
             </div>
           </div>
@@ -432,6 +430,7 @@ const HomePage = () => {
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
+                console.log("tranding products", el)
                 if (
                   (tranding < 8 && el.type == "Tranding Product") ||
                   el.type == "Trending Product"
@@ -563,7 +562,10 @@ const HomePage = () => {
                     <div className="col-md-6">
                       <h1 className="cat-heading">Cosmetic</h1>
                       <p className="cat-para">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolores harum corporis, rerum, animi explicabo sed consequatur aut voluptas inventore dolorem perferendis natus, velit eius.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore dolores harum corporis, rerum, animi explicabo
+                        sed consequatur aut voluptas inventore dolorem
+                        perferendis natus, velit eius.
                       </p>
                       <button className="btn btn cosmetic-shop-now">
                         Shop Now
@@ -574,7 +576,8 @@ const HomePage = () => {
                         <div className="category-div">
                           <figure>
                             <img
-                              src={require("../../Images/Nutraceutical-image 1.png")}
+                              // src={require("../../Images/Nutraceutical-image 1.png")} cosmatic-healthcare.jpeg
+                              src={require("../../Images/cosmatic-healthcare.jpeg")}
                               className="front-img img-fluid"
                             />
                           </figure>
@@ -590,7 +593,10 @@ const HomePage = () => {
                     <div className="col-md-6">
                       <h1 className="cat-heading">Nutracuetical</h1>
                       <p className="cat-para">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam earum dicta, laudantium soluta assumenda ad veniam veritatis porro nostrum nesciunt a adipisci eligendi, corrupti dolorum!
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Quibusdam earum dicta, laudantium soluta assumenda
+                        ad veniam veritatis porro nostrum nesciunt a adipisci
+                        eligendi, corrupti dolorum!
                       </p>
                       <button className="btn btn nutracuetical-shop-now">
                         Shop Now
@@ -601,7 +607,8 @@ const HomePage = () => {
                         <div className="category-div">
                           <figure>
                             <img
-                              src={require("../../Images/Cosmetics image 1.png")}
+                              // src={require("../../Images/Cosmetics image 1.png")}
+                              src={require("../../Images/nutrat.jpeg")}
                               className="front-img img-fluid"
                             />
                           </figure>
@@ -630,7 +637,7 @@ const HomePage = () => {
           <div className="container-fluid">
             <div className="row ">
               {data.map((el, ind) => {
-                if (ind > 8 && ind < 16) {
+                if (ind > 0) {
                   return (
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
@@ -772,9 +779,9 @@ const HomePage = () => {
           <div className="container h-100 ">
             <div className="row h-100">
               <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100 ">
-                  <h1 className="trendign-head">Skin</h1>
-                  <h2 className="pl-4 product-head mb-0">Care</h2>
+                <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
+                  <h1 className="trendign-head">Skin Care</h1>
+                  {/* <h2 className="pl-4 product-head mb-0">Care</h2> */}
                 </div>
               </div>
 
@@ -786,11 +793,14 @@ const HomePage = () => {
           <div className="container-fluid">
             <div className="row">
               {data.map((el, ind) => {
-                if (
-                  (skincare < 8 && el.name == "Obloss") ||
-                  el.name == "UDC II" ||
-                  el.subcategory == "6133469ff51d5a1242de049a"
-                ) {
+                console.log("skin careee outside", data);
+                // if (
+                //   (ind > 0  && el.name == "Obloss") ||
+                //   el.name == "UDC II" ||
+                //   el.subcategory == "6133469ff51d5a1242de049a"
+                // ) {
+                if (ind > 0 && el.category.name == "Skin Care") {
+                  console.log("skin careee inside", el);
                   skincare = skincare + 1;
                   return (
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
@@ -929,12 +939,12 @@ const HomePage = () => {
           </div>
         </section>
         <div className="container-fluid mb-5 trending-section align-items-center justify-content-center">
-          <div className="row h-100 ">
+          <div className="">
             <div className="container p-0">
               <div className=" p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100">
-                  <h1 className="trendign-head">Selling</h1>
-                  <h2 className="pl-4 product-head mb-0">Brands</h2>
+                <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
+                  <h1 className="trendign-head">Selling Brands</h1>
+                  {/* <h2 className="pl-4 product-head mb-0">Brands</h2> */}
                 </div>
               </div>
             </div>
@@ -946,23 +956,27 @@ const HomePage = () => {
             <div className="container">
               <div className=" section-title"></div>
               <div className="row align-items-center">
-                {Manufactureres && Manufactureres.length > 0 && Manufactureres.map((el, ind) => (
-                  <div className="col-lg-2 col-sm-4 col-md-2 col-6">
-                    <Link to={"/ProductByManufacturer/" + el.name}>
-                      <div className="single-brands-item">
-                        <a className="d-block" href="#">
-                          {" "}
-                          <img
-                            src={el.image && el.image.length > 0 ?
-                              //"http://144.91.110.221:3033/" + el.image[0].path : ""
-                              "http://localhost:3033/" + el.image[0].path : ""
-                            }
-                          />
-                        </a>
-                      </div>
-                    </Link>
-                  </div>
-                ))}
+                {Manufactureres &&
+                  Manufactureres.length > 0 &&
+                  Manufactureres.map((el, ind) => (
+                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                      <Link to={"/ProductByManufacturer/" + el.name}>
+                        <div className="single-brands-item">
+                          <a className="d-block" href="#">
+                            {" "}
+                            <img
+                              src={
+                                el.image && el.image.length > 0
+                                  ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
+                                    "http://localhost:3033/" + el.image[0].path
+                                  : ""
+                              }
+                            />
+                          </a>
+                        </div>
+                      </Link>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -972,24 +986,43 @@ const HomePage = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="mobile-main">
-                  <div><h3 className="trending-head text-start">Download the medicine mobile app</h3>
-                    <div><p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p></div></div>
+                  <div>
+                    <h3 className="trending-head text-start">
+                      Download the medicine mobile app
+                    </h3>
+                    <div>
+                      <p id="para">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in
+                      </p>
+                    </div>
+                  </div>
                   <div className="btn-div">
-                    <button type="button" class="btn btn-primary" id="btn-1">Primary</button>
-                    <button type="button" class="btn btn-primary ms-3" id="btn-2">Primary</button>
+                    <button type="button" className="btn btn-primary" id="btn-1">
+                      Primary
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-primary ms-3"
+                      id="btn-2"
+                    >
+                      Primary
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="col-6">
+              <div className="col-6">
                 <div className="img-div">
-                  <div class="contact-image text-center"><img id="img" src={Mobile} alt="image" /></div>
+                  <div className="contact-image text-center">
+                    <img id="img" src={Mobile} alt="image" />
+                  </div>
                 </div>
               </div>
             </div>
-
-
-
-
           </div>
         </section>
       </div>
