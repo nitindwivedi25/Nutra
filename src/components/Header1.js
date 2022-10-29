@@ -289,34 +289,34 @@ const Header1 = (props) => {
       {/* sidebar Modal */}
       {/* <!-- Modal --> */}
       <div
-        class="modal left fade"
+        className="modal left fade"
         id="myModal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="myModalLabel"
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title" id="myModalLabel">
                 Categories
               </h4>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div className="modal-body">
+              <div className="accordion accordion-flush" id="accordionFlushExample">
                 {subcategories &&
                   subcategories.length > 0 &&
                   subcategories.map((el, ind) => (
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id="flush-headingOne">
                         <Link to={"/Subcategories/" + el._id}>
                           <div
                             className="d-flex align-items-center"
@@ -324,14 +324,14 @@ const Header1 = (props) => {
                             aria-label="Close"
                           >
                             <img
-                              class="icons1"
+                              className="icons1"
                               src={
                                 //"http://144.91.110.221:3033/" + el.image[0].path
                                 "http://localhost:3033/" + el.image[0].path
                               }
                             />
                             <button
-                              class="accordion-button collapsed button"
+                              className="accordion-button collapsed button"
                               type="button"
                               data-bs-toggle="collapse"
                               data-bs-target="#flush-collapseOne"
@@ -343,8 +343,8 @@ const Header1 = (props) => {
                           </div>
                         </Link>
                       </h2>
-                      {/* <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">
+                      {/* <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">
                         <ul>
                            <li>1</li>
                            <li>2</li>
@@ -355,17 +355,17 @@ const Header1 = (props) => {
                   </div> */}
                     </div>
                   ))}
-                {/* <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
+                {/* <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingTwo">
                      <div className="d-flex align-items-center">
-                        <img class="icons1" src={require('../Images/Icons/liver-1.png')}/>
-                        <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <img className="icons1" src={require('../Images/Icons/liver-1.png')}/>
+                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                         Liver
                         </button>
                      </div>
                   </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">
+                  <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">
                         <ul>
                            <li>1</li>
                            <li>2</li>
@@ -375,17 +375,17 @@ const Header1 = (props) => {
                      </div>
                   </div>
                </div>
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
+               <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingThree">
                      <div className="d-flex align-items-center">
-                        <img class="icons1" src={require('../Images/Icons/infection-1.png')}/>
-                        <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <img className="icons1" src={require('../Images/Icons/infection-1.png')}/>
+                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                         Viral Infection
                         </button>
                      </div>
                   </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">
+                  <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">
                         <ul>
                            <li>1</li>
                            <li>2</li>
@@ -395,42 +395,42 @@ const Header1 = (props) => {
                      </div>
                   </div>
                </div>
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingFour">
+               <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingFour">
                      <div className="d-flex align-items-center">
-                        <img class="icons1" src={require('../Images/Icons/immune-1.png')}/>
-                        <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <img className="icons1" src={require('../Images/Icons/immune-1.png')}/>
+                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                         Immunity   
                         </button>
                      </div>
                   </h2>
-                  <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                   </div>
                </div>
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingFive">
+               <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingFive">
                      <div className="d-flex align-items-center">
-                        <img class="icons1" src={require('../Images/Icons/heartbeat-1.png')}/>
-                        <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                        <img className="icons1" src={require('../Images/Icons/heartbeat-1.png')}/>
+                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                         Health    </button>
                      </div>
                   </h2>
-                  <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                   </div>
                </div>
-               <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingSix">
+               <div className="accordion-item">
+                  <h2 className="accordion-header" id="flush-headingSix">
                      <div className="d-flex align-items-center">
-                        <img class="icons1" src={require('../Images/Icons/categories-1.png')}/>
-                        <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                        <img className="icons1" src={require('../Images/Icons/categories-1.png')}/>
+                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                         Other Products
                         </button>
                      </div>
                   </h2>
-                  <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                   </div>
                </div>
                */}
@@ -443,17 +443,17 @@ const Header1 = (props) => {
       <div className="container-fluid top-nav">
         {/* login Register Modal  */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="row pt-4 ">
-                  <div class="col-6 logiRegisterHeader1 pr-0">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-body">
+                <div className="row pt-4 ">
+                  <div className="col-6 logiRegisterHeader1 pr-0">
                     <h3
                       onClick={() => {
                         setRegisterModal(false);
@@ -463,7 +463,7 @@ const Header1 = (props) => {
                       Login
                     </h3>
                   </div>
-                  <div class="col-6 logiRegisterHeader2 pl-0">
+                  <div className="col-6 logiRegisterHeader2 pl-0">
                     <h3
                       onClick={() => {
                         setRegisterModal(true);
@@ -474,35 +474,35 @@ const Header1 = (props) => {
                     </h3>
                   </div>
                   {registerModal ? (
-                    <div class="col-lg-12 logiRegisterContentDiv">
-                      <div class="form-row">
-                        <div class="form-group col-lg-12">
+                    <div className="col-lg-12 logiRegisterContentDiv">
+                      <div className="form-row">
+                        <div className="form-group col-lg-12">
                           <label>
                             Username<span>*</span>
                           </label>
                           <input
                             type="text"
-                            class="form-control "
+                            className="form-control "
                             required
                             onChange={(e) => {
                               setUsername(e.target.value);
                             }}
                           />
                         </div>
-                        <div class="form-group col-lg-12">
+                        <div className="form-group col-lg-12">
                           <label>
                             Email<span>*</span>
                           </label>
                           <input
                             type="email"
-                            class="form-control "
+                            className="form-control "
                             required
                             onChange={(e) => {
                               setemail(e.target.value);
                             }}
                           />
                         </div>
-                        <div class="form-group col-lg-12">
+                        <div className="form-group col-lg-12">
                           <label>
                             Password<span>*</span>
                           </label>
@@ -515,7 +515,7 @@ const Header1 = (props) => {
                             }}
                           />
                         </div>
-                        <div class="form-group col-lg-12">
+                        <div className="form-group col-lg-12">
                           <label>
                             Confirm Password<span>*</span>
                           </label>
@@ -529,12 +529,12 @@ const Header1 = (props) => {
                           />
                         </div>
                         <h5 className="Login-fail-msg">{regmsg}</h5>
-                        {/* <div class="form-group col-lg-12">
+                        {/* <div className="form-group col-lg-12">
                            <span>Register Sucessfully</span>
                         </div> */}
-                        <div class="form-group col-lg-12">
+                        <div className="form-group col-lg-12">
                           <button
-                            class="btn btn-success btn-lg"
+                            className="btn btn-success btn-lg"
                             onClick={(e) => {
                               RegisterUser(e);
                             }}
@@ -545,27 +545,27 @@ const Header1 = (props) => {
                       </div>
                     </div>
                   ) : (
-                    <div class="col-lg-12 logiRegisterContentDiv">
-                      <div class="form-row">
-                        <div class="form-group col-lg-12">
+                    <div className="col-lg-12 logiRegisterContentDiv">
+                      <div className="form-row">
+                        <div className="form-group col-lg-12">
                           <label>
                             Username<span>*</span>
                           </label>
                           <input
-                            class="form-control "
+                            className="form-control "
                             onChange={(e) => {
                               setUsername(e.target.value);
                             }}
                             required
                           />
                         </div>
-                        <div class="form-group col-lg-12">
+                        <div className="form-group col-lg-12">
                           <label>
                             Password<span>*</span>
                           </label>
                           <input
                             type="password"
-                            class="form-control "
+                            className="form-control "
                             onChange={(e) => {
                               setPassword(e.target.value);
                             }}
@@ -573,9 +573,9 @@ const Header1 = (props) => {
                           />
                         </div>
                         <h5 className="Login-fail-msg">{msg}</h5>
-                        <div class="form-group col-lg-12 justify-content-center">
+                        <div className="form-group col-lg-12 justify-content-center">
                           <button
-                            class="btn btn-success btn-lg"
+                            className="btn btn-success btn-lg"
                             onClick={(e) => {
                               LoginUser(e);
                             }}
@@ -598,7 +598,7 @@ const Header1 = (props) => {
         {/* Logo div */}
         <div className="row top-header-padding px-4" >
           <div className="col-sm-3">
-            <Link class="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/">
               <img
                 src={require("../Images/new-logo.png")}
                 alt="logo"
@@ -611,10 +611,10 @@ const Header1 = (props) => {
           <div className="col-sm-1">
             <div className="row login-div mt-4">
               <div className="col-sm-1">
-                <div class="option-item">
-                  <div class="cart-btn">
+                <div className="option-item">
+                  <div className="cart-btn">
                     <Link to="/Ordered">
-                      <i class="bx bx-user"></i>
+                      <i className="bx bx-user"></i>
                     </Link>
                   </div>
                 </div>
@@ -646,9 +646,9 @@ const Header1 = (props) => {
                       Account
                     </span>
                     <br />
-                    <div class="dropdown">
+                    <div className="dropdown">
                       <button
-                        class="btn btn-white btn-sm dropdown-toggle"
+                        className="btn btn-white btn-sm dropdown-toggle"
                         type="button"
                         id="dropdownMenuButton1"
                         data-bs-toggle="dropdown"
@@ -658,14 +658,14 @@ const Header1 = (props) => {
                       </button>
 
                       <ul
-                        class="dropdown-menu Logout-ul"
+                        className="dropdown-menu Logout-ul"
                         aria-labelledby="dropdownMenuButton1"
                       >
                         <Link to="/Ordered">
                           <div className="Logout-div d-flex align-items-center">
                             <i className="bx bx-file pl-2"></i>{" "}
                             <li
-                              class="dropdown-item Logout-li"
+                              className="dropdown-item Logout-li"
                               style={{ cursor: "pointer" }}
                             >
                               <Link to="/Ordered">
@@ -678,7 +678,7 @@ const Header1 = (props) => {
                           <div className="Logout-div d-flex align-items-center">
                             <i className="bx bx-cart pl-2"></i>{" "}
                             <li
-                              class="dropdown-item Logout-li"
+                              className="dropdown-item Logout-li"
                               style={{ cursor: "pointer" }}
                             >
                               <span className="pr-4">Cart</span>
@@ -689,7 +689,7 @@ const Header1 = (props) => {
                           <div className="Logout-div d-flex align-items-center">
                             <i className="bx bx-heart pl-2"></i>{" "}
                             <li
-                              class="dropdown-item Logout-li"
+                              className="dropdown-item Logout-li"
                               style={{ cursor: "pointer" }}
                             >
                               <span className="pr-4">Wishlist</span>
@@ -699,7 +699,7 @@ const Header1 = (props) => {
                         <div className="Logout-div d-flex align-items-center">
                           <i className="bx bx-log-out pl-2"></i>{" "}
                           <li
-                            class="dropdown-item Logout-li"
+                            className="dropdown-item Logout-li"
                             style={{ cursor: "pointer" }}
                             onClick={() => {
                               logout();
@@ -721,10 +721,10 @@ const Header1 = (props) => {
             <Link to="/WishList">
               <div className="row login-div mt-4">
                 <div className="col-sm-2">
-                  <div class="option-item">
-                    <div class="cart-btn">
+                  <div className="option-item">
+                    <div className="cart-btn">
                       <Link to="/Ordered">
-                        <i class="bx bx-heart"></i>
+                        <i className="bx bx-heart"></i>
                       </Link>
                     </div>
                   </div>
@@ -743,9 +743,9 @@ const Header1 = (props) => {
             <Link to="/cart">
               <div className="row login-div1 mt-4">
                 <div className="col-sm-1">
-                  <div class="option-item">
-                    <div class="cart-btn">
-                      <i class="bx bx-cart"></i>
+                  <div className="option-item">
+                    <div className="cart-btn">
+                      <i className="bx bx-cart"></i>
                     </div>
                   </div>
                 </div>
@@ -775,7 +775,7 @@ const Header1 = (props) => {
                   className="search mr-1"
                   onClick={() => searchData(search)}
                 >
-                  <i class="bx bx-search-alt"></i>
+                  <i className="bx bx-search-alt"></i>
                 </button>
               </Link>
             </div>
@@ -785,7 +785,7 @@ const Header1 = (props) => {
           <div className="col-sm-1 d-flex align-items-center currancy">
             <select>
               <option>INR</option>
-              <i class="bx bx-chevron-down"></i>
+              <i className="bx bx-chevron-down"></i>
 
               <option>Dollar</option>
             </select>
@@ -800,7 +800,7 @@ const Header1 = (props) => {
               <div>
                 <div className="category ">
                   <i
-                    class="fa fa-bars collapse-btn"
+                    className="fa fa-bars collapse-btn"
                     data-bs-toggle="modal"
                     data-bs-target="#myModal"
                   ></i>
@@ -812,10 +812,10 @@ const Header1 = (props) => {
             </div>
           </div>
           <div className="col-10">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <div class="container-fluid">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <div className="container-fluid">
                 <button
-                  class="navbar-toggler"
+                  className="navbar-toggler"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#navbarTogglerDemo03"
@@ -823,30 +823,30 @@ const Header1 = (props) => {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span class="navbar-toggler-icon"></span>
+                  <span className="navbar-toggler-icon"></span>
                 </button>
                 <div
-                  class="collapse navbar-collapse Home-navbar"
+                  className="collapse navbar-collapse Home-navbar"
                   id="navbarTogglerDemo03"
                 >
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0  ml-5">
-                    <li class="nav-item">
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0  ml-5">
+                    <li className="nav-item">
                       <Link
-                        class="nav-link nav-heading"
+                        className="nav-link nav-heading"
                         aria-current="page"
                         to="/"
                       >
                         Home
                       </Link>
                     </li>
-                    <li class="nav-item">
-                      <Link class="nav-link nav-heading" href="#">
+                    <li className="nav-item">
+                      <Link className="nav-link nav-heading" to="/AllProducts">
                         Shop
                       </Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <Link
-                        class="nav-link nav-heading"
+                        className="nav-link nav-heading"
                         to="/ContactUs"
                         tabindex="-1"
                         aria-disabled="true"
@@ -854,9 +854,9 @@ const Header1 = (props) => {
                         Contact
                       </Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
-                        class="nav-link nav-heading"
+                        className="nav-link nav-heading"
                         href="#"
                         tabindex="-1"
                         aria-disabled="true"
@@ -866,7 +866,7 @@ const Header1 = (props) => {
                     </li>
                   </ul>
                   <img
-                    class="icons2"
+                    className="icons2"
                     src={require("../Images/Icons/akar-icons_phone.png")}
                   />{" "}
                   <span className="contact">+91-7055872014</span>
@@ -885,18 +885,18 @@ const Header1 = (props) => {
         <div className="row side-nav">
           {/* 
       <div className="col-sm-2  pd-0 insideNav" >
-         <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingOne">
+         <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingOne">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/face-1.png')}/>  
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                     <img className="icons1" src={require('../Images/Icons/face-1.png')}/>  
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                      Skin Care
                      </button>
                   </div>
                </h2>
-               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+               <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                      <ul>
                         <li>1</li>
                         <li>2</li>
@@ -906,17 +906,17 @@ const Header1 = (props) => {
                   </div>
                </div>
             </div>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingTwo">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingTwo">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/liver-1.png')}/>
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                     <img className="icons1" src={require('../Images/Icons/liver-1.png')}/>
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                      Liver
                      </button>
                   </div>
                </h2>
-               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+               <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                      <ul>
                         <li>1</li>
                         <li>2</li>
@@ -926,17 +926,17 @@ const Header1 = (props) => {
                   </div>
                </div>
             </div>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingThree">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingThree">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/infection-1.png')}/>
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                     <img className="icons1" src={require('../Images/Icons/infection-1.png')}/>
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                      Viral Infection
                      </button>
                   </div>
                </h2>
-               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+               <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                      <ul>
                         <li>1</li>
                         <li>2</li>
@@ -946,42 +946,42 @@ const Header1 = (props) => {
                   </div>
                </div>
             </div>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingFour">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingFour">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/immune-1.png')}/>
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                     <img className="icons1" src={require('../Images/Icons/immune-1.png')}/>
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                      Immunity   
                      </button>
                   </div>
                </h2>
-               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+               <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingFive">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingFive">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/heartbeat-1.png')}/>
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                     <img className="icons1" src={require('../Images/Icons/heartbeat-1.png')}/>
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                      Health    </button>
                   </div>
                </h2>
-               <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+               <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingSix">
+            <div className="accordion-item">
+               <h2 className="accordion-header" id="flush-headingSix">
                   <div className="d-flex align-items-center">
-                     <img class="icons1" src={require('../Images/Icons/categories-1.png')}/>
-                     <button class="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                     <img className="icons1" src={require('../Images/Icons/categories-1.png')}/>
+                     <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                      Other Products
                      </button>
                   </div>
                </h2>
-               <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+               <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
          </div>
@@ -1013,7 +1013,7 @@ const Header1 = (props) => {
                   className="search mr-1"
                   onClick={() => searchData(search)}
                 >
-                  <i class="bx bx-search-alt"></i>
+                  <i className="bx bx-search-alt"></i>
                 </button>
               </Link>
             </div>
@@ -1033,9 +1033,9 @@ const Header1 = (props) => {
               <i className="bx bx-log-in"></i>
             </Link>
           ) : (
-            <div class="dropdown">
+            <div className="dropdown">
               <button
-                class="btn btn-white btn-sm dropdown-toggle"
+                className="btn btn-white btn-sm dropdown-toggle"
                 type="button"
                 id="dropdownMenuButton1"
                 data-bs-toggle="dropdown"
@@ -1045,14 +1045,14 @@ const Header1 = (props) => {
               </button>
 
               <ul
-                class="dropdown-menu Logout-ul"
+                className="dropdown-menu Logout-ul"
                 aria-labelledby="dropdownMenuButton1"
               >
                 <Link to="/Ordered">
                   <div className="Logout-div d-flex align-items-center">
                     <i className="bx bx-file pl-2"></i>{" "}
                     <li
-                      class="dropdown-item Logout-li"
+                      className="dropdown-item Logout-li"
                       style={{ cursor: "pointer" }}
                     >
                       <span className="pr-4">Orders</span>
@@ -1063,7 +1063,7 @@ const Header1 = (props) => {
                   <div className="Logout-div d-flex align-items-center">
                     <i className="bx bx-cart pl-2"></i>{" "}
                     <li
-                      class="dropdown-item Logout-li"
+                      className="dropdown-item Logout-li"
                       style={{ cursor: "pointer" }}
                     >
                       <span className="pr-4">Cart</span>
@@ -1074,7 +1074,7 @@ const Header1 = (props) => {
                   <div className="Logout-div d-flex align-items-center">
                     <i className="bx bx-heart pl-2"></i>{" "}
                     <li
-                      class="dropdown-item Logout-li"
+                      className="dropdown-item Logout-li"
                       style={{ cursor: "pointer" }}
                     >
                       <span className="pr-4">Wishlist</span>
@@ -1084,7 +1084,7 @@ const Header1 = (props) => {
                 <div className="Logout-div d-flex align-items-center">
                   <i className="bx bx-log-out pl-2"></i>{" "}
                   <li
-                    class="dropdown-item Logout-li"
+                    className="dropdown-item Logout-li"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       logout();
@@ -1102,13 +1102,13 @@ const Header1 = (props) => {
       {/* end phone top-navbar */}
 
       {/* phone main-navbar */}
-      <nav class="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar">
-        <div class="container-fluid">
-          <Link to="/" class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand" href="#">
             <img className="pl-2" src={require("../Images/logo1.png")} />
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -1116,33 +1116,33 @@ const Header1 = (props) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 ml-3 mb-lg-0 mobile-nav-list">
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 ml-3 mb-lg-0 mobile-nav-list">
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Shop
                 </a>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/ContactUs">
+              <li className="nav-item">
+                <Link className="nav-link" to="/ContactUs">
                   Contact Us
                 </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Blog
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -1151,10 +1151,10 @@ const Header1 = (props) => {
                 >
                   Category
                 </a>
-                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu " aria-labelledby="navbarDropdown">
                   {categories.map((el, ind) => (
                     <li>
-                      <Link class="dropdown-item" to={"/AllCategory/" + el._id}>
+                      <Link className="dropdown-item" to={"/AllCategory/" + el._id}>
                         {el.name}
                       </Link>
                     </li>
@@ -1162,9 +1162,9 @@ const Header1 = (props) => {
                 </ul>
               </li>
 
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -1173,13 +1173,13 @@ const Header1 = (props) => {
                 >
                   Sub Category
                 </a>
-                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu " aria-labelledby="navbarDropdown">
                   {subcategories.map((el, ind) => (
                     <li>
                       {" "}
                       <Link
                         to={"/Subcategories/" + el._id}
-                        class="dropdown-item"
+                        className="dropdown-item"
                       >
                         {el.name}
                       </Link>

@@ -40,17 +40,17 @@ const Checkout=()=>{
     return(
         <>
         <Header1/>
-        <div class="first-nav container-fluid"><span><Link to="/">Home</Link>/CheckOut</span></div>
-        <section class="checkout-area ptb-70">
-            <div class="container">
-               {/* <div class="user-actions"><i class="bx bx-log-in"></i><span>Returning customer? <a href="auth.html">Click here to login</a></span></div> */}
+        <div className="first-nav container-fluid"><span><Link to="/">Home</Link>/CheckOut</span></div>
+        <section className="checkout-area ptb-70">
+            <div className="container">
+               {/* <div className="user-actions"><i className="bx bx-log-in"></i><span>Returning customer? <a href="auth.html">Click here to login</a></span></div> */}
                <form>
-                  <div class="row">
-                     <div class="col-lg-12 col-md-12">
-                        <div class="order-details">
-                           <h3 class="title">Your Order</h3>
-                           <div class="order-table table-responsive">
-                              <table class="table table-bordered">
+                  <div className="row">
+                     <div className="col-lg-12 col-md-12">
+                        <div className="order-details">
+                           <h3 className="title">Your Order</h3>
+                           <div className="order-table table-responsive">
+                              <table className="table table-bordered">
                                  <thead>
                                  
                                     <tr>
@@ -77,28 +77,28 @@ const Checkout=()=>{
                                 </tbody>
                         </table>
                         <br/>
-                        <table class="table table-bordered">
+                        <table className="table table-bordered">
                         <tbody>
 
 
                         <tr>
-                                       <td class="order-subtotal"><span>Cart Subtotal</span></td>
-                                       <td class="order-subtotal-price">
-                                          <span class="order-subtotal-amount">
+                                       <td className="order-subtotal"><span>Cart Subtotal</span></td>
+                                       <td className="order-subtotal-price">
+                                          <span className="order-subtotal-amount">
                                             {Subtotal1}
                                           </span>
                                        </td>
                                 
                                 </tr>
                                    {/* <tr>
-                                       <td class="order-shipping"><span>Shipping</span></td>
-                                       <td class="shipping-price"><span>$10.00</span></td>
+                                       <td className="order-shipping"><span>Shipping</span></td>
+                                       <td className="shipping-price"><span>$10.00</span></td>
                                     </tr>
                                     */}
                                     <tr>
-                                       <td class="total-price"><span>Order Total</span></td>
-                                       <td class="product-subtotal">
-                                          <span class="subtotal-amount">
+                                       <td className="total-price"><span>Order Total</span></td>
+                                       <td className="product-subtotal">
+                                          <span className="subtotal-amount">
                                           {Subtotal1}
                                           </span>
                                        </td>
@@ -106,7 +106,7 @@ const Checkout=()=>{
                                  </tbody>
                               </table>
                            </div>
-                           <div class="payment-box"><Link class="default-btn" to={"/UserDetails/"+ _id}><i class="flaticon-tick"></i>Place Your Order <span></span></Link></div>
+                           <div className="payment-box"><Link className="default-btn" to={"/UserDetails/"+ _id}><i className="flaticon-tick"></i>Place Your Order <span></span></Link></div>
                         </div>
                      </div>
                   </div>

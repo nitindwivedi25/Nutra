@@ -31,6 +31,7 @@ const SingleProduct = (props) => {
     Userdata = JSON.parse(localStorage.getItem("Userdata"));
     console.log(Userdata, "sadbhksabdhk");
 
+    window.scrollTo(0, 0)
     Getsingledata();
     CartById();
     ProductByCategory();
@@ -472,23 +473,26 @@ const SingleProduct = (props) => {
   return (
     <>
       <Header1 />
-      <div class="first-nav container-fluid">
+      <div className="first-nav container-fluid">
         <span>
           <Link to="/">Home</Link>/
           <Link to={"/Allcategory/" + data.category}>{categoryname}</Link>/
           {data.name}
         </span>
       </div>
-      <div class="container-fluid product-div mt-5">
-        <div class="row ">
-          {/* <div className="col-sm-1"></div> */}
+      <div className="container-fluid product-div mt-5">
+        <div className="row ">
+          {/* <div className="col-sm-1"></div> */ console.log("single product page hun", data.image && data.image[0].path) }         
 
-          <div class="col-sm-6 pd-0 picture-div justify-content-center align-items-center ">
+          <div className="col-sm-6 pd-0 picture-div justify-content-center align-items-center ">
             <div className="single-img-div justify-content-center align-items-center d-flex">
               {" "}
-              {data.image !== undefined ? (
-                <img src={require("../../src/Images/products/facewash1.png")} />
-              ) : null}
+              {data.image ? (
+                <img src={
+                  //"http://144.91.110.221:3033/" +
+                  "http://localhost:3033/" + data.image[0].path
+                } />
+              ) :  <img src={require("../../src/Images/products/facewash1.png")} /> }
             </div>
             {/* <ReactImageZoom {...ImageData} /> */}
 
@@ -526,15 +530,15 @@ const SingleProduct = (props) => {
             {/* phone single page caresouel */}
             <div
               id="carouselExampleIndicators"
-              class="carousel slide single-page-caresouel"
+              className="carousel slide single-page-caresouel"
               data-bs-ride="carousel"
             >
-              <div class="carousel-indicators">
+              <div className="carousel-indicators">
                 <button
                   type="button"
                   data-bs-target="#carouselExampleIndicators"
                   data-bs-slide-to="0"
-                  class="active"
+                  className="active"
                   aria-current="true"
                   aria-label="Slide 1"
                 ></button>
@@ -551,54 +555,54 @@ const SingleProduct = (props) => {
                   aria-label="Slide 3"
                 ></button>
               </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
+              <div className="carousel-inner">
+                <div className="carousel-item active">
                   <img
                     src={require("../../src/Images/products/facewash1.png")}
                   />
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
                     src={require("../../src/Images/products/facewash1.png")}
                   />
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
                     src={require("../../src/Images/products/facewash1.png")}
                   />
                 </div>
               </div>
               <button
-                class="carousel-control-prev"
+                className="carousel-control-prev"
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev"
               >
                 <span
-                  class="carousel-control-prev-icon"
+                  className="carousel-control-prev-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Previous</span>
+                <span className="visually-hidden">Previous</span>
               </button>
               <button
-                class="carousel-control-next"
+                className="carousel-control-next"
                 type="button"
                 data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="next"
               >
                 <span
-                  class="carousel-control-next-icon"
+                  className="carousel-control-next-icon"
                   aria-hidden="true"
                 ></span>
-                <span class="visually-hidden">Next</span>
+                <span className="visually-hidden">Next</span>
               </button>
             </div>
 
             {/* end phone single page careousel */}
           </div>
-          <div class="col-sm-6 content-div">
-            <div class="row ml-2">
-              <div class="details pt-2">
+          <div className="col-sm-6 content-div">
+            <div className="row ml-2">
+              <div className="details pt-2">
                 <span>{data.name}</span>
               </div>
               <div className="pt-2 pb-2">
@@ -614,13 +618,13 @@ const SingleProduct = (props) => {
                 <span>MRP (incl. of all taxes)</span>
               </div>
 
-              <div class="price pt-2">
+              <div className="price pt-2">
                 <span className="price-detail">
                   ₹899 <del>1000</del> <span>10% OFF</span>
                 </span>
               </div>
 
-              <div class="List pt-1">
+              <div className="List pt-1">
                 <ul>
                   <li>Balances Skin pH levels</li>
                   <li>Restructures and shrinks pores</li>
@@ -630,33 +634,33 @@ const SingleProduct = (props) => {
                 </ul>
               </div>
             </div>
-            <div class="row pt-2 pb-3 add ml-2">
+            <div className="row pt-2 pb-3 add ml-2">
               {/* wishlist animation */}
-              {/* <div class="stage">
-                 <div class="heart"></div>
+              {/* <div className="stage">
+                 <div className="heart"></div>
                   </div> */}
 
               {/* end Wishlist animation */}
-              <div class="wishlist">
-                <i class="search-btn bx bx-category-alt ml-1"></i>
+              <div className="wishlist">
+                <i className="search-btn bx bx-category-alt ml-1"></i>
                 <span className="ml-1">
                   Category: <span> Skin Care</span>
                 </span>
                 &nbsp; <span className="pl-2">Share:</span>
                 <a href="https://www.facebook.com/Nutrazik" target="_blank">
-                  <i class="search-btn bx bxl-facebook "></i>
+                  <i className="search-btn bx bxl-facebook "></i>
                 </a>
                 <a href="https://www.instagram.com/soulnutra/" target="_blank">
-                  <i class="search-btn bx bxl-instagram "></i>
+                  <i className="search-btn bx bxl-instagram "></i>
                 </a>
                 <a href="https://twitter.com/nutrazik" target="_blank">
-                  <i class="search-btn bx bxl-twitter "></i>
+                  <i className="search-btn bx bxl-twitter "></i>
                 </a>
                 <a
                   href="https://www.linkedin.com/company/70941207/admin/"
                   target="_blank"
                 >
-                  <i class="search-btn bx bxl-linkedin "></i>
+                  <i className="search-btn bx bxl-linkedin "></i>
                 </a>
               </div>
             </div>
@@ -684,7 +688,7 @@ const SingleProduct = (props) => {
                   onClick={() => setQuantity(quantity + 1)}
                 ></i>
               </div>
-              <div class="add-to-cart mt-1">
+              <div className="add-to-cart mt-1">
                 <button
                   onClick={() => {
                     {
@@ -752,27 +756,27 @@ const SingleProduct = (props) => {
           </div>
         </div>
       </div>
-      <div class="container-fluid description">
-        <div class="row main-div p-4">
+      <div className="container-fluid description">
+        <div className="row main-div p-4">
           <div>
-            <div class="row heading mt-4 jutify-content-center align-items-center">
-              <div class="col-sm-1"></div>
-              <div class="col-sm-2 text-center title" id="Description">
+            <div className="row heading mt-4 jutify-content-center align-items-center">
+              <div className="col-sm-1"></div>
+              <div className="col-sm-2 text-center title" id="Description">
                 <button className="button2">Description</button>
               </div>
-              <div class="col-sm-2 text-center title " id="Review">
+              <div className="col-sm-2 text-center title " id="Review">
                 <button className="button1">Review</button>
               </div>
-              <div class="col-sm-2 text-center title" id="Technical">
+              <div className="col-sm-2 text-center title" id="Technical">
                 <button className="button1">Add a Review</button>
               </div>
-              <div class="col-sm-3"></div>
+              <div className="col-sm-3"></div>
             </div>
-            <div class="row content1">
-              <div class="container p-5  text" id="Descriptiondiv">
+            <div className="row content1">
+              <div className="container p-5  text" id="Descriptiondiv">
                 <span>{data.description}</span>
               </div>
-              <div class="container p-5  text " id="Reviewdiv">
+              <div className="container p-5  text " id="Reviewdiv">
                 <div className="row ">
                   <div className="col-4">
                     <div className="start-div">
@@ -861,7 +865,7 @@ const SingleProduct = (props) => {
                   </div>
                 </div>
               </div>
-              <div class="container p-5  text" id="Technicaldiv">
+              <div className="container p-5  text" id="Technicaldiv">
                 <div className="row">
                   <div className="col-4 "></div>
                   <div className="col-5 add-review-div">
@@ -905,13 +909,13 @@ const SingleProduct = (props) => {
           </div>
         </div>
       </div>
-      <div class="container-fluid p-4 relate-products text-center">
+      <div className="container-fluid p-4 relate-products text-center">
         <div className="row relate-product">
           <div className="col-3 line">
             <hr className="hr"></hr>
           </div>
           <div className="col-6">
-            <div class="row related">
+            <div className="row related">
               <span>Related Products</span>
             </div>
           </div>
@@ -922,15 +926,15 @@ const SingleProduct = (props) => {
         {/* Related product heading for phone view */}
         <div className="row relate-product1">
           <div className="col-12">
-            <div class="row related">
+            <div className="row related">
               <span>Related Products</span>
             </div>
           </div>
         </div>
         {/* End Related product heading for phone view */}
       </div>
-      <div class="container-fluid p-4 products">
-        <div class="row products-row  ">
+      <div className="container-fluid p-4 products">
+        <div className="row products-row  ">
           {AllProduct.map((item, index) => {
             if (related < 4 && ProductCategory == item.category.name) {
               related = related + 1;
@@ -975,11 +979,11 @@ const SingleProduct = (props) => {
                             </h3>
                           </Link>
                           <div className="d-flex pb-2 pl-4">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
+                            <i className="bx bxs-star"></i>
                           </div>
                           <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
                             <div className="discount-price-div">
@@ -1055,8 +1059,8 @@ const SingleProduct = (props) => {
                           {/* <div className="row">
                               
                               <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i class='bx bx-heart' ></i>Wishlist</p>
-                              <div class="icon-wishlist"></div>
+                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
+                              <div className="icon-wishlist"></div>
                               </div>
                            </div> */}
                         </div>
@@ -1097,38 +1101,38 @@ const SingleProduct = (props) => {
 
         <div className="review-sec-mobile" id="commtent-div">
           <section id="testimonials">
-            <div class="testimonial-heading">
+            <div className="testimonial-heading">
               <span>Comments</span>
             </div>
 
-            <div class="testimonial-box-container">
-              <div class="testimonial-box">
-                <div class="box-top">
-                  <div class="profile">
-                    <div class="profile-img">
+            <div className="testimonial-box-container">
+              <div className="testimonial-box">
+                <div className="box-top">
+                  <div className="profile">
+                    <div className="profile-img">
                       <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
                     </div>
 
-                    <div class="name-user">
+                    <div className="name-user">
                       <strong>Barry Allen</strong>
-                      <div class="reviews">
+                      <div className="reviews">
                         <span>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="far fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="far fa-star"></i>
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div class="date">
+                  <div className="date">
                     <span>22/09/2021</span>
                   </div>
                 </div>
 
-                <div class="client-comment">
+                <div className="client-comment">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Exercitationem, quaerat quis? Provident temporibus
@@ -1139,34 +1143,34 @@ const SingleProduct = (props) => {
                 </div>
               </div>
             </div>
-            <div class="testimonial-box-container">
-              <div class="testimonial-box">
-                <div class="box-top">
-                  <div class="profile">
-                    <div class="profile-img">
+            <div className="testimonial-box-container">
+              <div className="testimonial-box">
+                <div className="box-top">
+                  <div className="profile">
+                    <div className="profile-img">
                       <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
                     </div>
 
-                    <div class="name-user">
+                    <div className="name-user">
                       <strong>Barry Allen</strong>
-                      <div class="reviews">
+                      <div className="reviews">
                         <span>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="far fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="far fa-star"></i>
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div class="date">
+                  <div className="date">
                     <span>22/09/2021</span>
                   </div>
                 </div>
 
-                <div class="client-comment">
+                <div className="client-comment">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Exercitationem, quaerat quis? Provident temporibus
@@ -1185,42 +1189,42 @@ const SingleProduct = (props) => {
           <h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
 
           <form id="feedback" action="">
-            <div class="pinfo">Your Email</div>
+            <div className="pinfo">Your Email</div>
 
-            <div class="form-group">
-              <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                    <i class="fa fa-envelope"></i>
+            <div className="form-group">
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon">
+                    <i className="fa fa-envelope"></i>
                   </span>
                   <input
                     name="email"
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder="john.doe@yahoo.com"
                   />
                 </div>
               </div>
             </div>
-            <div class="pinfo">Your Order id.</div>
-            <div class="form-group">
-              <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                    <i class="fa fa-globe"></i>
+            <div className="pinfo">Your Order id.</div>
+            <div className="form-group">
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon">
+                    <i className="fa fa-globe"></i>
                   </span>
                   <input
                     name="URL"
                     placeholder="Order id"
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
               </div>
             </div>
 
-            <div class="pinfo">Rate our overall services.</div>
+            <div className="pinfo">Rate our overall services.</div>
 
-            <div class="form-group">
+            <div className="form-group">
               <StarsRating
                 count={5}
                 // onChange={ratingChanged}
@@ -1230,16 +1234,16 @@ const SingleProduct = (props) => {
               />
             </div>
 
-            <div class="pinfo">Write your feedback.</div>
+            <div className="pinfo">Write your feedback.</div>
 
-            <div class="form-group">
-              <div class="col-md-4 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                    <i class="fa fa-edit"></i>
+            <div className="form-group">
+              <div className="col-md-4 inputGroupContainer">
+                <div className="input-group">
+                  <span className="input-group-addon">
+                    <i className="fa fa-edit"></i>
                   </span>
                   <textarea
-                    class="form-control"
+                    className="form-control"
                     id="review"
                     rows="3"
                   ></textarea>
@@ -1247,7 +1251,7 @@ const SingleProduct = (props) => {
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
