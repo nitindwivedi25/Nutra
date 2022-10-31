@@ -82,7 +82,8 @@ const UserDetails=(props)=>{
        await formData.append('addresstype',data.addresstype)
        await formData.append('deliverytype',data.deliverytype)
        await formData.append('username',Userdata.username)
-        const url="http://144.91.110.221:3033/api/order/add_order"
+        // const url="http://144.91.110.221:3033/api/order/add_order"
+        const url="http://localhost:3033/api/order/add_order"
                 await fetch(url,
                     {  
                          method:'POST',                  
@@ -106,7 +107,8 @@ const UserDetails=(props)=>{
     const CartById = async () => {
       if(!Userdata==[]){   
         
-        await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
+        // await fetch("http://144.91.110.221:3033/api/cart/cart_by_id", {
+          await fetch("http://localhost:3033/api/cart/cart_by_id", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -131,16 +133,9 @@ const UserDetails=(props)=>{
       };   
 
 
-
-
-
-
-
-
-
-
       const DeleteCart =async () => {
-        await fetch("http://144.91.110.221:3033/api/cart/delete_cart_by_id", {
+        // await fetch("http://144.91.110.221:3033/api/cart/delete_cart_by_id", {
+          await fetch("http://localhost:3033/api/cart/delete_cart_by_id", {
           method: "delete",
           headers: {
             Accept: "application/json",
@@ -152,18 +147,11 @@ const UserDetails=(props)=>{
         })
           .then((res) => res.json())
           .then(async (res) => {
-            console.log(res, "hello")
             
             })
           .catch((err) => {
-            console.log(err, "error");
           });
       };   
-
-
-
-
-
 
       console.log('initisl state', data) 
     return(

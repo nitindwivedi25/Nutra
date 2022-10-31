@@ -533,6 +533,7 @@ kbd kbd {
 }
 
 .row {
+	margin-top: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	margin-right: -15px;
@@ -17606,7 +17607,8 @@ letter-spacing: 0.50px;
 }
 
 .single-footer-widget .footer-contact-info li span {
-	color: var(--blackColor);
+	/* color: var(--blackColor); */
+	color: #1e144f;
 	font-weight: 600;
 	font-family:Poppins;
 	font-size:19px;
@@ -17652,6 +17654,7 @@ letter-spacing: 0.50px;
 	font-size: 22px;
 	position: relative;
 	padding-bottom: 5px;
+	color: #1e144f;
 	
 	
 }

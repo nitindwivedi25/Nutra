@@ -794,13 +794,13 @@ const Header1 = (props) => {
         </div>
       </div>
       <div className="container-fluid main-nav">
-        <div className="row" id="myHeader">
+        <div className="row mt-0" id="myHeader">
           <div className="col-2 drop-category pl-4 ">
-            <div className="row">
+            <div className="row mt-0">
               <div>
                 <div className="category ">
                   <i
-                    className="fa fa-bars collapse-btn"
+                    className="fa fa-bars collapse-btn pt-1"
                     data-bs-toggle="modal"
                     data-bs-target="#myModal"
                   ></i>
@@ -813,7 +813,7 @@ const Header1 = (props) => {
           </div>
           <div className="col-10">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-              <div className="container-fluid">
+              <div className="container-fluid mb-1">
                 <button
                   className="navbar-toggler"
                   type="button"
