@@ -794,9 +794,9 @@ const Header1 = (props) => {
         </div>
       </div>
       <div className="container-fluid main-nav">
-        <div className="row" id="myHeader">
+        <div className="row mt-0" id="myHeader">
           <div className="col-2 drop-category pl-4 ">
-            <div className="row">
+            <div className="row mt-0">
               <div>
                 <div className="category ">
                   <i
