@@ -147,11 +147,9 @@ const UserDetails=(props)=>{
         })
           .then((res) => res.json())
           .then(async (res) => {
-            console.log(res, "hello")
             
             })
           .catch((err) => {
-            console.log(err, "error");
           });
       };   
 

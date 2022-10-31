@@ -135,7 +135,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="col-8">
-                      <Link to="/Manufacturer">
+                      <Link to="/Orders">
                         <h6 className="cardheads">Users </h6>
                         <span className="count">{users}</span>
                       </Link>
