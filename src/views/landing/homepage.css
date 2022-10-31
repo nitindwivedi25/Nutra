@@ -15073,7 +15073,6 @@ letter-spacing: 0.50px;
     object-fit: contain;
     padding: 10px;
     border-radius: 10px;
-    background-color: #DCEFFF;
 }
 
 .col-lg-2:nth-child(6) .single-brands-item,
@@ -16040,7 +16039,7 @@ letter-spacing: 0.50px;
 }
 
 .single-facility-box {
-	margin-bottom: 30px;
+	margin: 30px 0;
 	position: relative;
 	border-right: 1px solid #212121;
 	padding-left: 62px
@@ -16051,7 +16050,7 @@ letter-spacing: 0.50px;
 	left: 0;
 	top: 0;
 	line-height: 1;
-	color: #212121;
+	color: var(--optionalColor);
 	font-size: 45px
 }
 
@@ -17577,8 +17576,8 @@ letter-spacing: 0.50px;
 } */
 
 .footer-area {
-	background-color: #f6f7fb;
-	padding-top: 60px;
+	background-color: #fff;
+	padding-top: 40px;
 }
 
 .single-footer-widget {
@@ -17586,7 +17585,13 @@ letter-spacing: 0.50px;
 }
 
 .single-footer-widget .logo {
-	margin-bottom: 20px
+	margin-bottom: 12px
+}
+.single-footer-widget .logo img
+{
+	height: 40px;
+	width: 100%;
+	object-fit: cover;
 }
 
 .single-footer-widget .footer-contact-info {
@@ -17710,6 +17715,7 @@ letter-spacing: 0.50px;
 	font-weight: 300;
 	font-family: Poppins;
 	font-size:15px;
+	border-radius: 0.25rem;
 }
 
 .single-footer-widget .newsletter-form .input-newsletter:-ms-input-placeholder {
@@ -17770,11 +17776,23 @@ letter-spacing: 0.50px;
 	margin-top: 12px;
 	padding-left: 25px;
 	padding-right: 25px;
-	background-color:#1b97ff;
-	border-radius:0;
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+	border-radius:0.25rem;
 	font-family:Poppins;
 	font-weight:500;
 	font-size: 17px;
+}
+
+.mobile-app .cat-heading
+{
+	font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    color: #1e144f;
+    padding-top: 24px;
+    margin-bottom: 0;
+	letter-spacing: 0.25px;
 }
 
 .footer-bottom-area
@@ -19005,7 +19023,7 @@ ul
   
   /* Btn 10  */
   .wrapperbtn .btn10{
-	font-family: "proxima-nova", sans-serif;
+	/* font-family: "proxima-nova", sans-serif;
 	font-weight: 800;
     border-radius: 10px;
     background-color: #1594FF;
@@ -19014,7 +19032,16 @@ ul
     padding: 6px 30px;
     font-size: 16px;
 	overflow: hidden;
-	z-index: 10;
+	z-index: 10; */
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+    border: 0;
+    padding: 8px 40px;
+    color: #fff;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;
+	border-radius: 0.25rem;
   }
   
   
@@ -19549,7 +19576,7 @@ ul
 /*----- deepak css ------ */
 .mobile-app{
 	padding: 60px 0;
-	background-color: #f6f7fb;
+	background-color: #fff;
 }
 
 
@@ -19557,8 +19584,9 @@ ul
 margin: 40px 8px 15px 0px;
 }
 .img-div #img {
-    height: 300px;
-	border-radius: 10px;
+    height: 360px;
+	object-fit: contain;
+	width: 100%;
 }
 #para{
 	line-height: 22px;
@@ -19566,15 +19594,28 @@ margin: 40px 8px 15px 0px;
 }
 
 .btn-div .btn{
-	border-radius: 20px;
-	padding: 3px 22px;
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+    border: 0;
+    padding: 8px 30px;
+    color: #fff;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 2rem;
+}
+.btn-div .btn svg
+{
+	height: auto;
+	width: 32px;
+	padding-right: 9px;
 }
 
 /* --------------prashant css for home page additional section---------------- */
 .home-banner
 {
 	padding: 70px 0;
-	background-color: #f6f7fb;
+	background-color: #fff;
 }
 /* .home-banner .home-banner-left{
 	padding-left: 40px;
