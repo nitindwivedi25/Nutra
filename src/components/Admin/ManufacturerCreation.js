@@ -188,7 +188,7 @@ const ManufacturerCreation = () => {
             <form>
               <div className="container">
                 <div className="row">
-                  <div className="col-1"></div>
+                  {/* <div className="col-1"></div> */}
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Manufacturer Creation</h5>

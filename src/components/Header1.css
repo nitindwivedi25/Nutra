@@ -206,7 +206,7 @@ color:#1e144f;
 
     margin-top: 0;
     position: relative;
-    top:8px;
+    top:2px;
 }
 .drop-category  i
 {
@@ -244,7 +244,7 @@ color:#1e144f;
   width: 0;
   margin: 0 auto;
   border: 1px solid #eee;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   
 }
