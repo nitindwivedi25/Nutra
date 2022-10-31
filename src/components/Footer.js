@@ -10,7 +10,11 @@ const Footer = () => {
             <div className="col-lg-3 col-sm-6 col-md-6">
               <div className="single-footer-widget">
                 <a className="logo d-inline-block" href="#">
-                  <img src={require("../Images/logo1.png")} alt="image" />
+                  <img
+                src={require("../Images/new-logo.png")}
+                alt="logo"
+                className="logo2"
+              />
                 </a>
                 <ul className="footer-contact-info">
                   <li>
