@@ -68,7 +68,8 @@ const Checkout=()=>{
                                     <tr>
                                        <th scope="col">{el.name}</th>
                                        <th scope="col">{el.quantity}</th>
-                                       <th scope="col">{(el.mrp - el.mrp * el.discountprice / 100) * el.quantity}</th>
+                                       {/* <th scope="col">{(el.mrp - el.mrp * el.discountprice / 100) * el.quantity}</th> */}
+                                       <th scope="col">{el.quantity * el.singleprice}</th>
                                     </tr>
                            ))}
                                  

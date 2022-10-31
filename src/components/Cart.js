@@ -138,10 +138,11 @@ const Cart = () => {
                         </thead>
                         <tbody>
                           {cart.map((el, ind1) => {
-                            total =
-                              total + (el.mrp - el.discountprice) * el.quantity;
+                            console.log("cartttttttt", cart)
+                           // total = total + (el.singleprice * el.quantity) ;
                             // (el.mrp - (el.mrp * el.discountprice) / 100) *
                             // el.quantity;
+                            total = total + (el.singleprice * el.quantity);
                             localStorage.setItem("Subtotal", total);
                             actualtotal += el.mrp * el.quantity;
                             localStorage.setItem("ActualSubtotal", actualtotal);
@@ -229,8 +230,9 @@ const Cart = () => {
                                 <td className="product-subtotal">
                                   <div className="amount">
                                     <span className="subtotal-amount mt-4">
-                                      {(el.mrp - el.discountprice) *
-                                        el.quantity}
+                                      {/* {(el.mrp - el.discountprice) *
+                                        el.quantity} */}
+                                        {total}
                                     </span>
                                   </div>
                                 </td>
@@ -273,12 +275,12 @@ const Cart = () => {
                     <h3>Cart Totals</h3>
                     <ul>
                       <li>
-                        Subtotal <span>${total}</span>
+                        Subtotal <span>{total}</span>
                       </li>
 
                       {/* <li>Shipping <span>$30.00</span></li> */}
                       <li>
-                        Total <span>${total}</span>
+                        Total <span>{total}</span>
                       </li>
                     </ul>
                     <Link

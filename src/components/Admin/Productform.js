@@ -492,7 +492,7 @@ const Productform = () => {
                           </select>
                         </div>
                         {update == false ? (
-                          <div className="col-6 p-1">
+                          <div className="col-6 pt-4">
                             <button
                               className="btn btn-primary submit"
                               onClick={(e) => submitData(e)}

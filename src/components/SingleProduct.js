@@ -255,12 +255,14 @@ const SingleProduct = (props) => {
     name,
     quantity,
     mrp,
+    singleprice,
     discount,
     description,
     category,
     manufacturer,
     image
   ) => {
+    console.log("quantity on cart", quantity)
     if (quantity > 0) {
       var merged = false;
       var newItemObj = {
@@ -269,7 +271,7 @@ const SingleProduct = (props) => {
         image: image,
         quantity: quantity,
         mrp: parseInt(mrp),
-        singleprice: parseInt(mrp),
+        singleprice: parseInt(singleprice),
         discountprice: discount,
         description: description,
         category: category,
@@ -692,12 +694,14 @@ const SingleProduct = (props) => {
                 <button
                   onClick={() => {
                     {
+                      console.log("sendimng dataaaaaaaaaaaaaa", data)
                       Userdata != null
                         ? cartfunction(
                             data._id,
                             data.name,
                             quantity,
-                            data.mrp,
+                            data.inrMrp,
+                            data.inrDiscount,
                             data.discount,
                             data.description,
                             data.category,
@@ -708,7 +712,8 @@ const SingleProduct = (props) => {
                             data._id,
                             data.name,
                             quantity,
-                            data.mrp,
+                            data.inrMrp,
+                            data.inrDiscount,
                             data.discount,
                             data.description,
                             data.category,

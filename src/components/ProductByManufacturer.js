@@ -234,7 +234,8 @@ const ProductByManufacturer = (props) => {
     manufacturer,
     image
   ) => {
-    await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+    // await fetch("http://144.91.110.221:3033/api/wishlist/wishlist_by_id", {
+      await fetch("http://localhost:3033/api/wishlist/wishlist_by_id", {
       method: "post",
       headers: {
         Accept: "application/json",
