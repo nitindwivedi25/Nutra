@@ -465,9 +465,9 @@ const HomePage = () => {
                                       <ReadMoreReact text={el.name} />
                                     </Link>
                                     <div className="price-div d-flex align-items-center">
-                                      <span className="new-price">$899</span>
+                                      <span className="new-price"><i class="fa fa-inr"></i>{" "}{el.inrDiscount}</span>
                                       <del className="new-price ml-1">
-                                        $1000
+                                         {el.inrMrp}
                                       </del>
                                       {Userdata ? (
                                         <i
