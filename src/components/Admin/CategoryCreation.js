@@ -20,8 +20,9 @@ const CategoryCreation = (props) => {
     formData.append("image", data.image);
     // const url="http://144.91.110.221:3033/api/category/add_category"
     const url = "http://localhost:3033/api/category/add_category";
-    await fetch(url, {
-      method: "POST",
+    console.log("payload before submit", formData)
+     await fetch(url, {
+    method: "POST",
       // headers: {
       // 'Accept': 'application/json',
       // 'Content-Type': 'multipart/form-data'
@@ -174,23 +175,26 @@ const CategoryCreation = (props) => {
         {Userdata != undefined ? (
           Userdata.role == "superAdmin" ? (
             <form>
-              <div className="container mb-5 mt-5">
+              <div className="container">
                 <div className="row">
-                  <div className="col-1"></div>
+                  {/* <div className="1"></div> */}
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Category Creation</h5>
                       <div className="row">
-                        <div className="col-6 p-1">
+                        <div className="col-6">
                           <input
                             type="file"
                             className="form-control Dashborad-search"
                             placeholder="Category Name "
                             multiple
-                            onChange={SelectImage}
+                            // onChange={SelectImage}
+                            onChange={(e) => {
+                              Setdata({ ...data, image: e.target.files[0] });
+                            }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6">
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -201,7 +205,7 @@ const CategoryCreation = (props) => {
                             }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 pt-2">
                           <textarea
                             className="form-control"
                             placeholder="Category Description"
@@ -215,7 +219,7 @@ const CategoryCreation = (props) => {
                           ></textarea>
                         </div>
                         {update == false ? (
-                          <div className="col-12 p-1">
+                          <div className="col-12 pt-4">
                             <button
                               className="btn btn-primary"
                               onClick={(e) => {

@@ -10,6 +10,8 @@ import { useHistory } from "react-router-dom";
 import Delivery from "../../Images/delivery.jpg";
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
+import {AiFillApple} from 'react-icons/ai';
+import {IoLogoGooglePlaystore} from "react-icons/io5";
 
 import $ from "jquery";
 
@@ -369,7 +371,7 @@ const HomePage = () => {
       <div id="body-pd">
         {/* trending section  */}
         <section className="home-banner">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row">
               <div className="col-md-6">
                 <div className="home-banner-left">
@@ -417,127 +419,102 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="trending-section mt-3">
-          <div className="container h-100">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <h1 className="trendign-head">Trending Products</h1>
-              </div>
-            </div>
-          </div>
-        </section>
+
         <section className="products-area">
-          <div className="container-fluid">
+          <h1 className="trendign-head">Trending Products</h1>
+          <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
-                console.log("tranding products", el)
+                console.log("tranding products", el);
                 if (
                   (tranding < 8 && el.type == "Tranding Product") ||
                   el.type == "Trending Product"
                 ) {
                   tranding = tranding + 1;
                   return (
-                    <div className="col-lg-3 col-md-12 col-sm-12 ">
-                      {/* <Link to={"/SingleProduct/" + el._id}> */}
-                      <div className="single-products-box border">
-                        <div className="row  align-items-center product-div">
-                          <div className="col-6 product-image-div">
-                            <Link
-                              to={"/SingleProduct/" + el._id}
-                              className="product-image-link"
-                            >
-                              <div className="image hover-switch">
-                                <img
-                                  src={require("../../Images/products/Hintosulin (1).png")}
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" + el.image[0].path
-                                  }
-                                  alt=""
-                                  style={{ position: "absolute" }}
-                                />
-                              </div>
-                            </Link>
-                          </div>
-                          <div className="col-6 pd-0 tranding product-image-content">
-                            <div className="content product-content">
-                              <Link to={"/SingleProduct/" + el._id}>
-                                <h3 className="pb-1 pl-4 pt-5">
-                                  <ReadMoreReact
-                                    text={el.name}
-                                    min={10}
-                                    ideal={10}
-                                    max={10}
-                                    readMoreText={"..."}
-                                  />
-                                </h3>
-                              </Link>
-                              <div className="d-flex pb-2 pl-4">
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                              </div>
-                              <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
-                                <div className="discount-price-div">
-                                  <span>10%</span>
+                    <>
+                      <div className="col-lg-2 col-md-12 col-sm-12 ">
+                        {/* <Link to={"/SingleProduct/" + el._id}> */}
+                        <div className="single-products-box border">
+                          <div className="row">
+                            <div className="col-md-12">
+                              <div className="product-div">
+                                <div className="product-image-div">
+                                  <Link
+                                    to={"/SingleProduct/" + el._id}
+                                    className="product-image-link"
+                                  >
+                                    <div className="image hover-switch">
+                                      <img
+                                        src={require("../../Images/products/Hintosulin (1).png")}
+                                        alt=""
+                                      />
+                                      <img
+                                        src={
+                                          //"http://144.91.110.221:3033/" +
+                                          "http://localhost:3033/" +
+                                          el.image[0].path
+                                        }
+                                        alt=""
+                                        style={{ position: "absolute" }}
+                                      />
+                                    </div>
+                                  </Link>
                                 </div>
-                                <div className="discount-price-div2">
-                                  <span>off</span>
-                                </div>
-                              </div>
-
-                              <div className="hr-div">
-                                <hr />
-                              </div>
-                              <div className="price-div justify-content-center align-items-center d-flex">
-                                <span className="new-price ml-3">$899</span>
-                                <del className="new-price ml-1">1000</del>
-                                {Userdata ? (
-                                  <i
-                                    className="bx bxs-heart ml-3"
-                                    onClick={() => {
-                                      AddtoWishlist(
-                                        el._id,
-                                        el.name,
-                                        quantity,
-                                        el.inrMrp,
-                                        el.inrDiscount,
-                                        el.description,
-                                        el.category,
-                                        el.manufacturer.name,
-                                        el.image
-                                      );
-                                    }}
-                                  ></i>
-                                ) : (
-                                  <>
-                                    <i
-                                      className="bx bxs-heart ml-3 pc-heart"
-                                      data-bs-toggle="modal"
-                                      data-bs-target={
-                                        Userdata == null
-                                          ? "#exampleModal"
-                                          : null
-                                      }
-                                    ></i>
-                                    <Link to="/Register">
-                                      <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                <div className="tranding product-image-content">
+                                  <div className="content product-content">
+                                    <Link to={"/SingleProduct/" + el._id}>
+                                      <ReadMoreReact text={el.name} />
                                     </Link>
-                                  </>
-                                )}
-                                <i className="bx bx-cart ml-1"></i>
+                                    <div className="price-div d-flex align-items-center">
+                                      <span className="new-price"><i class="fa fa-inr"></i>{" "}{el.inrDiscount}</span>
+                                      <del className="new-price ml-1">
+                                         {el.inrMrp}
+                                      </del>
+                                      {Userdata ? (
+                                        <i
+                                          className="bx bxs-heart ml-3"
+                                          onClick={() => {
+                                            AddtoWishlist(
+                                              el._id,
+                                              el.name,
+                                              quantity,
+                                              el.inrMrp,
+                                              el.inrDiscount,
+                                              el.description,
+                                              el.category,
+                                              el.manufacturer.name,
+                                              el.image
+                                            );
+                                          }}
+                                        ></i>
+                                      ) : (
+                                        <>
+                                          <i
+                                            className="bx bxs-heart ml-3 pc-heart"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={
+                                              Userdata == null
+                                                ? "#exampleModal"
+                                                : null
+                                            }
+                                          ></i>
+                                          <Link to="/Register">
+                                            <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                          </Link>
+                                        </>
+                                      )}
+                                      <i className="bx bx-cart ml-2"></i>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        {/* </Link> */}
                       </div>
-                      {/* </Link> */}
-                    </div>
+                    </>
                   );
                 }
               })}
@@ -554,7 +531,7 @@ const HomePage = () => {
         </section>
 
         <section className="categories-section">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row ">
               <div className="col-md-6">
                 <div className="cat-left-side">
@@ -623,18 +600,8 @@ const HomePage = () => {
         </section>
 
         <section className="products-area ">
-          <div className="container-fluid section-title pt-4 pb-4">
-            <div className="row Products align-items-center">
-              {/* <div className="col-1 pr-0"></div> */}
-
-              <div className="col-12 pr-0 pl-0 ">
-                <h1 className="trendign-head ml-5">Products</h1>
-              </div>
-
-              <div className="col-1 pr-0"></div>
-            </div>
-          </div>
-          <div className="container-fluid">
+          <h1 className="trendign-head">Products</h1>
+          <div className="container m-auto py-4">
             <div className="row ">
               {data.map((el, ind) => {
                 if (ind > 0) {
@@ -642,122 +609,82 @@ const HomePage = () => {
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
                       <div className="single-products-box border">
-                        <div className="row  align-items-center product-div">
-                          <div className="col-6 product-image-div">
-                            <Link
-                              to={"/SingleProduct/" + el._id}
-                              className="product-image-link"
-                            >
-                              <div className="image hover-switch">
-                                <img
-                                  src={require("../../Images/products/Hintosulin (1).png")}
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" + el.image[0].path
-                                  }
-                                  alt=""
-                                  style={{ position: "absolute" }}
-                                />
-                              </div>
-                            </Link>
-                          </div>
-                          <div className="col-6 pd-0 tranding product-image-content">
-                            <div className="content product-content">
-                              <Link to={"/SingleProduct/" + el._id}>
-                                <h3 className="pb-1 pl-4 pt-5">
-                                  <ReadMoreReact
-                                    text={el.name}
-                                    min={10}
-                                    ideal={10}
-                                    max={10}
-                                    readMoreText={"..."}
-                                  />
-                                </h3>
-                              </Link>
-                              <div className="d-flex pb-2 pl-4">
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                              </div>
-                              <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
-                                <div className="discount-price-div">
-                                  <span>10%</span>
+                          <div className="row">
+                            <div className="col-md-12">
+                              <div className="product-div">
+                                <div className="product-image-div">
+                                  <Link
+                                    to={"/SingleProduct/" + el._id}
+                                    className="product-image-link"
+                                  >
+                                    <div className="image hover-switch">
+                                      <img
+                                        src={require("../../Images/products/Hintosulin (1).png")}
+                                        alt=""
+                                      />
+                                      <img
+                                        src={
+                                          //"http://144.91.110.221:3033/" +
+                                          "http://localhost:3033/" +
+                                          el.image[0].path
+                                        }
+                                        alt=""
+                                        style={{ position: "absolute" }}
+                                      />
+                                    </div>
+                                  </Link>
                                 </div>
-                                <div className="discount-price-div2">
-                                  <span>off</span>
-                                </div>
-                              </div>
-
-                              <div className="hr-div">
-                                <hr />
-                              </div>
-                              <div className="price-div justify-content-center align-items-center d-flex">
-                                <span className="new-price ml-3">$899</span>
-                                <del className="new-price ml-1">1000</del>
-                                {Userdata ? (
-                                  <i
-                                    className="bx bxs-heart ml-3"
-                                    onClick={() => {
-                                      AddtoWishlist(
-                                        el._id,
-                                        el.name,
-                                        quantity,
-                                        el.inrMrp,
-                                        el.inrDiscount,
-                                        el.description,
-                                        el.category,
-                                        el.manufacturer.name,
-                                        el.image
-                                      );
-                                    }}
-                                  ></i>
-                                ) : (
-                                  <>
-                                    <i
-                                      className="bx bxs-heart ml-3 pc-heart"
-                                      data-bs-toggle="modal"
-                                      data-bs-target={
-                                        Userdata == null
-                                          ? "#exampleModal"
-                                          : null
-                                      }
-                                    ></i>
-                                    <Link to="/Register">
-                                      <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                <div className="tranding product-image-content">
+                                  <div className="content product-content">
+                                    <Link to={"/SingleProduct/" + el._id}>
+                                      <ReadMoreReact text={el.name} />
                                     </Link>
-                                  </>
-                                )}
-                                <i className="bx bx-cart ml-1"></i>
+                                    <div className="price-div d-flex align-items-center">
+                                      <span className="new-price">$899</span>
+                                      <del className="new-price ml-1">
+                                        $1000
+                                      </del>
+                                      {Userdata ? (
+                                        <i
+                                          className="bx bxs-heart ml-3"
+                                          onClick={() => {
+                                            AddtoWishlist(
+                                              el._id,
+                                              el.name,
+                                              quantity,
+                                              el.inrMrp,
+                                              el.inrDiscount,
+                                              el.description,
+                                              el.category,
+                                              el.manufacturer.name,
+                                              el.image
+                                            );
+                                          }}
+                                        ></i>
+                                      ) : (
+                                        <>
+                                          <i
+                                            className="bx bxs-heart ml-3 pc-heart"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={
+                                              Userdata == null
+                                                ? "#exampleModal"
+                                                : null
+                                            }
+                                          ></i>
+                                          <Link to="/Register">
+                                            <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                          </Link>
+                                        </>
+                                      )}
+                                      <i className="bx bx-cart ml-2"></i>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              {/* <div className="price mt-1">
-                              <div>
-                                 <span className="new-price">
-                                 $
-                                 {isNaN(el.inrMrp - (el.inrMrp * el.inrDiscount) / 100)
-                                 ? 0
-                                 : el.inrMrp - (el.inrMrp * el.inrDiscount) / 100}
-                                 </span>
-                              </div>
-                           </div> */}
-                              {/* <div className="mt-2 mb-2">
-                              <button className="add-to-cart-button1 text-nowrap"  onClick={()=>{cartfunction(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image[0].path)}} data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}>Add to Cart</button>
-                           </div> */}
-                              {/* <div className="row">
-                              
-                              <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
-                              <div className="icon-wishlist"></div>
-                              </div>
-                           </div> */}
                             </div>
                           </div>
                         </div>
-                      </div>
                       {/* </Link> */}
                     </div>
                   );
@@ -775,22 +702,9 @@ const HomePage = () => {
             {/* Hover Button End */}
           </div>
         </section>
-        <section className="trending-section mb-4 ">
-          <div className="container h-100 ">
-            <div className="row h-100">
-              <div className="col-12 p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
-                  <h1 className="trendign-head">Skin Care</h1>
-                  {/* <h2 className="pl-4 product-head mb-0">Care</h2> */}
-                </div>
-              </div>
-
-              <div className="col-2 pl-0"></div>
-            </div>
-          </div>
-        </section>
-        <section className="products-area pb-40">
-          <div className="container-fluid">
+        <section className="products-area">
+        <h1 className="trendign-head">Skin Care</h1>
+          <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
                 console.log("skin careee outside", data);
@@ -806,122 +720,82 @@ const HomePage = () => {
                     <div className="col-lg-3 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
                       <div className="single-products-box border">
-                        <div className="row  align-items-center product-div">
-                          <div className="col-6 product-image-div">
-                            <Link
-                              to={"/SingleProduct/" + el._id}
-                              className="product-image-link"
-                            >
-                              <div className="image hover-switch">
-                                <img
-                                  src={require("../../Images/products/Hintosulin (1).png")}
-                                  alt=""
-                                />
-                                <img
-                                  src={
-                                    //"http://144.91.110.221:3033/" +
-                                    "http://localhost:3033/" + el.image[0].path
-                                  }
-                                  alt=""
-                                  style={{ position: "absolute" }}
-                                />
-                              </div>
-                            </Link>
-                          </div>
-                          <div className="col-6 pd-0 tranding product-image-content">
-                            <div className="content product-content">
-                              <Link to={"/SingleProduct/" + el._id}>
-                                <h3 className="pb-1 pl-4 pt-5">
-                                  <ReadMoreReact
-                                    text={el.name}
-                                    min={10}
-                                    ideal={10}
-                                    max={10}
-                                    readMoreText={"..."}
-                                  />
-                                </h3>
-                              </Link>
-                              <div className="d-flex pb-2 pl-4">
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                                <i className="bx bxs-star"></i>
-                              </div>
-                              <div className=" justify-content-center align-items-center d-flex pt-3 mr-5">
-                                <div className="discount-price-div">
-                                  <span>10%</span>
+                          <div className="row">
+                            <div className="col-md-12">
+                              <div className="product-div">
+                                <div className="product-image-div">
+                                  <Link
+                                    to={"/SingleProduct/" + el._id}
+                                    className="product-image-link"
+                                  >
+                                    <div className="image hover-switch">
+                                      <img
+                                        src={require("../../Images/products/Hintosulin (1).png")}
+                                        alt=""
+                                      />
+                                      <img
+                                        src={
+                                          //"http://144.91.110.221:3033/" +
+                                          "http://localhost:3033/" +
+                                          el.image[0].path
+                                        }
+                                        alt=""
+                                        style={{ position: "absolute" }}
+                                      />
+                                    </div>
+                                  </Link>
                                 </div>
-                                <div className="discount-price-div2">
-                                  <span>off</span>
-                                </div>
-                              </div>
-
-                              <div className="hr-div">
-                                <hr />
-                              </div>
-                              <div className="price-div justify-content-center align-items-center d-flex">
-                                <span className="new-price ml-3">$899</span>
-                                <del className="new-price ml-1">1000</del>
-                                {Userdata ? (
-                                  <i
-                                    className="bx bxs-heart ml-3"
-                                    onClick={() => {
-                                      AddtoWishlist(
-                                        el._id,
-                                        el.name,
-                                        quantity,
-                                        el.inrMrp,
-                                        el.inrDiscount,
-                                        el.description,
-                                        el.category,
-                                        el.manufacturer.name,
-                                        el.image
-                                      );
-                                    }}
-                                  ></i>
-                                ) : (
-                                  <>
-                                    <i
-                                      className="bx bxs-heart ml-3 pc-heart"
-                                      data-bs-toggle="modal"
-                                      data-bs-target={
-                                        Userdata == null
-                                          ? "#exampleModal"
-                                          : null
-                                      }
-                                    ></i>
-                                    <Link to="/Register">
-                                      <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                <div className="tranding product-image-content">
+                                  <div className="content product-content">
+                                    <Link to={"/SingleProduct/" + el._id}>
+                                      <ReadMoreReact text={el.name} />
                                     </Link>
-                                  </>
-                                )}
-                                <i className="bx bx-cart ml-1"></i>
+                                    <div className="price-div d-flex align-items-center">
+                                      <span className="new-price">$899</span>
+                                      <del className="new-price ml-1">
+                                        $1000
+                                      </del>
+                                      {Userdata ? (
+                                        <i
+                                          className="bx bxs-heart ml-3"
+                                          onClick={() => {
+                                            AddtoWishlist(
+                                              el._id,
+                                              el.name,
+                                              quantity,
+                                              el.inrMrp,
+                                              el.inrDiscount,
+                                              el.description,
+                                              el.category,
+                                              el.manufacturer.name,
+                                              el.image
+                                            );
+                                          }}
+                                        ></i>
+                                      ) : (
+                                        <>
+                                          <i
+                                            className="bx bxs-heart ml-3 pc-heart"
+                                            data-bs-toggle="modal"
+                                            data-bs-target={
+                                              Userdata == null
+                                                ? "#exampleModal"
+                                                : null
+                                            }
+                                          ></i>
+                                          <Link to="/Register">
+                                            <i className="bx bxs-heart ml-3 mobile-heart"></i>
+                                          </Link>
+                                        </>
+                                      )}
+                                      <i className="bx bx-cart ml-2"></i>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              {/* <div className="price mt-1">
-                              <div>
-                                 <span className="new-price">
-                                 $
-                                 {isNaN(el.inrMrp - (el.inrMrp * el.inrDiscount) / 100)
-                                 ? 0
-                                 : el.inrMrp - (el.inrMrp * el.inrDiscount) / 100}
-                                 </span>
-                              </div>
-                           </div> */}
-                              {/* <div className="mt-2 mb-2">
-                              <button className="add-to-cart-button1 text-nowrap"  onClick={()=>{cartfunction(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image[0].path)}} data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}>Add to Cart</button>
-                           </div> */}
-                              {/* <div className="row">
-                              
-                              <div className="col-12">
-                                 <p className="bottom-icon text-nowrap" onClick={()=>{AddtoWishlist(el._id,el.name,quantity,el.inrMrp,el.inrDiscount,el.description,el.category,el.manufacturer.name,el.image)}}  data-bs-toggle={Userdata==null?"modal":null} data-bs-target= {Userdata==null?"#exampleModal":null}><i className='bx bx-heart' ></i>Wishlist</p>
-                              <div className="icon-wishlist"></div>
-                              </div>
-                           </div> */}
                             </div>
                           </div>
                         </div>
-                      </div>
                       {/* </Link> */}
                     </div>
                   );
@@ -929,7 +803,7 @@ const HomePage = () => {
               })}
             </div>
             {/* hover Button */}
-            <div className="wrapperbtn pt-2">
+            <div className="wrapperbtn pt-3 pb-4">
               <Link to="/Subcategory" className="btn10">
                 <span>Show More</span>
                 <div className="transition"></div>
@@ -938,60 +812,46 @@ const HomePage = () => {
             {/* Hover Button End */}
           </div>
         </section>
-        <div className="container-fluid mb-5 trending-section align-items-center justify-content-center">
-          <div className="">
-            <div className="container p-0">
-              <div className=" p-0">
-                <div className="align-items-center position-relative h-100 d-flex text-center w-100 justify-content-center">
-                  <h1 className="trendign-head">Selling Brands</h1>
-                  {/* <h2 className="pl-4 product-head mb-0">Brands</h2> */}
-                </div>
-              </div>
-            </div>
-            <div className="col-2 pl-0"></div>
-          </div>
-        </div>
-        <div className="">
-          <div className="brands-area">
-            <div className="container">
-              <div className=" section-title"></div>
-              <div className="row align-items-center">
-                {Manufactureres &&
-                  Manufactureres.length > 0 &&
-                  Manufactureres.map((el, ind) => (
-                    <div className="col-lg-2 col-sm-4 col-md-2 col-6">
-                      <Link to={"/ProductByManufacturer/" + el.name}>
-                        <div className="single-brands-item">
-                          <a className="d-block" href="#">
-                            {" "}
-                            <img
-                              src={
-                                el.image && el.image.length > 0
-                                  ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
-                                    "http://localhost:3033/" + el.image[0].path
-                                  : ""
-                              }
-                            />
-                          </a>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-              </div>
+
+        <div className="brands-area">
+          <div className="container m-auto">
+            <div className="trendign-head">Selling Brands</div>
+            <div className="row align-items-center">
+              {Manufactureres &&
+                Manufactureres.length > 0 &&
+                Manufactureres.map((el, ind) => (
+                  <div className="col-lg-2 col-sm-4 col-md-2 col-6">
+                    <Link to={"/ProductByManufacturer/" + el.name}>
+                      <div className="single-brands-item">
+                        <a className="d-block" href="#">
+                          {" "}
+                          <img
+                            src={
+                              el.image && el.image.length > 0
+                                ? //"http://144.91.110.221:3033/" + el.image[0].path : ""
+                                  "http://localhost:3033/" + el.image[0].path
+                                : ""
+                            }
+                          />
+                        </a>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
         <section className="mobile-app">
-          <div className="container">
+          <div className="container m-auto">
             <div className="row">
               <div className="col-lg-6">
                 <div className="mobile-main">
                   <div>
-                    <h3 className="trending-head text-start">
-                      Download the medicine mobile app
+                    <h3 className="cat-heading">
+                      Download the Nutrazik <br/> mobile app
                     </h3>
                     <div>
-                      <p id="para">
+                      <p id="para" className="text-justify">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -1002,24 +862,32 @@ const HomePage = () => {
                     </div>
                   </div>
                   <div className="btn-div">
-                    <button type="button" className="btn btn-primary" id="btn-1">
-                      Primary
+                    <button
+                      type="button"
+                      className="btn"
+                      id="btn-1"
+                    >
+                      <div className="d-flex align-items-center">
+                    <div><AiFillApple/></div>
+                    <div>App Store</div>
+                    </div>
                     </button>
                     <button
                       type="button"
-                      className="btn btn-primary ms-3"
+                      className="btn ms-3"
                       id="btn-2"
                     >
-                      Primary
+                      <div className="d-flex align-items-center">
+                      <div><IoLogoGooglePlaystore/></div>
+                      <div>Google Play</div>
+                      </div>
                     </button>
                   </div>
                 </div>
               </div>
-              <div className="col-6">
-                <div className="img-div">
-                  <div className="contact-image text-center">
-                    <img id="img" src={Mobile} alt="image" />
-                  </div>
+              <div class="col-6">
+                <div className="img-div d-flex justify-content-center">
+                  <img id="img" src={Mobile} alt="image" />
                 </div>
               </div>
             </div>

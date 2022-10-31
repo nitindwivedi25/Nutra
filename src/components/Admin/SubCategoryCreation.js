@@ -198,9 +198,9 @@ const SubCategoryCreation = (props) => {
         {Userdata !== undefined ? (
           Userdata.role == "superAdmin" ? (
             <form>
-              <div className="container mb-5 mt-5">
+              <div className="container">
                 <div className="row">
-                  <div className="col-1"></div>
+                  {/* <div className="col-1"></div> */}
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>SubCategory Creation</h5>
@@ -255,7 +255,7 @@ const SubCategoryCreation = (props) => {
                           ></textarea>
                         </div>
                         {update == false ? (
-                          <div className="col-12 p-1">
+                          <div className="col-12 pt-4">
                             <button
                               className="btn btn-primary"
                               onClick={(e) => {

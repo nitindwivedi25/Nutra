@@ -545,27 +545,23 @@ color: #2F2F2F;
 }
 .facility-area
 {
-	background-color: #00D872;
-	color: white;
-	padding:1px;
+	background-color: #f6f7fb;
 }
 .facility-area .container .row .box 
 {
 	text-align: center;
-	
-	margin-bottom: 20px;
 }
-.facility-area .container .row .box  h3
+.facility-area .container .row .box h3
 {
 	font-size:19px;
 	font-family: Poppins;
-	color:white;
+	color:#1e144f;
 }
-.facility-area .container .row .box  p
+.facility-area .container .row .box p
 {
-	font-size:10px;
+	font-size:12px;
 	font-family: Poppins;
-    color: white;
+    color: var(--optionalColor);
 }
 .Addresses-main .address-row
 {
