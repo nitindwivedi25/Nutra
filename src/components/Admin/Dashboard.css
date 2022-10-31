@@ -20,7 +20,7 @@
 }
 
 .container{
-  margin: 80px;
+  margin-top: 80px;
   width:1180px;
 }
 /*===== BASE =====*/
@@ -136,7 +136,7 @@ a{
 }
 
 .nav{
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -245,7 +245,7 @@ a{
 
   /*Add padding body desktop*/
   .body-pd{
-    padding-left: calc(var(--nav-width) + 188px);
+    padding-left: calc(var(--nav-width) + 90px);
   }
 }
 

@@ -314,7 +314,7 @@ const Productform = () => {
             <form>
               <div className="container mb-5">
                 <div className="row">
-                  <div className="col-1"></div>
+                  {/* <div className="col-1"></div> */}
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Product Creation</h5>

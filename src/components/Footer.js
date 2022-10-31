@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <footer className="footer-area ">
-        <div className="container">
+        <div className="container m-auto">
           <div className="row">
             <div className="col-lg-3 col-sm-6 col-md-6">
               <div className="single-footer-widget">
@@ -143,12 +143,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="footer-bottom-area">
-          <div className="container">
+        <div className="footer-bottom-area container m-auto">
+          <div className="container m-auto">
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-6">
                 <p>
-                  Designed & Developed by <i className="bx bx-copyright"></i>2021
+                  Designed & Developed by <i className="bx bx-copyright"></i>2022
                   GiksIndia.
                 </p>
               </div>
