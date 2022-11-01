@@ -318,9 +318,10 @@ const Productform = () => {
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Product Creation</h5>
-
-                      <div className="row">
-                        <div className="col-6 p-1 ">
+                      <hr className="color-black my-md-4"/>
+                      <div className="row m-1">
+                        <div className="col-6 p-2 ">
+                          <label>Product Name</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -331,7 +332,8 @@ const Productform = () => {
                             }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Choose File</label>
                           <input
                             type="file"
                             multiple
@@ -343,7 +345,8 @@ const Productform = () => {
                           />
                         </div>
 
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Select Category</label>
                           <select
                             className="form-control Dashborad-search"
                             defaultValue={update == true ? data.category : ""}
@@ -357,7 +360,8 @@ const Productform = () => {
                             ))}
                           </select>
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Select SubCategory</label>
                           <select
                             className="form-control Dashborad-search"
                             defaultValue={
@@ -374,7 +378,8 @@ const Productform = () => {
                           </select>
                         </div>
 
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Select Manufacturer</label>
                           <select
                             className="form-control Dashborad-search"
                             defaultValue={
@@ -399,7 +404,8 @@ const Productform = () => {
                           </select>
                         </div>
 
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Storage</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -410,7 +416,8 @@ const Productform = () => {
                             }}
                           />
                         </div>
-                        <div className="col-3 p-1">
+                        <div className="col-3 p-2">
+                          <label>MRP In Rupees</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -421,7 +428,8 @@ const Productform = () => {
                             }}
                           />
                         </div>
-                        <div className="col-3 p-1">
+                        <div className="col-3 p-2">
+                          <label>Discount In Rupees</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -434,7 +442,8 @@ const Productform = () => {
                             }}
                           />
                         </div>
-                        <div className="col-3 p-1">
+                        <div className="col-3 p-2">
+                          <label>MRP In Doller</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -446,7 +455,8 @@ const Productform = () => {
                           />
                         </div>
 
-                        <div className="col-3 p-1">
+                        <div className="col-3 p-2">
+                          <label>Discount In Doller</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -463,9 +473,10 @@ const Productform = () => {
                           />
                         </div>
 
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Product Description</label>
                           <textarea
-                            className="form-control"
+                            className="form-control Dashborad-search"
                             placeholder="Product Description"
                             defaultValue={
                               update == true ? data.description : ""
@@ -476,7 +487,8 @@ const Productform = () => {
                             }}
                           ></textarea>
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Select Product Type</label>
                           <select
                             className="form-control Dashborad-search"
                             defaultValue={update == true ? data.type : ""}
@@ -494,14 +506,14 @@ const Productform = () => {
                         {update == false ? (
                           <div className="col-6 pt-4">
                             <button
-                              className="btn btn-primary submit"
+                              className="btn common-gradient-btn"
                               onClick={(e) => submitData(e)}
                             >
                               Submit
                             </button>
                           </div>
                         ) : (
-                          <div className="col-6 p-1">
+                          <div className="col-6 p-2">
                             <button
                               className="btn btn-registration"
                               onClick={(e) => UpdateProduct(e, data._id)}

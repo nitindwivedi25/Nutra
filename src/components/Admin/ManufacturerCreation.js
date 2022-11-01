@@ -192,9 +192,10 @@ const ManufacturerCreation = () => {
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Manufacturer Creation</h5>
-
+                      <hr className="color-black my-md-4"/>
                       <div className="row">
                         <div className="col-6">
+                          <label>Choose File</label>
                           <input
                             type="file"
                             multiple
@@ -205,6 +206,7 @@ const ManufacturerCreation = () => {
                           />
                         </div>
                         <div className="col-6">
+                          <label>Manufacturer Name</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -215,9 +217,10 @@ const ManufacturerCreation = () => {
                             }}
                           />
                         </div>
-                        <div className="col-6 pt-2">
+                        <div className="col-6 pt-3">
+                          <label>Manufacturer Description</label>
                           <textarea
-                            className="form-control"
+                            className="form-control Dashborad-search"
                             placeholder="Manufacturer Description"
                             rows="3"
                             defaultValue={
@@ -231,7 +234,7 @@ const ManufacturerCreation = () => {
                         {update == false ? (
                           <div className="col-12 pt-4">
                             <button
-                              className="btn btn-primary"
+                              className="btn common-gradient-btn"
                               onClick={(e) => submitData(e)}
                             >
                               Submit

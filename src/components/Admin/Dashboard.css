@@ -419,41 +419,93 @@ font-family: Foco;
 
 
 /* Product Form */
-.product-form
+/* .product-form
 {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  /* background: url(../../Images/formback1.jfif);
+   background: url(../../Images/formback1.jfif);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%; */
-  /* background-color: #00D872; */
+  background-size: 100%; 
+  background-color: #00D872; 
+} */
+.product-form{
+  border:none;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 .product-form h5
 {
-  color:#006837;
+  color:#1e144f;
   font-family: Foco;
   font-weight:400 !important;
   font-size: 25px !important;
-  text-decoration: underline;
+  
 }
 .product-form .row div input,select,textarea
 {
   font-family:Foco;
   border-radius: 0;
 }
-.product-form .row div button
-{
-  width:100px;
-  color: #fff;
-  background-color: #1b97ff;
-  border-color: #1b97ff;
-  border:0px;
+.Dashborad-search{
+  width: 100%;
+  padding: 9px 12px;
+  margin-top:-6px;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #ced4da;
+  background-color: white;
 }
-.product-form .row div button:hover
-{
-  color: #000;
-  border: none;
+.Dashborad-search:hover{
+  border: 1px solid #2367a0;
+  box-shadow:0px 0px 3px 0px #2367a0;
 }
+
+.Dashborad-search::placeholder{
+  font-size: 16px;
+  font-weight: 100;
+}
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  opacity: .25;
+}
+.btn {
+	display: inline-block;
+	font-weight: 400;
+	color: #212529;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+.common-gradient-btn{
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+	
+    border: 0;
+    padding: 5px 30px;
+    color: #fff;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 400;}
+.my-md-4 {
+  margin-top: 1rem!important;
+  margin-bottom: 1.5rem!important;
+}
+
+
 /* .update-btn
 {
   display:None;

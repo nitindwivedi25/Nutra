@@ -180,8 +180,10 @@ const CategoryCreation = (props) => {
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>Category Creation</h5>
+                      <hr className="color-black my-md-4"/>
                       <div className="row">
                         <div className="col-6">
+                          <label>Choose File</label>
                           <input
                             type="file"
                             className="form-control Dashborad-search"
@@ -191,9 +193,10 @@ const CategoryCreation = (props) => {
                           />
                         </div>
                         <div className="col-6">
+                          <label>Category Name</label>
                           <input
                             type="text"
-                            className="form-control Dashborad-search"
+                            className="form-control Dashborad-search font-size"
                             placeholder="Category Name "
                             defaultValue={update == true ? data.name : ""}
                             onChange={(e) => {
@@ -201,9 +204,10 @@ const CategoryCreation = (props) => {
                             }}
                           />
                         </div>
-                        <div className="col-6 pt-2">
+                        <div className="col-6 pt-3">
+                          <label>Category Description</label>
                           <textarea
-                            className="form-control"
+                            className="form-control Dashborad-search font-size"
                             placeholder="Category Description"
                             rows="3"
                             defaultValue={
@@ -217,7 +221,7 @@ const CategoryCreation = (props) => {
                         {update == false ? (
                           <div className="col-12 pt-4">
                             <button
-                              className="btn btn-primary"
+                              className="btn common-gradient-btn"
                               onClick={(e) => {
                                 submitData(e);
                               }}
@@ -228,7 +232,7 @@ const CategoryCreation = (props) => {
                         ) : (
                           <div className="col-12 p-1">
                             <button
-                              className="btn btn-primary"
+                              className="btn common-gradient-btn"
                               onClick={(e) => UpdateCategory(e, data._id)}
                             >
                               Update

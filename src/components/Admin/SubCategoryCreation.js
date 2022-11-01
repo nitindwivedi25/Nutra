@@ -204,8 +204,10 @@ const SubCategoryCreation = (props) => {
                   <div className="col-10">
                     <div className="card p-4 m-2 product-form">
                       <h5>SubCategory Creation</h5>
-                      <div className="row">
-                        <div className="col-6 p-1">
+                      <hr className="color-black my-md-4"/>
+                      <div className="row m-1">
+                        <div className="col-6 p-2">
+                          <label>SubCategory Name</label>
                           <input
                             type="file"
                             className="form-control Dashborad-search"
@@ -215,7 +217,8 @@ const SubCategoryCreation = (props) => {
                             }}
                           />
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Select Category</label>
                           <select
                             className="form-control Dashborad-search"
                             defaultValue={update == true ? data.category : ""}
@@ -229,7 +232,8 @@ const SubCategoryCreation = (props) => {
                             ))}
                           </select>
                         </div>
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>Subcategory Name</label>
                           <input
                             type="text"
                             className="form-control Dashborad-search"
@@ -241,9 +245,10 @@ const SubCategoryCreation = (props) => {
                           />
                         </div>
 
-                        <div className="col-6 p-1">
+                        <div className="col-6 p-2">
+                          <label>SubCategory Description</label>
                           <textarea
-                            className="form-control"
+                            className="form-control Dashborad-search"
                             placeholder="SubCategory Description"
                             rows="3"
                             defaultValue={
@@ -257,7 +262,7 @@ const SubCategoryCreation = (props) => {
                         {update == false ? (
                           <div className="col-12 pt-4">
                             <button
-                              className="btn btn-primary"
+                              className="btn common-gradient-btn"
                               onClick={(e) => {
                                 submitData(e);
                               }}
@@ -269,7 +274,7 @@ const SubCategoryCreation = (props) => {
                         {update ? (
                           <div className="col-12 p-1">
                             <button
-                              className="btn btn-primary"
+                              className="btn common-gradient-btn"
                               onClick={(e) => UpdateSubCategory(e, data._id)}
                             >
                               Update
