@@ -42,6 +42,7 @@ import Subcategories from "../components/Subcategories";
 import TrendingProducts from "../components/TrendingProducts";
 import ProductByManufacturer from "../components/ProductByManufacturer";
 import SearchResult from "../components/SearchResult";
+import Separate from "../components/separate";
 
 var Userdata = "";
 const Root = (props) => {
@@ -70,6 +71,7 @@ const Root = (props) => {
           <Switch>
             <Route exact path="/AllProducts" component={AllProducts} />
             <Route exact path="/" component={HomePage} />
+
             <Route exact path="/Register" component={Register} />
             {/* <Route exact path="/" component={HomePage} /> */}
             {/* <PrivateRoute path="/home" component={Home} /> */}
@@ -133,6 +135,7 @@ const Root = (props) => {
               path="/SearchResult/:Search"
               component={SearchResult}
             />
+            <Route exact path="/Separate" component={Separate} />
           </Switch>
         </>
       </Router>

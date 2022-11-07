@@ -26,11 +26,13 @@ const AllProducts = (props) => {
     ProductByCategory();
     categoryDetails();
     CartById();
-    GetCategory();
-    GetSubCategory();
+    // GetCategory();
+    // GetSubCategory();
     GetManufacturer();
     // GetCategory();
   }, []);
+
+  
   const setPreviousValue = () => {
     if (prev >= 7) {
       SetNext(next - 8);

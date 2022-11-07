@@ -2,6 +2,9 @@
 ::-webkit-scrollbar {
     width: 2px;
   }
+  .btn.focus, .btn:focus{
+    box-shadow: none;
+  }
   
   /* Track */
   ::-webkit-scrollbar-track {
@@ -375,6 +378,9 @@ color:#006837;
 .icons1
 {
  padding-left:15px;
+ width: 60px;
+ height: 60px;
+ object-fit: contain;
 }
 .Home-navbar ul li{
     padding:0px 10px;
@@ -854,3 +860,41 @@ body {
 
 
 /* End Media Query Responsive for Desktop */
+
+
+
+/* -----------------my Aside  menu and submenu css-------------------- */
+.aside-menu-submenu-list{
+    width:90%;
+}
+.aside-menu-submenu-list button{
+    margin: 8px 0;
+    display: flex;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    color: #1b97ff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    /* margin-right: 76px; */
+    width: 100%;
+    letter-spacing: .3px;
+    }
+    .aside-menu-submenu-list button::after{
+        display: none;
+    }
+
+
+.aside-menu-submenu-list .dropdown-menu{
+    border:0;
+}
+.aside-menu-submenu-list .dropdown-menu li .pic img {
+
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+
+}

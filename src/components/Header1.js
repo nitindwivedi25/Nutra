@@ -8,7 +8,11 @@ import "../components/Carouselcomp";
 import $ from "jquery";
 import CategoryCreation from "./Admin/CategoryCreation";
 import Carouselcomp from "../components/Carouselcomp";
+import Separate from "../components/separate"
 //import Button from './button';
+
+let resultArr = []
+let subCategoryList = []
 
 let changeNavValue = 0;
 var header;
@@ -30,34 +34,26 @@ const Header1 = (props) => {
   const [regmsg, setRegMsg] = useState("");
   const [categories, setCategories] = useState([]);
   const [registerModal, setRegisterModal] = useState(false);
+  const [allCategories, setAllCategories] = useState()
+ // let [resultArr, setResultArr] = useState()
+
+ console.log(props.categoriesArr, 'props')
+
   useEffect(() => {
-    Userdata = JSON.parse(localStorage.getItem("Userdata"));
+
+    //Userdata = JSON.parse(localStorage.getItem("Userdata"));
     GetCategory();
-    GetSubCategory();
-    $(document).ready(function() {
-      header = document.getElementById("myHeader");
-      sticky = header.offsetTop;
-      window.onscroll = function() {
-        headerFunction();
-      };
-      // $('.collapse-btn').click(function(){
-      //     $('.insideNav').toggleClass('inactive');
-      //     if(changeNavValue==0){
-      //                 changeNavValue=1
-      //                 $('.insideNav').slideUp(500);
-      //                 $('.content').removeClass('col-sm-10');
-      //                 $('.content').addClass('col-12');
-      //               }else{
-      //                 changeNavValue=0
-      //                 $('.insideNav').slideDown(500);
-      //                 $('.content').removeClass('col-12');
-      //                 $('.content').addClass('col-sm-10');
-      //               }
-      //   });
-      $(".arrow").click(function() {
-        $(".sublist").slideUp();
-      });
-    });
+
+    // $(document).ready(function () {
+    //   header = document.getElementById("myHeader");
+    //   sticky = header.offsetTop;
+    //   window.onscroll = function () {
+    //     headerFunction();
+    //   };
+    //   $(".arrow").click(function () {
+    //     $(".sublist").slideUp();
+    //   });
+    // });
   }, []);
   const logout = () => {
     localStorage.setItem("Userdata", null);
@@ -143,6 +139,8 @@ const Header1 = (props) => {
       // setMsg('Please Enter a Valid Data');
     }
   };
+
+
   const headerFunction = async () => {
     if (window.pageYOffset > sticky) {
       header.classList.add("sticky");
@@ -150,31 +148,79 @@ const Header1 = (props) => {
       header.classList.remove("sticky");
     }
   };
+
   const GetCategory = async () => {
     //await fetch("http://144.91.110.221:3033/api/category/all_category")
-    await fetch("localhost:3033/api/category/all_category")
+    await fetch("http://localhost:3033/api/category/all_category")
       .then((res) => res.json())
       .then(async (data) => {
         setCategories(data.data);
+        GetSubCategory();
       })
+
       .catch((err) => {
         console.log(err, "error");
       });
   };
+
+
+
   const GetSubCategory = async () => {
     //await fetch("http://144.91.110.221:3033/api/subcategory/all_subcategory")
     await fetch("http://localhost:3033/api/subcategory/all_subcategory")
       .then((res) => res.json())
       .then(async (data) => {
-        setSubCategories(data.data);
+        // setSubCategories(data.data);
+        // let result = mergeCategoriesWithSubCategories(data.data)
+        for (let item of categories) {
+            let obj = {
+              categoryName: item.name,
+              subCategoryList: []
+            }
+            for (let el of data.data) {
+              if (item._id == el.category) {
+                obj.subCategoryList.push(el)
+              }
+            }
+            resultArr.push(obj)
+          }
+
+        setAllCategories(resultArr)
       })
       .catch((err) => {
         console.log(err, "error");
       });
   };
+
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+      GetSubCategory()
+    }
+  }, [categories])
+
+
+  let mergeCategoriesWithSubCategories = (data) => {
+    for (let item of categories) {
+      let obj = {
+        categoryName: item.name,
+        subCategoryList: []
+      }
+      for (let el of data) {
+        if (item._id == el.category) {
+          obj.subCategoryList.push(el)
+        }
+      }
+      resultArr.push(obj)
+    }
+    return resultArr
+  }
+
+  console.log(resultArr,"array after pushing elements")
+
   const searchData = (e) => {
     if (props.func) props.func(e);
   };
+
   const cartfunction = async (newItemObj) => {
     var merged = false;
     if (userCart) {
@@ -284,6 +330,9 @@ const Header1 = (props) => {
       })
       .then((err) => console.log(err));
   };
+
+  console.log(allCategories, 'all Categories merged array')
+
   return (
     <>
       {/* sidebar Modal */}
@@ -299,7 +348,7 @@ const Header1 = (props) => {
           <div className="modal-content">
             <div className="modal-header">
               <h4 className="modal-title" id="myModalLabel">
-                Categories
+                Categories1
               </h4>
               <button
                 type="button"
@@ -311,135 +360,86 @@ const Header1 = (props) => {
               </button>
             </div>
             <div className="modal-body">
-              <div className="accordion accordion-flush" id="accordionFlushExample">
-                {subcategories &&
-                  subcategories.length > 0 &&
-                  subcategories.map((el, ind) => (
-                    <div className="accordion-item">
-                      <h2 className="accordion-header" id="flush-headingOne">
-                        <Link to={"/Subcategories/" + el._id}>
-                          <div
-                            className="d-flex align-items-center"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <img
-                              className="icons1"
-                              src={
-                                //"http://144.91.110.221:3033/" + el.image[0].path
-                                "http://localhost:3033/" + el.image[0].path
+
+              {/* <p>{allCategories && allCategories.length > 0 && allCategories[0].categoryName}</p>
+                {allCategories &&
+                  allCategories.length > 0 &&
+                  allCategories.map((el, ind) => {
+                    console.log(el.categoryName, 'valueee')
+                    return (
+                      <>
+                      <p>Hello</p>
+                      </>
+                     
+                    )
+                  })} */}
+              {
+                allCategories && allCategories.length > 0 && allCategories.map((item, i) => {
+                  return (
+                    <>
+                    
+                      <div class="dropdown aside-menu-submenu-list">
+                        <button class="btn dropdown-toggle" type="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>{item.categoryName}</div>
+                            <div>
+                              {
+                                item.subCategoryList && item.subCategoryList.length > 0 && 
+                                <i class='bx bxs-chevron-down'></i>
                               }
-                            />
-                            <button
-                              className="accordion-button collapsed button"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseOne"
-                              aria-expanded="false"
-                              aria-controls="flush-collapseOne"
-                            >
-                              {el.name}
-                            </button>
-                          </div>
-                        </Link>
-                      </h2>
-                      {/* <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">
-                        <ul>
-                           <li>1</li>
-                           <li>2</li>
-                           <li>3</li>
-                           <li>4</li>
-                        </ul>
-                     </div>
-                  </div> */}
-                    </div>
-                  ))}
-                {/* <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingTwo">
-                     <div className="d-flex align-items-center">
-                        <img className="icons1" src={require('../Images/Icons/liver-1.png')}/>
-                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        Liver
+                              
+                            </div>
                         </button>
-                     </div>
-                  </h2>
-                  <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">
-                        <ul>
-                           <li>1</li>
-                           <li>2</li>
-                           <li>3</li>
-                           <li>4</li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingThree">
-                     <div className="d-flex align-items-center">
-                        <img className="icons1" src={require('../Images/Icons/infection-1.png')}/>
-                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Viral Infection
-                        </button>
-                     </div>
-                  </h2>
-                  <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">
-                        <ul>
-                           <li>1</li>
-                           <li>2</li>
-                           <li>3</li>
-                           <li>4</li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingFour">
-                     <div className="d-flex align-items-center">
-                        <img className="icons1" src={require('../Images/Icons/immune-1.png')}/>
-                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                        Immunity   
-                        </button>
-                     </div>
-                  </h2>
-                  <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                  </div>
-               </div>
-               <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingFive">
-                     <div className="d-flex align-items-center">
-                        <img className="icons1" src={require('../Images/Icons/heartbeat-1.png')}/>
-                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                        Health    </button>
-                     </div>
-                  </h2>
-                  <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                  </div>
-               </div>
-               <div className="accordion-item">
-                  <h2 className="accordion-header" id="flush-headingSix">
-                     <div className="d-flex align-items-center">
-                        <img className="icons1" src={require('../Images/Icons/categories-1.png')}/>
-                        <button className="accordion-button collapsed button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                        Other Products
-                        </button>
-                     </div>
-                  </h2>
-                  <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                     <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                  </div>
-               </div>
-               */}
-              </div>
+                        {
+                                item.subCategoryList && item.subCategoryList.length > 0 && 
+                         <ul class="dropdown-menu shadow">
+                          {
+                            item.subCategoryList && item.subCategoryList.length > 0 &&
+                            item.subCategoryList.map((el) => {
+                              return (
+                                <>
+                                  {/* <p className="mb-0">{el.name}</p> */}
+                                  <li>
+                                    <a class="dropdown-item" href="#">
+                                    <span className="pic">
+                                      <img src={"http://localhost:3033/" + el.image[0].path} className="img-fluid"/>
+                                      </span>     
+                                    <span className="title">{el.name}</span>
+                                    
+                                  </a></li>
+                                </>
+                              )
+                            })
+                          }
+
+
+                          </ul>
+                }
+                      </div>
+                    </>
+                  )
+                })
+                // props.categoriesArr.map((item, i) => {
+                //   return(
+                //     <>
+                //     <p>{item}</p>
+                //     </>
+                //   )
+                // })
+              }
+
+             
+
+
+
+
+
             </div>
           </div>
         </div>
       </div>
       {/* end side bar Modal */}
+
       <div className="container-fluid top-nav">
         {/* login Register Modal  */}
         <div
@@ -794,8 +794,12 @@ const Header1 = (props) => {
         </div>
       </div>
       <div className="container-fluid main-nav">
-        <div className="row" id="myHeader">
-          <div className="col-2 drop-category pl-4 ">
+        {/* <div className="row" id="myHeader"> */}
+        <div className="row" >
+          <div className="col-2">
+          <Separate/>
+          </div>
+          <div className="col-2 drop-category pl-4 d-none">
             <div className="row">
               <div>
                 <div className="category ">
@@ -807,6 +811,7 @@ const Header1 = (props) => {
                 </div>
                 <div className="category">
                   <span className="category-head">Browse Categories</span>
+                
                 </div>
               </div>
             </div>
@@ -841,7 +846,7 @@ const Header1 = (props) => {
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link nav-heading" to="/AllProducts">
-                        Shop
+                        Shop1
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -855,15 +860,17 @@ const Header1 = (props) => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <Link
                         className="nav-link nav-heading"
-                        href="#"
+                        to="/"
                         tabindex="-1"
                         aria-disabled="true"
                       >
                         Blog
-                      </a>
+                      </Link>
                     </li>
+
+                 
                   </ul>
                   <img
                     className="icons2"
@@ -1102,7 +1109,7 @@ const Header1 = (props) => {
       {/* end phone top-navbar */}
 
       {/* phone main-navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar ">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" href="#">
             <img className="pl-2" src={require("../Images/logo1.png")} />
@@ -1154,7 +1161,9 @@ const Header1 = (props) => {
                 <ul className="dropdown-menu " aria-labelledby="navbarDropdown">
                   {categories.map((el, ind) => (
                     <li>
-                      <Link className="dropdown-item" to={"/AllCategory/" + el._id}>
+                      <Link className="dropdown-item"
+                        to={"/AllCategory/" + el._id}
+                      >
                         {el.name}
                       </Link>
                     </li>

@@ -10,12 +10,15 @@ import { useHistory } from "react-router-dom";
 import Delivery from "../../Images/delivery.jpg";
 import ReadMoreReact from "read-more-react";
 import Mobile from "../../Images/Mobile.png";
+import Separate from "../../components/separate";
 
 import $ from "jquery";
 
 var Userdata = "";
 let tranding = 0;
 let skincare = 0;
+
+// let categoriesArr = ["hello", 'hi']
 const HomePage = () => {
   const images = [
     "../../Images/categories/categories-img1.png",
@@ -44,7 +47,7 @@ const HomePage = () => {
     console.log(Userdata, "sadbhksabdhk");
     GetData();
     CartById();
-    GetCategory();
+    // GetCategory();
     GetManufacturer();
     tranding = 0;
     skincare = 0;
@@ -362,9 +365,12 @@ const HomePage = () => {
     // if (props.func) props.func(e);
   };
 
+
   return (
     <>
+    {/* categoriesArr={categoriesArr} */}
       <Header1 />
+     
       {/* <Carouselcomp /> */}
       <div id="body-pd">
         {/* trending section  */}
