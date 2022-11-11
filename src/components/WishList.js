@@ -91,7 +91,7 @@ const WishList = ()=>{
                               to={"/SingleProduct/" + item._id}
                               className="product-image-link"
                             >
-                  <img src={"http://localhost:3033/"+item.image[0].path} />
+                  <img src={"http://localhost:3033/"+item.image[0].path} alt=""/>
                   </Link>
                   </div>
                   <div className="col-3">
