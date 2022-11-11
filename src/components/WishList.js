@@ -96,6 +96,8 @@ const WishList = ()=>{
                   </div>
                   <div className="col-3">
                      <span onClick={()=>DeleteWishlist(item._id) } style={{cursor:'pointer'}}>X</span>
+                  {/* <img src={"http://144.91.110.221:3033/"+item.image[0].path} /> */}
+                  <img src={"http://localhost:3033/"+item.image[0].path} />
                   </div>
                   <div className="row">
                      <div className='col-12'>
