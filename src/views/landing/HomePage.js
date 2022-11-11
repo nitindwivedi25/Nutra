@@ -421,7 +421,7 @@ const HomePage = () => {
         </section>
 
         <section className="products-area">
-          <h1 className="trendign-head">Trending Products</h1>
+          <h1 className="trendign-head"><span className="products-color">Trending Products</span></h1>
           <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
@@ -466,7 +466,7 @@ const HomePage = () => {
                                     <Link to={"/SingleProduct/" + el._id}>
                                       <ReadMoreReact text={el.name} />
                                     </Link>
-                                    <div className="price-div d-flex align-items-center">
+                                    <div className="price-div d-flex align-items-center justify-content-between">
                                       <span className="new-price"><i class="fa fa-inr"></i>{" "}{el.inrDiscount}</span>
                                       <del className="new-price ml-1">
                                          {el.inrMrp}
@@ -499,12 +499,13 @@ const HomePage = () => {
                                                 : null
                                             }
                                           ></i>
+                                          
                                           <Link to="/Register">
                                             <i className="bx bxs-heart ml-3 mobile-heart"></i>
                                           </Link>
                                         </>
                                       )}
-                                      <i className="bx bx-cart ml-2"></i>
+                                      <i className="bx bx-cart mr-1"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -600,13 +601,13 @@ const HomePage = () => {
         </section>
 
         <section className="products-area ">
-          <h1 className="trendign-head">Products</h1>
+          <h1 className="trendign-head"><span className="products-color">Products</span></h1>
           <div className="container m-auto py-4">
             <div className="row ">
               {data.map((el, ind) => {
                 if (ind > 0) {
                   return (
-                    <div className="col-lg-3 col-md-12 col-sm-12 ">
+                    <div className="col-lg-2 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
                       <div className="single-products-box border">
                           <div className="row">
@@ -639,7 +640,7 @@ const HomePage = () => {
                                     <Link to={"/SingleProduct/" + el._id}>
                                       <ReadMoreReact text={el.name} />
                                     </Link>
-                                    <div className="price-div d-flex align-items-center">
+                                    <div className="price-div d-flex align-items-center justify-content-between">
                                       <span className="new-price">$899</span>
                                       <del className="new-price ml-1">
                                         $1000
@@ -677,7 +678,7 @@ const HomePage = () => {
                                           </Link>
                                         </>
                                       )}
-                                      <i className="bx bx-cart ml-2"></i>
+                                      <i className="bx bx-cart mr-1"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -703,7 +704,7 @@ const HomePage = () => {
           </div>
         </section>
         <section className="products-area">
-        <h1 className="trendign-head">Skin Care</h1>
+        <h1 className="trendign-head"><span className="products-color">Skin Care</span></h1>
           <div className="container m-auto">
             <div className="row">
               {data.map((el, ind) => {
@@ -717,7 +718,7 @@ const HomePage = () => {
                   console.log("skin careee inside", el);
                   skincare = skincare + 1;
                   return (
-                    <div className="col-lg-3 col-md-12 col-sm-12 ">
+                    <div className="col-lg-2 col-md-12 col-sm-12 ">
                       {/* <Link to={"/SingleProduct/" + el._id}> */}
                       <div className="single-products-box border">
                           <div className="row">
@@ -750,7 +751,7 @@ const HomePage = () => {
                                     <Link to={"/SingleProduct/" + el._id}>
                                       <ReadMoreReact text={el.name} />
                                     </Link>
-                                    <div className="price-div d-flex align-items-center">
+                                    <div className="price-div d-flex align-items-center justify-content-between">
                                       <span className="new-price">$899</span>
                                       <del className="new-price ml-1">
                                         $1000
@@ -788,7 +789,7 @@ const HomePage = () => {
                                           </Link>
                                         </>
                                       )}
-                                      <i className="bx bx-cart ml-2"></i>
+                                      <i className="bx bx-cart mr-1"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -815,7 +816,7 @@ const HomePage = () => {
 
         <div className="brands-area">
           <div className="container m-auto">
-            <div className="trendign-head">Selling Brands</div>
+            <div className="trendign-head"><span className="products-color">Selling Brands</span></div>
             <div className="row align-items-center">
               {Manufactureres &&
                 Manufactureres.length > 0 &&
@@ -848,7 +849,7 @@ const HomePage = () => {
                 <div className="mobile-main">
                   <div>
                     <h3 className="cat-heading">
-                      Download the Nutrazik <br/> mobile app
+                      Download the <span className="nutrazik-color">Nutrazik</span> <br/> mobile app
                     </h3>
                     <div>
                       <p id="para" className="text-justify">

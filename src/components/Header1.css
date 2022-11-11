@@ -316,14 +316,14 @@ color:#1e144f;
     margin-top: 20px;
     line-height: 0px;
     width: 45%;
-    background: #00D872;
+    background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
     border: #00D872;
 }
 .logiRegisterContentDiv input{
     border:0.8px solid #ACACAC;
 }
 .logiRegisterContentDiv span{
-    color: #00D872;
+    color: #1b97ff;
     font-weight: bold;
     font-size: 15px;
     margin:3px ;
@@ -755,7 +755,7 @@ body {
     outline: 0px !important;
     box-shadow: unset;
 }
-.mobile-nav-bar .navbar-toggler ..navbar-toggler-icon
+.mobile-nav-bar .navbar-toggler .navbar-toggler-icon
 {
     outline: 0px;
     color:white !important;

@@ -2311,7 +2311,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-	color: #212529;
+	color: #fff;
 	text-decoration: none
 }
 
@@ -9664,7 +9664,7 @@ a.text-secondary:hover {
 }
 
 .text-success {
-	color: #28a745!important
+	color: #1b97ff!important
 }
 
 a.text-success:focus,
@@ -10018,7 +10018,7 @@ p:last-child {
 .section-title h2 {
 	margin-bottom: 0;
 	font-size: 3.5rem;
-	color: #00D872 ;
+	color: #1e144f;
 	font-family: Poppins;
 	opacity: 1;
 }
@@ -11948,9 +11948,9 @@ textarea.form-control {
 .product-content .display-text-group
 {
 	padding: 8px 0 2px 0;
-	color: #7c7b7b;
+	color: #212121;
     font-size: 14px;
-	font-weight: 300;
+	font-weight: 600;
 }
 
 .single-categories-box:hover img {
@@ -15481,10 +15481,20 @@ letter-spacing: 0.50px;
 
 
 
+.products-color
+{
+	border-bottom: 3px solid #1b97ff4a;
+	padding-bottom: 10px;
+}
+.nutrazik-color
+{
+	color: #1b97ff;
+}
 
-
-
-
+.footer-area .social i
+{
+	color: #1e144f;
+}
 
 
 .medq-post-navigation {
@@ -16041,7 +16051,7 @@ letter-spacing: 0.50px;
 .single-facility-box {
 	margin: 30px 0;
 	position: relative;
-	border-right: 1px solid #212121;
+	border-right: 1px solid #1e144f;
 	padding-left: 62px
 }
 
@@ -17507,6 +17517,7 @@ letter-spacing: 0.50px;
 .single-contact-info-box h3 {
 	font-size: 24px;
 	margin-bottom: 12px;
+	color: #1e144f;
 	font-family:Poppins !important;
 }
 
@@ -17539,7 +17550,7 @@ letter-spacing: 0.50px;
 	margin-bottom: 0;
 	font-size: 32px;
 	font-family: Poppins !important;
-	color:#161616;
+	color:#1e144f;
 }
 
 .contact-form form {
@@ -17550,7 +17561,7 @@ letter-spacing: 0.50px;
 	display: block;
 	margin-bottom: 10px;
 	font-weight: 600;
-	color:#161616;
+	color:#1e144f;
 	font-family: poppins;
 }
 
@@ -17558,14 +17569,25 @@ letter-spacing: 0.50px;
 	margin-bottom: 25px
 }
 
-.contact-form form .default-btn {
-	padding: 13px 35px
+.contact-form #contactForm .contact-btn {
+    padding: 10px 30px;
+    background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+    border-radius: 0.25rem;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 17px;
+	border: none;
+	color: #fff;
 }
 
 .contact-form form .help-block.with-errors {
 	color: red;
 	margin-bottom: 0;
 	margin-top: 15px
+}
+#maps
+{
+	margin-bottom: 70px;
 }
 
 /* #maps iframe {
@@ -18731,7 +18753,9 @@ letter-spacing: 0.50px;
     font-family: Poppins;
     color: #1e144f;
 	padding-top: 24px;
+	padding-bottom: 10px;
 	margin-bottom: 0;
+	border-bottom: 3px solid #1b97ff4a;
 	}
 	.categories-section .cat-para
 	{
@@ -18884,15 +18908,12 @@ letter-spacing: 0.50px;
   }
   figure .button{
 	padding:10px;
-	background:#00B560;
-	
+	background:linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);	
 	display:block;
 	text-align:center;
 	color:#fff;
 	transition:all 1s linear;
-	text-decoration:none;
-	
-	
+	text-decoration:none;	
   }
   a.button:hover{
 	background:#ff6536;
@@ -18914,7 +18935,7 @@ letter-spacing: 0.50px;
 
 .Category-div .row .col-5 hr
 {
-	background-color:#00D872 !important;
+	background-color:#1e144f !important;
 	height:4px;
 	opacity: 1;
 	/* border:0; */
@@ -19143,10 +19164,10 @@ ul
 .Prebutton
 {
 	color:white;
-	font-size:15px;
+	font-size:16px;
 	font-family:Poppins;
 	float: right;
-	background-color: #f43965;
+	background-color: #1e144f;
 	border:0;
 	outline: 0;
 	margin: 20px;
@@ -19156,10 +19177,10 @@ ul
 .Nextbutton
 {
 	color:white;
-	font-size:15px;
+	font-size:16px;
 	font-family:Poppins;
 	float: right;
-	background-color: #f43965;
+	background-color: #1e144f;
 	border:0;
 	outline: 0;
 	margin: 20px;
@@ -19564,16 +19585,27 @@ ul
 
 /* End Media Query Responsive for Desktop */
 /* -----------------my common css--------------------- */
-.common-gradient-btn{
-	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
-	
-    border: 0;
-    padding: 4px 20px;
-    color: #fff;
+.common-gradient-btn
+{
+	color: var(--optionalColor);
+    border: 2px solid #1b97ff;
+    padding: 2px 18px;
     letter-spacing: .5px;
     text-transform: capitalize;
     font-size: 14px;
-    font-weight: 400;}
+    font-weight: 400;
+}
+.common-gradient-btn:hover
+{
+	background: linear-gradient(90deg, rgb(44 160 255 / 53%) 0%, rgba(23,150,255,1) 100%);
+	color: #fff;
+	border: none;
+	letter-spacing: .5px;
+	font-size: 14px;
+    font-weight: 400;
+	text-transform: capitalize;
+	padding: 4px 20px;
+}
 
 /*----- deepak css ------ */
 .mobile-app{

@@ -588,7 +588,7 @@ const AllProducts = (props) => {
                   {/* :null} */}
                   <figcaption>{el.name}</figcaption>
                   <div className="text-center price-div">
-                    <div className="d-flex justify-content-center">
+                    {/* <div className="d-flex justify-content-center">
                       <StarsRating
                         count={5}
                         // onChange={ratingChanged}
@@ -596,7 +596,7 @@ const AllProducts = (props) => {
                         color2={"#ffd700"}
                         value={4}
                       />
-                    </div>
+                    </div> */}
                     <div className="row">
                       <div className="col-2 "></div>
                       {/* <div className="col-4 ">

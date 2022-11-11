@@ -4,7 +4,7 @@ import "../views/landing/homepage.css";
 const Footer = () => {
   return (
     <>
-      <footer className="footer-area ">
+      <footer className="footer-area">
         <div className="container m-auto">
           <div className="row">
             <div className="col-lg-3 col-sm-6 col-md-6">
@@ -153,7 +153,7 @@ const Footer = () => {
               <div className="col-lg-6 col-md-6">
                 <p>
                   Designed & Developed by <i className="bx bx-copyright"></i>2022
-                  GiksIndia.
+                  GIKSIndia.
                 </p>
               </div>
               <div className="col-lg-6 col-md-6">
