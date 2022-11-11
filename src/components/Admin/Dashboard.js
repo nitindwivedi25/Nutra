@@ -13,10 +13,12 @@ const Dashboard = () => {
   const [Orders, setOrders] = useState("");
   const [users, setUsers] = useState("");
   const [categories, setCategories] = useState("");
+  const [subCategories, setSubCategories] = useState("");
   useEffect(() => {
     setCount();
     GetUser();
-    // GetCategory();
+    GetCategory();
+    GetSubCategory();
     GetManufacturer();
     GetOrders();
     GetProducts();
@@ -42,7 +44,19 @@ const Dashboard = () => {
       .then((res) => res.json())
       .then(async (data) => {
         setCategories(data.data.length);
-        console.log("dsd dfz sf " + data.data.length);
+        // console.log("dsd dfz sf " + data.data.length);
+      })
+      .catch((err) => {
+        console.log(err, "error");
+      });
+  };
+
+  const GetSubCategory = async () => {
+    //await fetch("http://144.91.110.221:3033/api/subcategory/all_subcategory")
+    await fetch("http://localhost:3033/api/subcategory/all_subcategory")
+      .then((res) => res.json())
+      .then(async (data) => {
+        setSubCategories(data.data.length);
       })
       .catch((err) => {
         console.log(err, "error");
@@ -96,9 +110,7 @@ const Dashboard = () => {
     <>
       <div className="container-fluid nav__logo">
         {" "}
-        <a href="/"
-        style={{ cursor: "pointer" }}
-        >
+        <a href="/" style={{ cursor: "pointer" }}>
           <img
             src={require("../../Images/logo2.png")}
             className="dashboard-logo"
@@ -145,17 +157,17 @@ const Dashboard = () => {
               </div>
               <div className="col-3">
                 <Link to="/Orders">
-                <div className="card cardsec">
-                  <div className="row">
-                    <div className="col-4">
-                      <i className="bx bxs-cart cardicon"></i>
-                    </div>
-                    <div className="col-8">
-                      <h6 className="cardheads">Orders </h6>
-                      <span className="count">{Orders}</span>
+                  <div className="card cardsec">
+                    <div className="row">
+                      <div className="col-4">
+                        <i className="bx bxs-cart cardicon"></i>
+                      </div>
+                      <div className="col-8">
+                        <h6 className="cardheads">Orders </h6>
+                        <span className="count">{Orders}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </Link>
               </div>
               <div className="col-3">
@@ -182,25 +194,25 @@ const Dashboard = () => {
                       </div>
                       <div className="col-7">
                         <h6 className="cardheads">Category </h6>
-                        <span className="count">{categories}2</span>
+                        <span className="count">{categories}</span>
                       </div>
                     </div>
                   </div>
                 </Link>
               </div>
               <div className="col-3 pt-5">
-              <Link to="/SubCategoryCreation">
-                <div className="card cardsec">
-                  <div className="row">
-                    <div className="col-5">
-                      <i className="bx bxs-user cardicon"></i>
-                    </div>
-                    <div className="col-7">
-                      <h6 className="cardheads">Sub category </h6>
-                      <span className="count">105</span>
+                <Link to="/SubCategoryCreation">
+                  <div className="card cardsec">
+                    <div className="row">
+                      <div className="col-5">
+                        <i className="bx bxs-user cardicon"></i>
+                      </div>
+                      <div className="col-7">
+                        <h6 className="cardheads">Sub category</h6>
+                        <span className="count">{subCategories}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </Link>
               </div>
             </div>

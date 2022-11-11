@@ -25,7 +25,10 @@ const Productform = () => {
     manufacturer: "",
     type: "",
     image: [],
+    //featuredImage : [],
   });
+
+  console.log("on change data", data.image)
 
   const submitData = async (e) => {
     e.preventDefault();
@@ -42,16 +45,19 @@ const Productform = () => {
     await formData.append("manufacturer", data.manufacturer);
     await formData.append("type", data.type);
     await formData.append("image", data.image);
+    //await formData.append("featuredImage", data.featuredImage)    
     //const url="http://144.91.110.221:3033/api/product/add_product"
     const url = "http://localhost:3033/api/product/add_product";
     await fetch(url, {
+     
+      mode: 'no-cors',
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
-      .then((res) => {
-        this.getAddOn();
-      })
+      .then((res) =>res.json())
+      // .then((res) => {
+      //   this.getAddOn();
+      // })
       .catch((err) => console.log(err));
     //console.log(formData)
   };
@@ -259,6 +265,7 @@ const Productform = () => {
       _id: item._id,
       name: item.name,
       image: item.image,
+      // featuredImage: item.featuredImage,
       storage: item.storage,
       category: item.category,
       inrMrp: item.inrMrp,
@@ -311,7 +318,8 @@ const Productform = () => {
         <Sidemenu />
         {Userdata != undefined ? (
           Userdata.role == "superAdmin" || Userdata.role == "Vendor" ? (
-            <form>
+            <form
+            enctype="multipart/form-data">
               <div className="container mb-5">
                 <div className="row">
                   {/* <div className="col-1"></div> */}
@@ -334,14 +342,28 @@ const Productform = () => {
                         <div className="col-6 p-1">
                           <input
                             type="file"
+                            name="image[]"
                             multiple
                             className="form-control Dashborad-search"
                             // value={data.image}
                             onChange={(e) => {
-                              Setdata({ ...data, image: e.target.files[0] });
+                              //console.log(e.target.files,"payloadddddddddddddddddddddddddddddd data")
+                              Setdata({ ...data, image: e.target.files});
                             }}
                           />
                         </div>
+
+                        {/* <div className="col-6 p-1">
+                          <input
+                            type="file"
+                            className="form-control Dashborad-search"
+                            multiple
+                            // value={data.image}
+                            onChange={(e) => {
+                              Setdata({ ...data, featuredImage: e.target.files });
+                            }}
+                          />
+                        </div> */}
 
                         <div className="col-6 p-1">
                           <select
