@@ -35,12 +35,24 @@ const Header1 = (props) => {
   const [categories, setCategories] = useState([]);
   const [registerModal, setRegisterModal] = useState(false);
   const [allCategories, setAllCategories] = useState()
- // let [resultArr, setResultArr] = useState()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
- console.log(props.categoriesArr, 'props')
+  const openSidebar = () => {
+    setIsSidebarOpen(true);
+  }
+
+  const closeSidebar = () => {
+
+    setIsSidebarOpen(false);
+
+  }
+
+  // let [resultArr, setResultArr] = useState()
+
+  console.log(props.categoriesArr, 'props')
 
   useEffect(() => {
-
+    resultArr = [];
     //Userdata = JSON.parse(localStorage.getItem("Userdata"));
     GetCategory();
 
@@ -155,7 +167,7 @@ const Header1 = (props) => {
       .then((res) => res.json())
       .then(async (data) => {
         setCategories(data.data);
-        GetSubCategory();
+        // GetSubCategory();
       })
 
       .catch((err) => {
@@ -173,17 +185,17 @@ const Header1 = (props) => {
         // setSubCategories(data.data);
         // let result = mergeCategoriesWithSubCategories(data.data)
         for (let item of categories) {
-            let obj = {
-              categoryName: item.name,
-              subCategoryList: []
-            }
-            for (let el of data.data) {
-              if (item._id == el.category) {
-                obj.subCategoryList.push(el)
-              }
-            }
-            resultArr.push(obj)
+          let obj = {
+            categoryName: item.name,
+            subCategoryList: []
           }
+          for (let el of data.data) {
+            if (item._id == el.category) {
+              obj.subCategoryList.push(el)
+            }
+          }
+          resultArr.push(obj)
+        }
 
         setAllCategories(resultArr)
       })
@@ -215,7 +227,7 @@ const Header1 = (props) => {
     return resultArr
   }
 
-  console.log(resultArr,"array after pushing elements")
+  console.log(resultArr, "array after pushing elements")
 
   const searchData = (e) => {
     if (props.func) props.func(e);
@@ -332,6 +344,7 @@ const Header1 = (props) => {
   };
 
   console.log(allCategories, 'all Categories merged array')
+  console.log(resultArr, 'resultArrresultArr')
 
   return (
     <>
@@ -377,58 +390,52 @@ const Header1 = (props) => {
                 allCategories && allCategories.length > 0 && allCategories.map((item, i) => {
                   return (
                     <>
-                    
-                      <div class="dropdown aside-menu-submenu-list">
-                        <button class="btn dropdown-toggle" type="button" 
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            <div>{item.categoryName}</div>
-                            <div>
-                              {
-                                item.subCategoryList && item.subCategoryList.length > 0 && 
-                                <i class='bx bxs-chevron-down'></i>
-                              }
-                              
-                            </div>
+
+                      <div className="dropdown aside-menu-submenu-list">
+                        <button className="btn dropdown-toggle" type="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          <div>{item.categoryName}</div>
+                          <div>
+                            {
+                              item.subCategoryList && item.subCategoryList.length > 0 &&
+                              <i className='bx bxs-chevron-down'></i>
+                            }
+
+                          </div>
                         </button>
                         {
-                                item.subCategoryList && item.subCategoryList.length > 0 && 
-                         <ul class="dropdown-menu shadow">
-                          {
-                            item.subCategoryList && item.subCategoryList.length > 0 &&
-                            item.subCategoryList.map((el) => {
-                              return (
-                                <>
-                                  {/* <p className="mb-0">{el.name}</p> */}
-                                  <li>
-                                    <a class="dropdown-item" href="#">
-                                    <span className="pic">
-                                      <img src={"http://localhost:3033/" + el.image[0].path} className="img-fluid"/>
-                                      </span>     
-                                    <span className="title">{el.name}</span>
-                                    
-                                  </a></li>
-                                </>
-                              )
-                            })
-                          }
+                          item.subCategoryList && item.subCategoryList.length > 0 &&
+                          <ul className="dropdown-menu shadow">
+                            {
+                              item.subCategoryList && item.subCategoryList.length > 0 &&
+                              item.subCategoryList.map((el) => {
+                                return (
+                                  <>
+                                    {/* <p className="mb-0">{el.name}</p> */}
+                                    <li>
+                                      <a className="dropdown-item" href="#">
+                                        <span className="pic">
+                                          <img src={"http://localhost:3033/" + el.image[0].path} className="img-fluid" />
+                                        </span>
+                                        <span className="title">{el.name}</span>
+
+                                      </a></li>
+                                  </>
+                                )
+                              })
+                            }
 
 
                           </ul>
-                }
+                        }
                       </div>
                     </>
                   )
                 })
-                // props.categoriesArr.map((item, i) => {
-                //   return(
-                //     <>
-                //     <p>{item}</p>
-                //     </>
-                //   )
-                // })
+
               }
 
-             
+
 
 
 
@@ -793,11 +800,139 @@ const Header1 = (props) => {
           {/* End Of Currancy Change */}
         </div>
       </div>
-      <div className="container-fluid main-nav">
+
+      {/* -------------fresh menu-------------------- */}
+      <nav className="navbar navbar-expand-lg  updated-menu">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#" onClick={openSidebar}>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+          </a>
+          <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
+
+            <div className="Sidebar-categories">
+              <div>
+                <span className="title">Categories</span>
+              </div>
+              <div>
+                <span onClick={closeSidebar} className="close-sidebar">
+                  <svg stroke="currentColor" fill="" stroke-width="0"
+                    viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            {
+              allCategories && allCategories.length > 0 && allCategories.map((item, i) => {
+                return (
+                  <>
+
+                    <div className="dropdown aside-menu-submenu-list">
+                      <button className="btn dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div>{item.categoryName}</div>
+                        <div>
+                          {
+                            item.subCategoryList && item.subCategoryList.length > 0 &&
+                            <i className='bx bxs-chevron-down'></i>
+                          }
+
+                        </div>
+                      </button>
+                      {
+                        item.subCategoryList && item.subCategoryList.length > 0 &&
+                        <ul className="dropdown-menu shadow">
+                          {
+                            item.subCategoryList && item.subCategoryList.length > 0 &&
+                            item.subCategoryList.map((el) => {
+                              return (
+                                <>
+                                  {/* <p className="mb-0">{el.name}</p> */}
+                                  <li>
+                                    <a className="dropdown-item" href="#">
+                                      <span className="pic">
+                                        <img src={"http://localhost:3033/" + el.image[0].path} className="img-fluid" />
+                                      </span>
+                                      <span className="title">{el.name}</span>
+
+                                    </a></li>
+                                </>
+                              )
+                            })
+                          }
+
+
+                        </ul>
+                      }
+                    </div>
+                  </>
+                )
+              })
+
+            }
+          </aside>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link " 
+                aria-current="page" href="#">Home</a>
+              </li>
+              <li className="nav-item">
+                {/* <a className="nav-link" href="#">Link</a> */}
+                <Link
+                        className="nav-link nav-heading"
+                        to="/Dummy"
+                   
+                       
+                      >
+                        Contact
+                      </Link>
+                      
+              </li>
+              
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="#">Action</a></li>
+                  <li><a className="dropdown-item" href="#">Another action</a></li>
+
+                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link disabled">Disabled</a>
+              </li>
+
+            </ul>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      {/* ------------fresh menu---------------------- */}
+
+
+
+
+
+      <div className="container-fluid main-nav d-none">
         {/* <div className="row" id="myHeader"> */}
         <div className="row" >
           <div className="col-2">
-          <Separate/>
+            <Separate />
           </div>
           <div className="col-2 drop-category pl-4 d-none">
             <div className="row">
@@ -811,7 +946,7 @@ const Header1 = (props) => {
                 </div>
                 <div className="category">
                   <span className="category-head">Browse Categories</span>
-                
+
                 </div>
               </div>
             </div>
@@ -870,7 +1005,7 @@ const Header1 = (props) => {
                       </Link>
                     </li>
 
-                 
+
                   </ul>
                   <img
                     className="icons2"
@@ -888,7 +1023,7 @@ const Header1 = (props) => {
           </div>
         </div>
       </div>
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0 d-none">
         <div className="row side-nav">
           {/* 
       <div className="col-sm-2  pd-0 insideNav" >
@@ -963,7 +1098,7 @@ const Header1 = (props) => {
                   </div>
                </h2>
                <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> className. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
             <div className="accordion-item">
@@ -975,7 +1110,7 @@ const Header1 = (props) => {
                   </div>
                </h2>
                <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> className. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
             <div className="accordion-item">
@@ -988,7 +1123,7 @@ const Header1 = (props) => {
                   </div>
                </h2>
                <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> className. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                </div>
             </div>
          </div>
@@ -1002,7 +1137,7 @@ const Header1 = (props) => {
 
       {/* phone resposive header */}
       {/* phone top-navbar */}
-      <div className=" mobile-top-navbar">
+      <div className=" mobile-top-navbar d-none">
         <div>
           <div className="col-sm-4  " style={{ paddingLeft: "10px" }}>
             <div className="login-div2">
@@ -1109,7 +1244,7 @@ const Header1 = (props) => {
       {/* end phone top-navbar */}
 
       {/* phone main-navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar ">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mobile-nav-bar d-none">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand" href="#">
             <img className="pl-2" src={require("../Images/logo1.png")} />

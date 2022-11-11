@@ -5,7 +5,7 @@ import Header1 from './Header1';
 import Baseline from './Baseline';
 const ContactUs = ()=>{
     return(<>
-         <Header1 />
+         {/* <Header1 /> */}
          <div className="first-nav container-fluid"><span><Link to="/">Home</Link>/ Contact Us</span></div>
 
          <div className="contact-info-area pt-70 pb-40">

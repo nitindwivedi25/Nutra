@@ -43,6 +43,7 @@ import TrendingProducts from "../components/TrendingProducts";
 import ProductByManufacturer from "../components/ProductByManufacturer";
 import SearchResult from "../components/SearchResult";
 import Separate from "../components/separate";
+import Dummy from "../components/dummy";
 
 var Userdata = "";
 const Root = (props) => {
@@ -135,7 +136,9 @@ const Root = (props) => {
               path="/SearchResult/:Search"
               component={SearchResult}
             />
+            
             <Route exact path="/Separate" component={Separate} />
+            <Route exact path="/Dummy" component={Dummy} />
           </Switch>
         </>
       </Router>

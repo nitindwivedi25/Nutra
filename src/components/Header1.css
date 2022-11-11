@@ -861,6 +861,61 @@ body {
 
 /* End Media Query Responsive for Desktop */
 
+/* ----------------------------new aside menu css---------------------------------------- */
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:#fff;
+        width: 270px;
+        transform: translate(-100%);
+        z-index: 10;
+        transition: all 0.3s linear;
+        box-shadow: 7px 0 60px rgb(0 0 0 / 5%);
+        padding: 20px 10px;
+    }
+    .show-sidebar {
+        transform: translate(0);
+    }
+   .Sidebar-categories{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+   }
+   .Sidebar-categories svg{
+     height:20px;
+   }
+   .Sidebar-categories svg path{
+    fill:#1b97ff;
+   }
+   .close-sidebar{
+    cursor: pointer;
+   }
+
+
+   
+   .updated-menu .Sidebar-categories .title{
+    
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+       
+   }
+   .updated-menu .navbar-brand svg path{
+      fill:#fff;
+   }
+/* ----------------------------new aside menu css---------------------------------------- */
+
+
+
+
+
 
 
 /* -----------------my Aside  menu and submenu css-------------------- */
